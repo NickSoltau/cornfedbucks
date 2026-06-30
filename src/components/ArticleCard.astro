@@ -1,0 +1,56 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  fieldNote: string;
+  pubDate: Date;
+}
+const { slug, title, description, fieldNote, pubDate } = Astro.props;
+const formatted = pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+<a class="card" href={`/blog/${slug}`}>
+  <p class="card__tag">{fieldNote}</p>
+  <h3 class="card__title">{title}</h3>
+  <p class="card__desc">{description}</p>
+  <p class="card__date">{formatted}</p>
+</a>
+
+<style>
+  .card {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--frost);
+    border: 2px solid var(--stalk);
+    border-radius: 3px;
+    padding: 1.5rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .card:hover {
+    border-color: var(--blaze);
+    transform: translateY(-2px);
+  }
+  .card__tag {
+    font-family: var(--font-tag);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--blaze);
+    margin: 0 0 0.6rem;
+  }
+  .card__title {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem;
+  }
+  .card__desc {
+    font-size: 0.92rem;
+    opacity: 0.8;
+    margin: 0 0 0.9rem;
+  }
+  .card__date {
+    font-family: var(--font-tag);
+    font-size: 0.72rem;
+    opacity: 0.55;
+    margin: 0;
+  }
+</style>

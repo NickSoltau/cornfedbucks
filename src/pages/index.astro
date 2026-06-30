@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+<Layout title="Home">
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <p class="eyebrow">Week 14 — Rut Report</p>
+      <h1>Corn-fed bucks live<br />on the edge of the field, <br />not in the middle of the woods.</h1>
+      <p class="hero__sub">
+        Field reports and ground-level strategy for hunters working real Midwest row-crop
+        ground — fence lines, drainage ditches, and the three days after the combine comes through.
+      </p>
+      <div class="hero__actions">
+        <a href="/blog" class="btn btn-primary">Read the Latest Report</a>
+        <a href="#newsletter" class="btn btn-secondary">Get the Newsletter</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="corn-row-divider" aria-hidden="true"></div>
+
+  <section class="featured">
+    <div class="wrap">
+      <p class="eyebrow">Recent field notes</p>
+      <h2>From the log</h2>
+      <div class="featured__grid">
+        {posts.map((post) => (
+          <ArticleCard
+            slug={post.id}
+            title={post.data.title}
+            description={post.data.description}
+            fieldNote={post.data.fieldNote}
+            pubDate={post.data.pubDate}
+          />
+        ))}
+      </div>
+      <a href="/blog" class="featured__more">All field notes &rarr;</a>
+    </div>
+  </section>
+
+  <NewsletterSignup />
+</Layout>
+
+<style>
+  .hero {
+    background: var(--husk);
+    padding: 5rem 0 4rem;
+  }
+  .hero__inner { max-width: 700px; }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    margin: 0.6rem 0 1.25rem;
+    color: var(--ink);
+  }
+  .hero__sub {
+    font-size: 1.05rem;
+    max-width: 540px;
+    margin: 0 0 2rem;
+    opacity: 0.85;
+  }
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .featured {
+    padding: 4rem 0;
+  }
+  .featured h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 0.4rem 0 2rem;
+  }
+  .featured__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .featured__more {
+    display: inline-block;
+    margin-top: 2rem;
+    font-family: var(--font-tag);
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--blaze);
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="About" description="What Cornfed Bucks is and who it's for.">
+  <section class="about">
+    <div class="wrap about__inner">
+      <p class="eyebrow">About</p>
+      <h1>Hunting between the rows.</h1>
+      <p>
+        Most whitetail content is written for big timber — mountain benches, river-bottom hardwoods,
+        thousand-acre public tracts. That's not the hunting most of us in corn and bean country actually do.
+      </p>
+      <p>
+        Cornfed Bucks is for hunters working real Midwest ag ground: a leased 80, a family farm,
+        a fence line between two fields that's the only cover for half a mile. The strategy here
+        starts from that reality — edges instead of interiors, combine schedules instead of just
+        moon phases, and small sanctuary acres instead of big food plot budgets.
+      </p>
+      <p>
+        New field notes go up through the season, and the Monday Morning Report newsletter covers
+        what changed in the woods — and in the fields — over the past week.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about { padding: 3.5rem 0 5rem; }
+  .about__inner { max-width: 620px; }
+  .about h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-top: 0.5rem;
+  }
+  .about p {
+    margin: 0 0 1.2rem;
+    font-size: 1.02rem;
+  }
+</style>

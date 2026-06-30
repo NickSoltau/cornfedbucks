@@ -1,0 +1,68 @@
+---
+// Static markup for now — wire the form action up to Listmonk, ConvertKit,
+// or whatever ESP you land on. The action attribute below is a placeholder.
+---
+<section id="newsletter" class="newsletter">
+  <div class="wrap newsletter__inner">
+    <p class="eyebrow">Weekly, in season</p>
+    <h2>The Monday Morning Report</h2>
+    <p class="newsletter__copy">
+      One email a week. What the deer did, what the weather and the combines did to them,
+      and what that means for your next sit. No fluff, no sponsored gear hauls.
+    </p>
+    <form class="newsletter__form" action="#" method="post">
+      <label for="email" class="visually-hidden">Email address</label>
+      <input id="email" name="email" type="email" placeholder="you@email.com" required />
+      <button type="submit" class="btn btn-primary">Sign up</button>
+    </form>
+    <p class="newsletter__fine">No spam. Unsubscribe whenever.</p>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    background: var(--dusk);
+    color: var(--frost);
+    padding: 4rem 0;
+  }
+  .newsletter__inner {
+    max-width: 560px;
+    text-align: center;
+  }
+  .newsletter h2 {
+    color: var(--frost);
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+  }
+  .newsletter__copy {
+    margin: 1rem 0 1.75rem;
+    opacity: 0.85;
+  }
+  .newsletter__form {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .newsletter__form input {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 0.85rem 1rem;
+    border: 2px solid var(--stalk);
+    border-radius: 2px;
+    background: var(--frost);
+    color: var(--ink);
+    min-width: 240px;
+    flex: 1 1 240px;
+  }
+  .newsletter__fine {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    opacity: 0.6;
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+  }
+</style>

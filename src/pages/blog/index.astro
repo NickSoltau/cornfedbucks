@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<Layout title="Field Notes" description="All field reports and ground-level whitetail strategy from Cornfed Bucks.">
+  <section class="blog-index">
+    <div class="wrap">
+      <p class="eyebrow">The log</p>
+      <h1>Field Notes</h1>
+      <p class="blog-index__sub">Every report, oldest field-craft to newest, all in one place.</p>
+      <div class="blog-index__grid">
+        {posts.map((post) => (
+          <ArticleCard
+            slug={post.id}
+            title={post.data.title}
+            description={post.data.description}
+            fieldNote={post.data.fieldNote}
+            pubDate={post.data.pubDate}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog-index { padding: 3.5rem 0 4.5rem; }
+  .blog-index h1 { font-size: clamp(2rem, 4vw, 2.6rem); }
+  .blog-index__sub { opacity: 0.75; margin: 0 0 2.5rem; }
+  .blog-index__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+</style>

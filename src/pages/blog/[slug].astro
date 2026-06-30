@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const formatted = post.data.pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+<Layout title={post.data.title} description={post.data.description}>
+  <article class="post">
+    <div class="wrap post__inner">
+      <p class="eyebrow">{post.data.fieldNote}</p>
+      <h1>{post.data.title}</h1>
+      <p class="post__meta">{formatted}</p>
+      <div class="post__body">
+        <Content />
+      </div>
+      <a href="/blog" class="post__back">&larr; All field notes</a>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .post { padding: 3.5rem 0 5rem; }
+  .post__inner { max-width: 680px; }
+  .post h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-top: 0.5rem;
+  }
+  .post__meta {
+    font-family: var(--font-tag);
+    font-size: 0.78rem;
+    opacity: 0.55;
+    margin: 0 0 2.5rem;
+  }
+  .post__body :global(h2) {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+  }
+  .post__body :global(p) {
+    margin: 0 0 1.2rem;
+  }
+  .post__body :global(ul) {
+    margin: 0 0 1.2rem;
+    padding-left: 1.3rem;
+  }
+  .post__body :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .post__back {
+    display: inline-block;
+    margin-top: 2.5rem;
+    font-family: var(--font-tag);
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--blaze);
+  }
+</style>

@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  /* Color tokens */
+  --ink: #221b14;       /* walnut brown — primary text */
+  --dusk: #2e3a30;      /* cornfield-at-dusk green — dark sections */
+  --husk: #d9c18c;      /* dried corn husk gold — warm accent / hero bg */
+  --blaze: #c1481d;     /* hunter blaze orange — CTA / highlight */
+  --frost: #ede7d9;     /* pale husk cream — light bg */
+  --stalk: #5c6b4f;     /* muted stalk green — borders / secondary */
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, sans-serif;
+  --font-tag: 'Space Mono', monospace;
+
+  --max-width: 1100px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--frost);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.08;
+  margin: 0 0 0.5em 0;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--blaze);
+  outline-offset: 3px;
+}
+
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.eyebrow {
+  font-family: var(--font-tag);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blaze);
+}
+
+/* Signature element: corn-row divider — repeating vertical ticks,
+   evoking rows of stalks viewed from the road. Used between sections
+   instead of a plain rule. */
+.corn-row-divider {
+  height: 18px;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--stalk) 0px,
+    var(--stalk) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+  opacity: 0.45;
+  margin: 0;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-tag);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  background: var(--blaze);
+  color: var(--frost);
+}
+.btn-primary:hover { background: #a83d18; }
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.btn-secondary:hover { background: var(--ink); color: var(--frost); }
