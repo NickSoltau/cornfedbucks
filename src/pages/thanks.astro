@@ -1,1 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Your Download" description="Download your free guide to straight-wall cartridges.">
+  <section class="thanks">
+    <div class="wrap thanks__inner">
+      <p class="eyebrow">You're in</p>
+      <h1>Thanks for signing up.</h1>
+      <p class="thanks__copy">
+        Your copy of <strong>5 Straight-Wall Cartridges, Rated for Corn-Country Whitetail</strong>
+        is ready below. The Monday Morning Report will start landing in your inbox soon.
+      </p>
+      <a href="/5-straight-wall-cartridges-ranked.pdf" class="btn btn-primary" download>
+        Download the PDF
+      </a>
+      <p class="thanks__fine">
+        Didn't mean to sign up, or the download isn't working? <a href="mailto:nick.soltau@gmail.com">Email us</a>.
+      </p>
+    </div>
+  </section>
+</Layout>
 
+<style>
+  .thanks {
+    padding: 5rem 0 6rem;
+    background: var(--husk);
+  }
+  .thanks__inner {
+    max-width: 560px;
+    text-align: center;
+  }
+  .thanks h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-top: 0.5rem;
+  }
+  .thanks__copy {
+    margin: 0 0 2rem;
+    font-size: 1.02rem;
+    opacity: 0.85;
+  }
+  .thanks__fine {
+    margin-top: 1.75rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+  .thanks__fine a {
+    color: var(--blaze);
+  }
+</style>
