@@ -1,6 +1,7 @@
 ---
-// Static markup for now — wire the form action up to Listmonk, ConvertKit,
-// or whatever ESP you land on. The action attribute below is a placeholder.
+// Newsletter signup — embedded beehiiv form. Publication settings (welcome
+// email, redirect-after-signup, etc.) are managed in the beehiiv dashboard,
+// not here.
 ---
 <section id="newsletter" class="newsletter">
   <div class="wrap newsletter__inner">
@@ -35,32 +36,9 @@
     margin: 1rem 0 1.75rem;
     opacity: 0.85;
   }
-  .newsletter__form {
-    display: flex;
-    gap: 0.6rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .newsletter__form input {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    padding: 0.85rem 1rem;
-    border: 2px solid var(--stalk);
-    border-radius: 2px;
-    background: var(--frost);
-    color: var(--ink);
-    min-width: 240px;
-    flex: 1 1 240px;
-  }
   .newsletter__fine {
     margin-top: 1rem;
     font-size: 0.78rem;
     opacity: 0.6;
-  }
-  .visually-hidden {
-    position: absolute;
-    width: 1px; height: 1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
   }
 </style>
