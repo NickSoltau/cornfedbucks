@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -25,6 +26,7 @@ const posts = (await getCollection('blog'))
       </div>
     </div>
   </section>
+  <NewsletterSignup />
 </Layout>
 
 <style>
