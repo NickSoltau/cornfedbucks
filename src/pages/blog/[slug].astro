@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -26,6 +27,7 @@ const formatted = post.data.pubDate.toLocaleDateString('en-US', { month: 'long',
       <a href="/blog" class="post__back">&larr; All field notes</a>
     </div>
   </article>
+  <NewsletterSignup />
 </Layout>
 
 <style>
