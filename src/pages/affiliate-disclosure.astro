@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Affiliate Disclosure" description="How Cornfed Bucks uses affiliate links, including our Amazon Associates relationship.">
+  <section class="disclosure">
+    <div class="wrap disclosure__inner">
+      <p class="eyebrow">Affiliate Disclosure</p>
+      <h1>How we make money from links.</h1>
+      <p>
+        Cornfed Bucks is a participant in the Amazon Services LLC Associates Program, an affiliate
+        advertising program designed to provide a means for sites to earn advertising fees by advertising
+        and linking to Amazon.com. We may also participate in other affiliate programs.
+      </p>
+      <p><strong>As an Amazon Associate, we earn from qualifying purchases.</strong></p>
+      <p>
+        This means that when you click certain links on our site and make a purchase, we may receive a
+        small commission at no additional cost to you. We only recommend gear, ammunition, optics, and
+        accessories that we believe are genuinely useful for Midwest straight-wall cartridge hunters —
+        commissions never influence which products we choose to feature or how we rate them.
+      </p>
+      <p>
+        Prices and availability are accurate as of the date each article was published or last updated,
+        but are subject to change by the retailer at any time.
+      </p>
+      <p>
+        If you have questions about our affiliate relationships or how we select products to recommend,
+        feel free to reach out through our <a href="/about">about page</a>.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .disclosure { padding: 3.5rem 0 5rem; }
+  .disclosure__inner { max-width: 620px; }
+  .disclosure h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-top: 0.5rem;
+  }
+  .disclosure p {
+    margin: 0 0 1.2rem;
+    font-size: 1.02rem;
+  }
+</style>
