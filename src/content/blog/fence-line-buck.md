@@ -1,7 +1,7 @@
 ---
 title: "The Fence Line Buck: Why Edges Outproduce Interiors"
 description: "Midwest ag land doesn't have 'big woods' bucks — it has edge bucks. Here's how to hunt the line instead of the block."
-pubDate: 2026-09-22
+pubDate: 2026-07-02
 fieldNote: "FIELD NOTE NO. 002"
 tags: ["stand placement", "ag land"]
 ---
