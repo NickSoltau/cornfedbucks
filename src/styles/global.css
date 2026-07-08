@@ -56,6 +56,24 @@ input:focus-visible {
 
 img { max-width: 100%; display: block; }
 
+/* Field Note hero image + credit caption, used at the top of blog post bodies */
+.field-note-hero {
+  margin: 0 0 1.75rem;
+}
+.field-note-hero img {
+  border-radius: 3px;
+  width: 100%;
+  height: auto;
+}
+.field-note-hero__caption {
+  font-family: var(--font-tag);
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  color: var(--stalk);
+  margin: 0.5rem 0 0;
+  opacity: 0.8;
+}
+
 .wrap {
   max-width: var(--max-width);
   margin: 0 auto;

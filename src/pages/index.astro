@@ -9,7 +9,7 @@ const posts = (await getCollection('blog'))
   .slice(0, 3);
 ---
 <Layout title="Home">
-  <section class="hero">
+  <section class="hero" role="img" aria-label="Whitetail buck standing at the edge of a cut cornfield at dusk">
     <div class="wrap hero__inner">
       <p class="eyebrow">Week 14 — Rut Report</p>
       <h1>Corn-fed bucks live<br />on the edge of the field, <br />not in the middle of the woods.</h1>
@@ -22,6 +22,7 @@ const posts = (await getCollection('blog'))
         <a href="#newsletter" class="btn btn-secondary">Get the Newsletter</a>
       </div>
     </div>
+    <p class="hero__credit">AI-generated illustration.</p>
   </section>
 
   <div class="corn-row-divider" aria-hidden="true"></div>
@@ -50,25 +51,54 @@ const posts = (await getCollection('blog'))
 
 <style>
   .hero {
-    background: var(--husk);
+    position: relative;
+    background-color: var(--dusk);
+    background-image:
+      linear-gradient(100deg, rgba(34, 27, 20, 0.82) 0%, rgba(34, 27, 20, 0.55) 55%, rgba(34, 27, 20, 0.35) 100%),
+      url('/images/cornfield-buck.jpg');
+    background-image:
+      linear-gradient(100deg, rgba(34, 27, 20, 0.82) 0%, rgba(34, 27, 20, 0.55) 55%, rgba(34, 27, 20, 0.35) 100%),
+      image-set(url('/images/cornfield-buck.webp') type('image/webp'), url('/images/cornfield-buck.jpg') type('image/jpeg'));
+    background-size: cover;
+    background-position: center 40%;
     padding: 5rem 0 4rem;
   }
   .hero__inner { max-width: 700px; }
   .hero h1 {
     font-size: clamp(2rem, 5vw, 3.1rem);
     margin: 0.6rem 0 1.25rem;
-    color: var(--ink);
+    color: var(--frost);
   }
   .hero__sub {
     font-size: 1.05rem;
     max-width: 540px;
     margin: 0 0 2rem;
-    opacity: 0.85;
+    color: var(--frost);
+    opacity: 0.92;
   }
   .hero__actions {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+  }
+  .hero .btn-secondary {
+    border-color: var(--frost);
+    color: var(--frost);
+  }
+  .hero .btn-secondary:hover {
+    background: var(--frost);
+    color: var(--ink);
+  }
+  .hero__credit {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.6rem;
+    margin: 0;
+    font-family: var(--font-tag);
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
+    color: var(--frost);
+    opacity: 0.65;
   }
 
   .featured {

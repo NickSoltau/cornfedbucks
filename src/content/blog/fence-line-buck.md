@@ -6,6 +6,14 @@ fieldNote: "FIELD NOTE NO. 002"
 tags: ["stand placement", "ag land"]
 ---
 
+<figure class="field-note-hero">
+  <picture>
+    <source srcset="/images/soy-bucks.webp" type="image/webp" />
+    <img src="/images/soy-bucks.jpg" alt="Two whitetail bucks standing in a soybean field along a fence line, with autumn trees in the background" width="1232" height="726" />
+  </picture>
+  <figcaption class="field-note-hero__caption">AI-generated illustration.</figcaption>
+</figure>
+
 Out west, hunters talk about "the timber" like it's one big chess board. In corn country, that framing doesn't hold up — most of our cover isn't a block, it's a ribbon. A fence line, a creek bottom, a thirty-yard strip of scrub between two fields. The deer living in a county that's eighty percent row crop don't have the luxury of bedding deep in anything. They bed on the edge, because the edge is all there is.
 
 ## Treat the line as the structure, not the field

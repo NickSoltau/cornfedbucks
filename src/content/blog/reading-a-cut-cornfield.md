@@ -6,6 +6,14 @@ fieldNote: "FIELD NOTE NO. 001"
 tags: ["scouting", "ag land", "food plots"]
 ---
 
+<figure class="field-note-hero">
+  <picture>
+    <source srcset="/images/cornfield-buck.webp" type="image/webp" />
+    <img src="/images/cornfield-buck.jpg" alt="Whitetail buck standing at the edge of a cut cornfield with autumn trees in the background" width="1408" height="768" />
+  </picture>
+  <figcaption class="field-note-hero__caption">AI-generated illustration.</figcaption>
+</figure>
+
 The combine does more scouting work in one afternoon than you will all September. The day a field comes down, every deer bedding inside or along it has to recalculate their whole routine — and most of them recalculate onto your fence line.
 
 ## What actually changes
