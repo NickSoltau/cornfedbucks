@@ -57,6 +57,24 @@ const formatted = post.data.pubDate.toLocaleDateString('en-US', { month: 'long',
   .post__body :global(li) {
     margin-bottom: 0.5rem;
   }
+  .post__body :global(blockquote) {
+    margin: 1.6rem 0;
+    padding: 1.1rem 1.4rem;
+    background: var(--frost);
+    border-left: 4px solid var(--blaze);
+  }
+  .post__body :global(blockquote p) {
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+  .post__body :global(blockquote strong) {
+    font-family: var(--font-tag);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--blaze);
+  }
   .post__back {
     display: inline-block;
     margin-top: 2.5rem;
