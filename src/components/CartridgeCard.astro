@@ -8,11 +8,12 @@ interface Props {
   rank?: string;      // e.g. "No. 1"
   rankLabel?: string;  // e.g. "Best All-Around"
   name: string;        // e.g. ".350 Legend"
+  url?: string;        // optional affiliate/product link — wraps the name in a link when set
   description: string;
   stats: Stat[];
 }
 
-const { rank, rankLabel, name, description, stats } = Astro.props as Props;
+const { rank, rankLabel, name, url, description, stats } = Astro.props as Props;
 ---
 
 <div class="cfb-cartridge-card">
@@ -21,7 +22,13 @@ const { rank, rankLabel, name, description, stats } = Astro.props as Props;
       {rank}{rank && rankLabel ? ' — ' : ''}{rankLabel}
     </p>
   )}
-  <h3 class="cfb-cartridge-card__name">{name}</h3>
+  <h3 class="cfb-cartridge-card__name">
+    {url ? (
+      <a href={url} class="cfb-cartridge-card__link" rel="sponsored noopener" target="_blank">{name}</a>
+    ) : (
+      name
+    )}
+  </h3>
   <p class="cfb-cartridge-card__desc">{description}</p>
   <div class="cfb-cartridge-card__stats">
     {stats.map((stat) => (
@@ -55,6 +62,18 @@ const { rank, rankLabel, name, description, stats } = Astro.props as Props;
     font-size: 1.35rem;
     margin: 0 0 0.5rem;
     color: var(--ink);
+  }
+
+  .cfb-cartridge-card__link {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--blaze);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .cfb-cartridge-card__link:hover {
+    color: var(--blaze);
   }
 
   .cfb-cartridge-card__desc {
