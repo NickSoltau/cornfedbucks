@@ -7,11 +7,13 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const latest = posts[0];
 ---
 <Layout title="Home">
   <section class="hero" role="img" aria-label="Whitetail buck standing at the edge of a cut cornfield at dusk">
     <div class="wrap hero__inner">
-      <p class="eyebrow">Week 14 — Rut Report</p>
+      <a href={`/blog/${latest.id}`} class="eyebrow eyebrow--link">{latest.data.fieldNote} — Just Published</a>
       <h1>Corn-fed bucks live<br />on the edge of the field, <br />not in the middle of the woods.</h1>
       <p class="hero__sub">
         Field reports and ground-level strategy for hunters working real Midwest row-crop
@@ -62,6 +64,15 @@ const posts = (await getCollection('blog'))
     background-size: cover;
     background-position: center 40%;
     padding: 5rem 0 4rem;
+  }
+  .hero .eyebrow--link {
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+  }
+  .hero .eyebrow--link:hover {
+    border-bottom-color: var(--blaze);
   }
   .hero__inner { max-width: 700px; }
   .hero h1 {
