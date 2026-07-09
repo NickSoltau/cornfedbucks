@@ -7,8 +7,23 @@ tags: ["straight-wall cartridges", "350 legend", "400 legend", "comparison"]
 ---
 
 import CartridgeCard from '../../components/CartridgeCard.astro';
+import SpecTable from '../../components/SpecTable.astro';
 
 *Disclosure: This guide contains affiliate links, including Amazon Associate links. As an Amazon Associate, we earn from qualifying purchases. If you buy something through one of these links, we may earn a small commission at no extra cost to you.*
+
+<SpecTable
+  caption=".350 Legend vs. .400 Legend — Quick Answer"
+  compareColumns={[".350 Legend", ".400 Legend"]}
+  metricRows={[
+    { label: "Bullet Diameter", values: [".357 in", ".4005 in"] },
+    { label: "Typical Bullet Weight", values: ["145–180 gr", "190–300 gr"] },
+    { label: "Muzzle Velocity", values: ["~2,100–2,325 fps", "~2,250 fps"] },
+    { label: "Effective Range", values: ["150–200 yds", "200–250 yds"] },
+    { label: "Felt Recoil", values: ["~8 ft-lbs (very mild)", "~17 ft-lbs (moderate, like .30-30)"] },
+    { label: "Ammo Availability", values: ["Excellent", "Moderate (Winchester-only)"] },
+  ]}
+  note="Ballistics reflect Winchester's published factory loads as of this writing; always confirm current specs before buying."
+/>
 
 The rise of straight-wall cartridge regulations has completely transformed the deer hunting landscape across the Midwest. Gone are the days of being forced to choose between a smoothbore slug gun or a primitive muzzleloader during firearms season. Winchester blew the market wide open with the introduction of the .350 Legend, giving hunters a soft-shooting, centerfire rifle option that completely redefined what a Midwestern deer gun could be.
 

@@ -1,0 +1,246 @@
+---
+// SpecTable.astro — top-of-article scannable comparison table.
+// Two modes, auto-detected from props:
+//   1. Product mode (buyer guides): pass `rows` with a `name` + `specs` map per product.
+//   2. Metric mode (head-to-head comparisons): pass `metrics` + `columns` for an
+//      A-vs-B table (e.g. .350 Legend vs .400 Legend).
+//
+// Usage — Product mode:
+// <SpecTable
+//   caption="Best Scopes for .350 Legend — Quick Picks"
+//   columns={["Best For", "Reticle", "Price"]}
+//   rows={[
+//     { name: "Leupold VX-Freedom 3-9x40", url: "https://amzn.to/...", best: true,
+//       specs: ["Simplest Field Use", "Duplex, CDS Dial", "~$300–370"] },
+//     ...
+//   ]}
+// />
+//
+// Usage — Metric mode (comparison):
+// <SpecTable
+//   caption=".350 Legend vs. .400 Legend"
+//   compareColumns={[".350 Legend", ".400 Legend"]}
+//   metricRows={[
+//     { label: "Muzzle Velocity", values: ["2,325 fps", "2,200 fps"] },
+//     ...
+//   ]}
+// />
+
+interface ProductRow {
+  name: string;
+  url?: string;
+  best?: boolean; // marks the row with a small "Top Pick" flag
+  specs: string[]; // must align 1:1 with `columns`
+}
+
+interface MetricRow {
+  label: string;
+  values: string[]; // must align 1:1 with `compareColumns`
+}
+
+interface Props {
+  caption: string;
+  columns?: string[];
+  rows?: ProductRow[];
+  compareColumns?: string[];
+  metricRows?: MetricRow[];
+  note?: string; // small footnote under the table, e.g. price disclaimer
+}
+
+const { caption, columns, rows, compareColumns, metricRows, note } = Astro.props as Props;
+const isCompare = Boolean(compareColumns && metricRows);
+---
+
+<div class="cfb-spec-table">
+  <p class="cfb-spec-table__caption">{caption}</p>
+
+  {isCompare ? (
+    <div class="cfb-spec-table__scroll">
+      <table class="cfb-spec-table__table cfb-spec-table__table--compare">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            {compareColumns!.map((col) => <th scope="col">{col}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {metricRows!.map((row) => (
+            <tr>
+              <th scope="row">{row.label}</th>
+              {row.values.map((val) => <td>{val}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <div class="cfb-spec-table__scroll">
+      <table class="cfb-spec-table__table">
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            {columns!.map((col) => <th scope="col">{col}</th>)}
+            <th scope="col" class="cfb-spec-table__col-link"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows!.map((row) => (
+            <tr class={row.best ? 'cfb-spec-table__row--best' : ''}>
+              <th scope="row">
+                {row.best && <span class="cfb-spec-table__flag">Top Pick</span>}
+                {row.name}
+              </th>
+              {row.specs.map((spec) => <td>{spec}</td>)}
+              <td class="cfb-spec-table__col-link">
+                {row.url && (
+                  <a
+                    href={row.url}
+                    class="cfb-spec-table__link"
+                    rel="sponsored noopener"
+                    target="_blank"
+                  >
+                    View Price
+                  </a>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+
+  {note && <p class="cfb-spec-table__note">{note}</p>}
+</div>
+
+<style>
+  .cfb-spec-table {
+    margin: 0 0 2rem;
+    background: var(--frost);
+    border: 1px solid var(--stalk);
+    border-top: 4px solid var(--blaze);
+  }
+
+  .cfb-spec-table__caption {
+    font-family: var(--font-tag);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blaze);
+    margin: 0;
+    padding: 0.9rem 1.25rem 0.75rem;
+  }
+
+  .cfb-spec-table__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cfb-spec-table__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+  }
+
+  .cfb-spec-table__table th,
+  .cfb-spec-table__table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: middle;
+    border-top: 1px solid var(--stalk);
+    white-space: nowrap;
+  }
+
+  .cfb-spec-table__table thead th {
+    font-family: var(--font-tag);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--stalk);
+    border-top: none;
+    padding-top: 0;
+    padding-bottom: 0.6rem;
+  }
+
+  .cfb-spec-table__table tbody th[scope='row'] {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--ink);
+    white-space: normal;
+    min-width: 180px;
+  }
+
+  .cfb-spec-table__table--compare tbody th[scope='row'] {
+    font-family: var(--font-tag);
+    font-weight: 400;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--stalk);
+    min-width: 140px;
+  }
+
+  .cfb-spec-table__table--compare thead th {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .cfb-spec-table__row--best {
+    background: rgba(193, 72, 29, 0.06);
+  }
+
+  .cfb-spec-table__flag {
+    display: block;
+    font-family: var(--font-tag);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--blaze);
+    margin-bottom: 0.15rem;
+  }
+
+  .cfb-spec-table__col-link {
+    text-align: right;
+  }
+
+  .cfb-spec-table__link {
+    display: inline-block;
+    font-family: var(--font-tag);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--frost);
+    background: var(--blaze);
+    padding: 0.45rem 0.9rem;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+
+  .cfb-spec-table__link:hover {
+    background: #a83d18;
+  }
+
+  .cfb-spec-table__note {
+    font-family: var(--font-tag);
+    font-size: 0.68rem;
+    color: var(--stalk);
+    opacity: 0.85;
+    margin: 0;
+    padding: 0 1.25rem 0.9rem;
+  }
+
+  @media (max-width: 640px) {
+    .cfb-spec-table__table th,
+    .cfb-spec-table__table td {
+      padding: 0.6rem 0.75rem;
+      font-size: 0.82rem;
+    }
+  }
+</style>
