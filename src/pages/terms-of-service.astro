@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+const lastUpdated = "July 9, 2026";
+---
+<Layout title="Terms of Service" description="The terms governing your use of Cornfed Bucks.">
+  <section class="legal">
+    <div class="wrap legal__inner">
+      <p class="eyebrow">Terms of Service</p>
+      <h1>Terms of Service</h1>
+      <p class="updated">Last updated: {lastUpdated}</p>
+
+      <p>
+        These Terms of Service ("Terms") govern your use of cornfedbucks.com (the "Site"), operated by
+        Cornfed Bucks. By accessing or using the Site, you agree to these Terms. If you don't agree,
+        please don't use the Site.
+      </p>
+
+      <h2>Content Is for Informational Purposes Only</h2>
+      <p>
+        Cornfed Bucks provides general information about whitetail deer hunting, hunting gear, and
+        firearm regulations relevant to straight-wall cartridge hunting. This content is provided for
+        informational and educational purposes only and does not constitute legal, safety, or
+        professional advice.
+      </p>
+      <p>
+        <strong>Hunting regulations change and vary by state, and sometimes by county or zone within a
+        state.</strong> Always verify current legal requirements — including legal calibers, case-length
+        limits, season dates, and zone boundaries — directly with your state's Department of Natural
+        Resources or equivalent agency before you hunt. Cornfed Bucks makes reasonable efforts to keep
+        regulation-related content accurate as of its publish date, but we cannot guarantee that content
+        reflects the most current rule changes, and we are not responsible for consequences arising from
+        reliance on outdated or inaccurate information found on this Site.
+      </p>
+
+      <h2>Firearm and Ammunition Content</h2>
+      <p>
+        Any discussion of firearms, ammunition, ballistics, or ammunition selection is provided for
+        general informational purposes. You are solely responsible for the safe and legal use, storage,
+        and handling of any firearm or ammunition, and for complying with all applicable federal, state,
+        and local laws.
+      </p>
+
+      <h2>Affiliate Relationships</h2>
+      <p>
+        Cornfed Bucks is a participant in the Amazon Services LLC Associates Program and may participate
+        in other affiliate programs, meaning we may earn a commission from qualifying purchases made
+        through links on this Site, at no additional cost to you. See our
+        <a href="/affiliate-disclosure">Affiliate Disclosure</a> for details. Product recommendations
+        reflect our own editorial judgment; commissions do not influence which products we choose to
+        feature.
+      </p>
+
+      <h2>No Warranty</h2>
+      <p>
+        The Site and its content are provided "as is" without warranties of any kind, express or
+        implied, including but not limited to accuracy, completeness, or fitness for a particular
+        purpose.
+      </p>
+
+      <h2>Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by law, Cornfed Bucks and its operator shall not be liable for
+        any direct, indirect, incidental, or consequential damages arising from your use of the Site or
+        reliance on any content published on it.
+      </p>
+
+      <h2>Third-Party Links</h2>
+      <p>
+        The Site contains links to third-party websites, including retailers and affiliate partners. We
+        do not control and are not responsible for the content, policies, or practices of any
+        third-party site.
+      </p>
+
+      <h2>Intellectual Property</h2>
+      <p>
+        Content published on this Site, including text, graphics, and diagrams, is the property of
+        Cornfed Bucks unless otherwise noted, and may not be reproduced without permission.
+      </p>
+
+      <h2>Changes to These Terms</h2>
+      <p>
+        We may update these Terms from time to time. Changes will be posted on this page with an
+        updated "Last updated" date. Continued use of the Site after changes are posted constitutes
+        acceptance of the revised Terms.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about these Terms can be directed to <a href="mailto:nick@cornfedbucks.com">nick@cornfedbucks.com</a>.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal { padding: 3.5rem 0 5rem; }
+  .legal__inner { max-width: 680px; }
+  .legal h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .legal .updated {
+    font-family: var(--font-tag);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+  }
+  .legal h2 {
+    font-size: 1.35rem;
+    margin: 2rem 0 0.75rem;
+  }
+  .legal p, .legal li {
+    margin: 0 0 1rem;
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+  .legal ul { padding-left: 1.3rem; }
+  .legal li { margin-bottom: 0.6rem; }
+</style>

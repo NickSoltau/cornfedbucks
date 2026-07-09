@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+const lastUpdated = "July 9, 2026";
+---
+<Layout title="Privacy Policy" description="How Cornfed Bucks collects, uses, and protects visitor information.">
+  <section class="legal">
+    <div class="wrap legal__inner">
+      <p class="eyebrow">Privacy Policy</p>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: {lastUpdated}</p>
+
+      <p>
+        This Privacy Policy explains how Cornfed Bucks ("we," "us," "our," or "Cornfed Bucks") collects,
+        uses, and protects information when you visit cornfedbucks.com (the "Site"). By using the Site,
+        you agree to the practices described here.
+      </p>
+
+      <h2>Information We Collect</h2>
+      <p>We collect information in a few limited ways:</p>
+      <ul>
+        <li>
+          <strong>Newsletter signup information.</strong> If you subscribe to The Monday Morning Report,
+          we collect the email address you provide through our newsletter signup form. Newsletter
+          delivery and subscriber management is handled by our email service provider, beehiiv. Their
+          use of your information is governed by their own privacy policy.
+        </li>
+        <li>
+          <strong>Analytics data.</strong> We use website analytics (including Cloudflare Analytics and,
+          where enabled, Google Search Console) to understand aggregate traffic patterns — such as which
+          pages are visited, general geographic region, device type, and referral source. This data is
+          used in aggregate and is not used to personally identify individual visitors.
+        </li>
+        <li>
+          <strong>Cookies.</strong> The Site and its third-party providers (such as beehiiv and Amazon
+          Associates) may use cookies or similar technologies to support core functionality, remember
+          preferences, and track affiliate referrals. You can disable cookies through your browser
+          settings, though some site features may not function as intended if you do.
+        </li>
+      </ul>
+
+      <h2>How We Use Information</h2>
+      <ul>
+        <li>To send the Monday Morning Report newsletter to subscribers who opt in.</li>
+        <li>To understand how visitors use the Site, so we can improve content and site performance.</li>
+        <li>To track affiliate referrals, so we can earn commissions on qualifying purchases made through our links.</li>
+      </ul>
+      <p>We do not sell your personal information to third parties.</p>
+
+      <h2>Affiliate Links</h2>
+      <p>
+        Cornfed Bucks participates in the Amazon Services LLC Associates Program and may participate in
+        other affiliate programs. When you click an affiliate link and make a purchase, the retailer's
+        own tracking cookie records the referral, and we may earn a commission at no additional cost to
+        you. See our <a href="/affiliate-disclosure">Affiliate Disclosure</a> for more detail.
+      </p>
+
+      <h2>Third-Party Services</h2>
+      <p>We rely on the following third-party services, each with its own privacy practices:</p>
+      <ul>
+        <li><strong>beehiiv</strong> — newsletter hosting and email delivery.</li>
+        <li><strong>Amazon Associates</strong> — affiliate link tracking and commissions.</li>
+        <li><strong>Cloudflare</strong> — site hosting, content delivery, and analytics.</li>
+      </ul>
+
+      <h2>Children's Privacy</h2>
+      <p>
+        The Site is not directed at children under 13, and we do not knowingly collect personal
+        information from children under 13.
+      </p>
+
+      <h2>Your Choices</h2>
+      <ul>
+        <li>You can unsubscribe from the newsletter at any time using the link in any email we send.</li>
+        <li>You can disable cookies in your browser at any time.</li>
+      </ul>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. Changes will be posted on this page with an
+        updated "Last updated" date.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this Privacy Policy can be directed to <a href="mailto:nick@cornfedbucks.com">nick@cornfedbucks.com</a>.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal { padding: 3.5rem 0 5rem; }
+  .legal__inner { max-width: 680px; }
+  .legal h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .legal .updated {
+    font-family: var(--font-tag);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+  }
+  .legal h2 {
+    font-size: 1.35rem;
+    margin: 2rem 0 0.75rem;
+  }
+  .legal p, .legal li {
+    margin: 0 0 1rem;
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+  .legal ul { padding-left: 1.3rem; }
+  .legal li { margin-bottom: 0.6rem; }
+</style>
