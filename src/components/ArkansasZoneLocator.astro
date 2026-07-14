@@ -1,0 +1,168 @@
+---
+// Static schematic locator map for Arkansas Deer Zones 4 (Sections 1 & 2) and 5.
+// Visual language matches ZoneMapEmbed.astro / DecisionTree.astro (eyebrow + card),
+// but the map itself keeps its own parchment/schematic palette rather than the dark theme.
+---
+
+<div class="zone-locator">
+  <div class="wrap">
+    <p class="eyebrow">CornfedBucks &middot; Regulation Reference</p>
+    <h2>Arkansas SWC Zone Locator</h2>
+    <p class="sub">A general locator for Deer Zone 4 (Sections 1 and 2) and Zone 5, relative to the Ozark Highlands. Schematic only — not surveyed, not to scale.</p>
+
+    <div class="map-card">
+      <svg viewBox="0 0 800 640" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="Schematic locator map of Arkansas showing the general areas of Deer Zone 4 (Sections 1 and 2) and Zone 5, relative to the Ozark Highlands. Approximate only; not surveyed.">
+        <defs>
+          <style>
+            .state-fill { fill: #f4ecd8; stroke: #4a3f2f; stroke-width: 3; }
+            .zone5-fill { fill: #8a9a5b; opacity: 0.85; }
+            .zone4a-fill { fill: #b5651d; opacity: 0.55; }
+            .zone4b-fill { fill: #b5651d; opacity: 0.75; }
+            .river { fill: none; stroke: #4a7a9c; stroke-width: 3; opacity: 0.6; }
+            .label { fill: #2c2416; font-size: 20px; font-weight: bold; }
+            .sublabel { fill: #2c2416; font-size: 14px; }
+            .city { fill: #2c2416; font-size: 13px; }
+            .cityDot { fill: #2c2416; }
+            .disclaimer { fill: #6b5d45; font-size: 13px; font-style: italic; }
+            .legendBox { stroke: #4a3f2f; stroke-width: 1; }
+          </style>
+        </defs>
+
+        <rect width="800" height="640" fill="#faf6ee"/>
+
+        <text x="400" y="42" text-anchor="middle" class="label" font-size="26">Arkansas SWC-Relevant Deer Zones</text>
+        <text x="400" y="66" text-anchor="middle" class="sublabel" font-size="15">Zone 4 (Sections 1 &amp; 2) and Zone 5 — General Locator</text>
+
+        <!-- Simplified Arkansas state outline (schematic, not surveyed) -->
+        <path class="state-fill" d="
+          M 150,110
+          L 560,105
+          L 565,150
+          L 600,160
+          L 610,190
+          L 640,200
+          L 650,230
+          L 615,255
+          L 630,280
+          L 600,300
+          L 615,330
+          L 590,345
+          L 605,380
+          L 575,400
+          L 585,440
+          L 545,470
+          L 555,510
+          L 500,540
+          L 480,575
+          L 430,580
+          L 400,555
+          L 340,560
+          L 300,530
+          L 200,525
+          L 160,490
+          L 155,420
+          L 130,400
+          L 140,340
+          L 115,310
+          L 125,260
+          L 105,220
+          L 130,180
+          L 115,150
+          L 150,140
+          Z" />
+
+        <!-- Mississippi River edge suggestion (east side) -->
+        <path class="river" d="M 565,150 Q 600,220 595,300 Q 605,360 580,440 Q 560,500 500,540" />
+
+        <!-- Zone 5: Crowley's Ridge - northern portion, thin band paralleling Mississippi River, upper-mid-east -->
+        <path class="zone5-fill" d="M 470,190 L 530,185 L 545,240 L 555,310 L 540,340 L 495,335 L 480,270 Z" />
+        <text x="600" y="245" class="city">Zone 5</text>
+        <text x="600" y="262" class="sublabel" font-size="12">(N. Crowley's Ridge)</text>
+
+        <!-- Zone 4 Section 2: eastern portion, near St. Francis / Mississippi Rivers, Delta -->
+        <path class="zone4b-fill" d="M 500,270 L 590,265 L 605,330 L 585,395 L 530,400 L 505,340 Z" />
+        <text x="615" y="360" class="city">Zone 4</text>
+        <text x="615" y="377" class="sublabel" font-size="12">Section 2 (Delta)</text>
+
+        <!-- Zone 4 Section 1: western portion, up near Current/Black/White Rivers, NE Arkansas -->
+        <path class="zone4a-fill" d="M 260,150 L 400,145 L 430,200 L 460,240 L 420,270 L 350,260 L 300,220 L 270,190 Z" />
+        <text x="255" y="130" class="city">Zone 4</text>
+        <text x="255" y="147" class="sublabel" font-size="12">Section 1 (river corridor)</text>
+
+        <!-- Reference cities -->
+        <circle cx="540" cy="300" r="4" class="cityDot"/>
+        <text x="548" y="304" class="city">Jonesboro</text>
+
+        <circle cx="565" cy="360" r="4" class="cityDot"/>
+        <text x="573" y="364" class="city">Forrest City</text>
+
+        <circle cx="605" cy="200" r="4" class="cityDot"/>
+        <text x="590" y="185" class="city">West Memphis</text>
+
+        <circle cx="330" cy="480" r="4" class="cityDot"/>
+        <text x="338" y="484" class="city">Little Rock</text>
+
+        <!-- Ozark region label for west/northwest to show contrast -->
+        <text x="180" y="240" class="sublabel" font-size="13" fill="#5a4a35">Ozark Highlands</text>
+        <text x="180" y="257" class="sublabel" font-size="12" fill="#5a4a35">(rifles already legal —</text>
+        <text x="180" y="272" class="sublabel" font-size="12" fill="#5a4a35">not SWC-restricted)</text>
+
+        <!-- Legend -->
+        <rect x="60" y="500" width="18" height="18" class="zone5-fill legendBox"/>
+        <text x="85" y="514" class="sublabel">Zone 5 — N. Crowley's Ridge</text>
+
+        <rect x="60" y="524" width="18" height="18" class="zone4b-fill legendBox"/>
+        <text x="85" y="538" class="sublabel">Zone 4, Section 2 — Delta</text>
+
+        <rect x="60" y="548" width="18" height="18" class="zone4a-fill legendBox"/>
+        <text x="85" y="562" class="sublabel">Zone 4, Section 1 — river corridor (non-Delta)</text>
+
+        <!-- Disclaimer -->
+        <text x="400" y="600" text-anchor="middle" class="disclaimer">Schematic locator only — not surveyed, not to scale, and not for legal reliance.</text>
+        <text x="400" y="618" text-anchor="middle" class="disclaimer">Consult AGFC's official zone descriptions (Reg. E1.01) and zone map for exact boundaries.</text>
+      </svg>
+    </div>
+
+    <p class="footer-note"><span class="dot">&#9679;</span> Map is a general locator only — not surveyed and not to scale. Always confirm exact zone boundaries against AGFC's official zone descriptions (Regulation E1.01) before hunting.</p>
+  </div>
+</div>
+
+<style>
+  .zone-locator {
+    --bg: #1B211C;
+    --panel: #232B24;
+    --line: #3C463D;
+    --orange: #FF6A1A;
+    --text: #EFEAE0;
+    --text-dim: #A8B0A2;
+
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    padding: 36px 24px 32px;
+    border-radius: 6px;
+    margin: 2rem 0;
+  }
+  .zone-locator .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--orange); margin: 0 0 10px;
+  }
+  .zone-locator h2 {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    font-size: clamp(24px, 4vw, 34px); letter-spacing: .01em;
+    margin: 0 0 10px; color: var(--text); text-transform: uppercase;
+  }
+  .zone-locator .sub { color: var(--text-dim); font-size: 15px; max-width: 640px; line-height: 1.55; margin: 0 0 24px; }
+  .zone-locator .map-card {
+    background: #faf6ee; border: 1px solid var(--line); border-radius: 4px;
+    padding: 18px; position: relative;
+  }
+  .zone-locator .map-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--orange), transparent 60%);
+  }
+  .zone-locator svg { width: 100%; height: auto; display: block; }
+  .zone-locator .footer-note { margin-top: 16px; font-size: 12px; color: var(--text-dim); display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+  .zone-locator .footer-note .dot { color: var(--orange); flex: none; }
+</style>
