@@ -4,8 +4,13 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { getCollection } from 'astro:content';
 
+const fieldNoteNum = (fn: string) => parseInt(fn.replace(/\D/g, ''), 10) || 0;
+
 const posts = (await getCollection('blog'))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  .sort((a, b) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf() ||
+    fieldNoteNum(b.data.fieldNote) - fieldNoteNum(a.data.fieldNote)
+  );
 ---
 <Layout title="Field Notes" description="All field reports and ground-level whitetail strategy from Cornfed Bucks.">
   <section class="blog-index">

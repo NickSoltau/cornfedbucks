@@ -4,8 +4,13 @@ import ArticleCard from '../components/ArticleCard.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import { getCollection } from 'astro:content';
 
+const fieldNoteNum = (fn: string) => parseInt(fn.replace(/\D/g, ''), 10) || 0;
+
 const posts = (await getCollection('blog'))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .sort((a, b) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf() ||
+    fieldNoteNum(b.data.fieldNote) - fieldNoteNum(a.data.fieldNote)
+  )
   .slice(0, 3);
 
 const latest = posts[0];
@@ -92,10 +97,12 @@ const latest = posts[0];
     display: inline-block;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
+    font-weight: 600;
     letter-spacing: 0.02em;
-    color: var(--blaze);
-    border-left: 2px solid var(--blaze);
-    padding-left: 0.65rem;
+    color: var(--frost);
+    background: rgba(20, 16, 11, 0.55);
+    border-left: 3px solid var(--blaze);
+    padding: 0.5rem 0.75rem;
     margin: 0 0 1.9rem;
     max-width: 540px;
     line-height: 1.5;
