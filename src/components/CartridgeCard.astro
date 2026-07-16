@@ -8,12 +8,14 @@ interface Props {
   rank?: string;      // e.g. "No. 1"
   rankLabel?: string;  // e.g. "Best All-Around"
   name: string;        // e.g. ".350 Legend"
-  url?: string;        // optional affiliate/product link — wraps the name in a link when set
+  url?: string;        // optional link — wraps the name in a link when set
+  linkRel?: string;    // rel attribute for the link. Defaults to "sponsored noopener" for
+                        // affiliate use; pass "noopener" for non-affiliate citations (e.g. DNR sources)
   description: string;
   stats: Stat[];
 }
 
-const { rank, rankLabel, name, url, description, stats } = Astro.props as Props;
+const { rank, rankLabel, name, url, linkRel = 'sponsored noopener', description, stats } = Astro.props as Props;
 ---
 
 <div class="cfb-cartridge-card">
@@ -24,7 +26,7 @@ const { rank, rankLabel, name, url, description, stats } = Astro.props as Props;
   )}
   <h3 class="cfb-cartridge-card__name">
     {url ? (
-      <a href={url} class="cfb-cartridge-card__link" rel="sponsored noopener" target="_blank">{name}</a>
+      <a href={url} class="cfb-cartridge-card__link" rel={linkRel} target="_blank">{name}</a>
     ) : (
       name
     )}

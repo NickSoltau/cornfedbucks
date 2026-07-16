@@ -7,6 +7,7 @@ tags: ["straight-wall cartridges", "regulations", "SWC", "deer hunting law"]
 ---
 
 import FaqSchema from '../../components/FaqSchema.astro';
+import CartridgeCard from '../../components/CartridgeCard.astro';
 
 <figure class="field-note-hero">
   <picture>
@@ -33,27 +34,161 @@ Net effect: the "core four" SWC-mandate states most hunters think of (Ohio, Mich
 
 ## State-by-state straight-wall cartridge regulations
 
-<div class="cfb-table-wrapper">
+<CartridgeCard
+  name="Ohio"
+  url="https://ohiodnr.gov/buy-and-apply/hunting-fishing-boating/hunting-resources/hunting-regulations"
+  linkRel="noopener"
+  description="Straight-wall cartridge required during deer-gun week and the youth/gun weekend. Max 3 rounds in chamber plus magazine combined."
+  stats={[
+    { label: "Case Shape", value: "Required" },
+    { label: "Min Caliber", value: ".357–.50" },
+  ]}
+/>
 
-| State | What's required | Source |
-|---|---|---|
-| **Ohio** | Straight-wall cartridge, .357–.50 caliber, during deer-gun week and the youth/gun weekend. Max 3 rounds in chamber + magazine combined. | [ODNR hunting regulations](https://ohiodnr.gov/buy-and-apply/hunting-fishing-boating/hunting-resources/hunting-regulations) |
-| **Michigan** | No shape requirement in the former Limited Firearms Zone as of 2026 — all legal firearms, including bottleneck cartridges, are permitted throughout the Lower Peninsula. Firearms larger than .22 rimfire allowed statewide. | [Michigan DNR — NRC 2026/2027 deer regulation changes](https://www.michigan.gov/dnr/about/newsroom/releases/2026/05/15/nrc-approves-deer-regulation-changes-for-2026-and-2027) |
-| **Indiana** | No shape requirement as of the 2025–26 season. Any centerfire rifle cartridge, bullet diameter .219" (5.56mm) or larger, public or private land. 10-round possession limit for such cartridges. | [Indiana DNR — Deer Hunting Q&A](https://www.in.gov/dnr/fish-and-wildlife/hunting-and-trapping/hunting-trapping-guide/deer-hunting-questions-and-answers/) |
-| **Iowa** | No shape requirement. Expanding bullet, .350"–.500" diameter, 500+ ft-lbs muzzle energy — straight-wall or necked-down cartridges both qualify. | [Iowa DNR — Deer Hunting](https://www.iowadnr.gov/things-do/hunting-trapping/types-hunting-trapping/deer-hunting) |
-| **Illinois** | Single-shot centerfire rifles only, in qualifying straight-wall calibers (2023 law). | [Illinois DNR — Deer Hunting](https://dnr.illinois.gov/hunting/deerhunting.html) |
-| **Wisconsin** | Straight-wall cartridge required, specific caliber minimums apply. | [Wisconsin DNR — Deer Hunting](https://dnr.wisconsin.gov/topic/hunt/deer) |
-| **Minnesota** | Straight-wall cartridge, case length 1.285"+, bullet diameter .350"+ minimum, during the regular firearms season. | [Minnesota DNR — Deer Hunting](https://www.dnr.state.mn.us/hunting/deer/index.html) |
-| **West Virginia** | Straight-wall cartridge, .357 caliber or larger, case length 1.16"–1.8", during the regular firearm deer season. | [WVDNR — Hunting Regulations](https://wvdnr.gov/hunting/hunting-regulations/) |
-| **Maryland** | Straight-wall cartridge, .357 caliber or larger, allowed during firearm season (county-by-county — check the map in the Guide to Hunting & Trapping). | [Maryland Deer Hunting Rules](https://www.eregulations.com/maryland/hunting/general-deer-hunting-rules) |
-| **Pennsylvania** | Straight-wall cartridge, .357 caliber or larger, but **only in designated Special Regulations Areas** — not statewide. | [PA Game Commission — Deer Hunting](https://www.pa.gov/agencies/pgc/huntingandtrapping/get-started-hunting/deer-hunting) |
-| **Arkansas** | Non-semiautomatic rifle, straight-wall cartridge .30 caliber or larger, during the Alternative Firearms (formerly muzzleloader) season. | [Arkansas Game & Fish Commission](https://www.agfc.com/news/straight-talk-on-straight-walled-firearms/) |
-| **Missouri** | No straight-wall-specific cartridge requirement found. Missouri's centerfire rifle rules for deer aren't shape-restricted the way Ohio's or Wisconsin's are — check MDC's current Fall Deer & Turkey Hunting Regulations before you hunt. | [Missouri Dept. of Conservation — Deer Regulations](https://mdc.mo.gov/hunting-trapping/species/deer/deer-regulations) |
-| **Tennessee** | **New for 2026:** single-shot rifle, straight-wall cartridge .35 caliber or larger, private land only, Nov. 14–20, 2026 (tied to muzzleloader season bag limits). | [TWRA — Deer Hunting](https://www.tn.gov/twra/hunting/big-game/deer.html) |
+<CartridgeCard
+  name="Michigan"
+  url="https://www.michigan.gov/dnr/about/newsroom/releases/2026/05/15/nrc-approves-deer-regulation-changes-for-2026-and-2027"
+  linkRel="noopener"
+  description="No shape requirement in the former Limited Firearms Zone as of 2026 — all legal firearms, including bottleneck cartridges, are permitted throughout the Lower Peninsula."
+  stats={[
+    { label: "Case Shape", value: "Not required (2026)" },
+    { label: "Min Caliber", value: "Larger than .22 rimfire" },
+  ]}
+/>
 
-</div>
+<CartridgeCard
+  name="Indiana"
+  url="https://www.in.gov/dnr/fish-and-wildlife/hunting-and-trapping/hunting-trapping-guide/deer-hunting-questions-and-answers/"
+  linkRel="noopener"
+  description="No shape requirement as of the 2025–26 season. Any centerfire rifle cartridge, public or private land. 10-round possession limit for such cartridges."
+  stats={[
+    { label: "Case Shape", value: "Not required (2025–26)" },
+    { label: "Min Diameter", value: ".219in (5.56mm)+" },
+  ]}
+/>
 
-A note on that Missouri row: after checking MDC's current regulations, we didn't find a straight-wall-specific cartridge requirement for deer. Missouri doesn't appear to restrict rifle case shape the way its neighbors do. If that changes, or if you find a specific provision we missed, let us know — and as always, check MDC's current Fall Deer & Turkey Hunting Regulations booklet before you hunt.
+<CartridgeCard
+  name="Iowa"
+  url="https://www.iowadnr.gov/things-do/hunting-trapping/types-hunting-trapping/deer-hunting"
+  linkRel="noopener"
+  description="No shape requirement. Expanding bullet within the diameter/energy range — straight-wall or necked-down cartridges both qualify."
+  stats={[
+    { label: "Case Shape", value: "Not required" },
+    { label: "Min Diameter/Energy", value: ".350–.500in, 500+ ft-lbs" },
+  ]}
+/>
+
+<CartridgeCard
+  name="Illinois"
+  url="https://dnr.illinois.gov/hunting/deerhunting.html"
+  linkRel="noopener"
+  description="Single-shot centerfire rifles only, in qualifying straight-wall calibers (2023 law)."
+  stats={[
+    { label: "Case Shape", value: "Required" },
+    { label: "Platform", value: "Single-shot only" },
+  ]}
+/>
+
+<CartridgeCard
+  name="Wisconsin"
+  url="https://dnr.wisconsin.gov/topic/hunt/deer"
+  linkRel="noopener"
+  description="Straight-wall cartridge required, with specific caliber minimums."
+  stats={[
+    { label: "Case Shape", value: "Required" },
+    { label: "Min Caliber", value: "See DNR specifics" },
+  ]}
+/>
+
+<CartridgeCard
+  name="Minnesota"
+  url="https://www.dnr.state.mn.us/hunting/deer/index.html"
+  linkRel="noopener"
+  description="Straight-wall cartridge required during the regular firearms season."
+  stats={[
+    { label: "Case Shape", value: "Required" },
+    { label: "Min Caliber/Case", value: ".350in+, 1.285in+ case" },
+  ]}
+/>
+
+<CartridgeCard
+  name="West Virginia"
+  url="https://wvdnr.gov/hunting/hunting-regulations/"
+  linkRel="noopener"
+  description="Straight-wall cartridge required during the regular firearm deer season."
+  stats={[
+    { label: "Case Shape", value: "Required" },
+    { label: "Min Caliber/Case", value: ".357in+, 1.16–1.8in case" },
+  ]}
+/>
+
+<CartridgeCard
+  name="Maryland"
+  url="https://www.eregulations.com/maryland/hunting/general-deer-hunting-rules"
+  linkRel="noopener"
+  description="Allowed during firearm season, county-by-county — check the map in the Guide to Hunting & Trapping."
+  stats={[
+    { label: "Case Shape", value: "Required (by county)" },
+    { label: "Min Caliber", value: ".357+" },
+  ]}
+/>
+
+<CartridgeCard
+  name="Pennsylvania"
+  url="https://www.pa.gov/agencies/pgc/huntingandtrapping/get-started-hunting/deer-hunting"
+  linkRel="noopener"
+  description="Allowed only in designated Special Regulations Areas — not statewide."
+  stats={[
+    { label: "Case Shape", value: "Required (special zones only)" },
+    { label: "Min Caliber", value: ".357+" },
+  ]}
+/>
+
+<CartridgeCard
+  name="Arkansas"
+  url="https://www.agfc.com/news/straight-talk-on-straight-walled-firearms/"
+  linkRel="noopener"
+  description="Non-semiautomatic rifle required, during the Alternative Firearms (formerly muzzleloader) season."
+  stats={[
+    { label: "Case Shape", value: "Required (alt. firearms season)" },
+    { label: "Min Caliber", value: ".30+" },
+  ]}
+/>
+
+<CartridgeCard
+  name="Missouri"
+  url="https://mdc.mo.gov/hunting-trapping/species/deer/deer-regulations"
+  linkRel="noopener"
+  description="No straight-wall-specific cartridge requirement found. Missouri doesn't appear to restrict rifle case shape the way its neighbors do — check MDC's current Fall Deer & Turkey Hunting Regulations before you hunt."
+  stats={[
+    { label: "Case Shape", value: "No requirement found" },
+    { label: "Min Caliber", value: "N/A" },
+  ]}
+/>
+
+<CartridgeCard
+  name="Tennessee"
+  url="https://www.tn.gov/twra/hunting/big-game/deer.html"
+  linkRel="noopener"
+  description="New for 2026: single-shot rifle, private land only, Nov. 14–20, 2026 (tied to muzzleloader season bag limits)."
+  stats={[
+    { label: "Case Shape", value: "Required (new, 2026)" },
+    { label: "Min Caliber", value: ".35+" },
+  ]}
+/>
+
+<CartridgeCard
+  name="Delaware"
+  url="https://dnrec.delaware.gov/fish-wildlife/hunting/straight-wall-pistol-caliber"
+  linkRel="noopener"
+  description="Allowed in place of shotgun (November) or handgun (January) deer seasons only — not north of the Chesapeake and Delaware Canal. Max 3 rounds in chamber plus magazine combined."
+  stats={[
+    { label: "Case Shape", value: "Required (seasonal)" },
+    { label: "Min Caliber/Case", value: ".357–.38 or .41–.50, up to 1.82in case" },
+  ]}
+/>
+
+A note on that Missouri card: after checking MDC's current regulations, we didn't find a straight-wall-specific cartridge requirement for deer. If that changes, or if you find a specific provision we missed, let us know — and as always, check MDC's current Fall Deer & Turkey Hunting Regulations booklet before you hunt.
 
 ## Why these rules exist in the first place
 
@@ -63,7 +198,7 @@ That's also why you're seeing the recent split in approach. Indiana, Iowa, and M
 
 ## What this means if you're picking a cartridge
 
-If you hunt Ohio, Wisconsin, West Virginia, Maryland, Minnesota, Illinois, Pennsylvania's special zones, Arkansas's alternative season, or Tennessee's new week, the shape of your cartridge still matters — pick something that's genuinely straight-wall. If you hunt Indiana, Iowa, or Michigan's former Limited Firearms Zone, you technically have more options now, but a straight-wall cartridge like the .350 Legend or .400 Legend is still a smart, low-recoil choice for realistic row-crop shot distances. The law loosened; the ballistics didn't change.
+If you hunt Ohio, Wisconsin, West Virginia, Maryland, Minnesota, Illinois, Delaware, Pennsylvania's special zones, Arkansas's alternative season, or Tennessee's new week, the shape of your cartridge still matters — pick something that's genuinely straight-wall. If you hunt Indiana, Iowa, or Michigan's former Limited Firearms Zone, you technically have more options now, but a straight-wall cartridge like the .350 Legend or .400 Legend is still a smart, low-recoil choice for realistic row-crop shot distances. The law loosened; the ballistics didn't change.
 
 For a closer look at how the .400 Legend specifically has grown since its 2023 launch — including which manufacturers are chambering it now — see our companion piece on [the best .400 Legend ammo for deer hunting](/blog/best-400-legend-ammo).
 
