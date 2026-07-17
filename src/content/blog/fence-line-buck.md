@@ -29,3 +29,8 @@ Look for:
 ## Wind matters more here, not less
 
 Because the cover is thin, your margin for a blown wind is smaller too. A deer bedded forty yards off a fence line in a big timber tract might not bust you. A deer bedded fifteen yards off a fence line with row crop on both sides absolutely will. Pick the entry route that keeps your scent in the open field, not in the cover, for as much of the walk as possible.
+
+---
+
+Until next time.
+Nick

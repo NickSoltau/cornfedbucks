@@ -21,3 +21,8 @@ A one- to three-acre block of thick cover that gets zero foot traffic, year-roun
 - Thick at deer-eye level — a mature timber stand with no understory doesn't count
 
 If you only do one land management project this year and you're working with limited acreage, skip the plot and fence off the sanctuary instead. You can always add a plot next year. You can't un-pressure a bedding area once deer have decided it isn't safe.
+
+---
+
+Until next time.
+Nick

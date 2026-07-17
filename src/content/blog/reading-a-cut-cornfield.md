@@ -29,3 +29,8 @@ That shift is predictable enough to hunt before the deer have settled into a new
 - Don't hunt the field itself yet. Hunt the transition cover the deer are pushed into.
 
 This is the kind of thing a satellite map from last winter can't tell you. You have to be watching the calendar and the gravel road at the same time.
+
+---
+
+Until next time.
+Nick
