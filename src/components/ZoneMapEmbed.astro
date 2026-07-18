@@ -3,6 +3,80 @@ interface Props {
   compact?: boolean; // when true, renders a shorter intro suited for mid-article embedding
 }
 const { compact = false } = Astro.props as Props;
+
+const states = [
+  {
+    key: "ohio",
+    tag: "Statewide",
+    tagClass: "tag-statewide",
+    name: "Ohio",
+    zone: "One rule applies everywhere in the state",
+    specs: [
+      ["Legal rifle calibers", ".357 to .50 caliber, straight-wall only"],
+      ["Bottleneck rifles", "Not legal for deer, any season"],
+      ["Also legal", "Shotguns (slugs), muzzleloaders, handguns \u2265.357"],
+      ["Magazine limit", "3 rounds total, chamber + magazine"],
+      ["Popular calibers", ".350 Legend, .450 Bushmaster, .44 Mag, .45-70"],
+    ],
+    note: "Ohio's rule is the simplest in the region \u2014 no geographic zones, one caliber window statewide.",
+  },
+  {
+    key: "michigan-north",
+    tag: "Zoned \u2014 Northern Zone",
+    tagClass: "tag-zoned",
+    name: "Michigan",
+    zone: "Upper Peninsula + northern Lower Peninsula",
+    specs: [
+      ["Legal rifles", "Any centerfire rifle, including bottleneck cartridges"],
+      ["Restriction type", "None \u2014 traditional open rifle country"],
+      ["Applies to", "U.P. and the northern half of the Lower Peninsula"],
+    ],
+    note: "This is the \u201ceasy\u201d half of Michigan \u2014 the straight-wall rule only kicks in once you cross into the southern Lower Peninsula.",
+  },
+  {
+    key: "michigan-south",
+    tag: "Zoned \u2014 Limited Firearm Zone",
+    tagClass: "tag-zoned",
+    name: "Michigan",
+    zone: "Southern Lower Peninsula (\u201cZone 3\u201d)",
+    specs: [
+      ["Legal rifle calibers", ".35 caliber or larger, straight-wall only"],
+      ["Case length window", "1.16\u2033 minimum \u2013 1.80\u2033 maximum"],
+      ["Bottleneck rifles", "Not legal in this zone"],
+      ["Popular calibers", ".350 Legend, .450 Bushmaster, .44 Mag"],
+    ],
+    note: "Watch this one \u2014 Michigan revised its geographic rifle line for 2026, but the Limited Firearm Zone cartridge rules still apply within it. Confirm current wording in the Michigan Deer Digest before publishing specifics.",
+  },
+  {
+    key: "indiana",
+    tag: "Statewide",
+    tagClass: "tag-statewide",
+    name: "Indiana",
+    zone: "One rule applies everywhere in the state",
+    specs: [
+      ["Legal rifles", "Any centerfire rifle, 5.56mm (.223\u2033) bullet diameter or larger"],
+      ["Straight-wall requirement", "Removed \u2014 no longer required"],
+      ["Full metal jacket", "Not legal for deer"],
+      ["Ammo carry limit", "10 rounds while hunting deer"],
+    ],
+    note: "Heads up: Indiana expanded past straight-wall-only in 2025. It now allows most centerfire rifles, so it no longer fits the \u201cSWC-restricted\u201d framing the way Ohio, Michigan, and Iowa do.",
+  },
+  {
+    key: "iowa",
+    tag: "Statewide, season-limited",
+    tagClass: "tag-season",
+    name: "Iowa",
+    zone: "Same rule everywhere \u2014 restricted by calendar, not location",
+    specs: [
+      ["Legal bullet diameter", ".350\u2033 to .500\u2033, straight-wall or necked-down"],
+      ["Minimum muzzle energy", "500 ft-lbs"],
+      ["When it's legal", "Youth/disabled season + 1st & 2nd shotgun seasons only"],
+      ["Not legal during", "Archery-only or muzzleloader-only seasons"],
+      ["Popular calibers", ".350 Legend, .450 Bushmaster, .45-70, .44 Mag"],
+    ],
+    note: "Iowa's twist: the caliber window is identical statewide, but it's only legal during specific season windows \u2014 useful nuance for a scheduling-focused CTA.",
+  },
+];
 ---
 
 <div class="zone-map" class:list={{ 'zone-map--compact': compact }}>
@@ -47,7 +121,7 @@ const { compact = false } = Astro.props as Props;
           <text x="392" y="416" class="zone-sub">statewide</text>
 
           <!-- OHIO -->
-          <polygon id="ohio" class="state" data-state="ohio" fill="#4F7A5B"
+          <polygon id="ohio" class="state active" data-state="ohio" fill="#4F7A5B"
             points="480,330 590,320 605,400 570,460 500,470 480,400"/>
           <text x="510" y="390" class="state-label">Ohio</text>
           <text x="500" y="406" class="zone-sub">statewide</text>
@@ -62,7 +136,17 @@ const { compact = false } = Astro.props as Props;
       </div>
 
       <div class="panel" id={`panel-${compact ? 'inline' : 'full'}`}>
-        <p class="placeholder">Tap <b>Ohio</b>, <b>Michigan</b>, <b>Indiana</b>, or <b>Iowa</b> on the map to see legal calibers, case-length limits, and where the rule applies.</p>
+        {states.map((s, i) => (
+          <div class="panel-content" data-panel-for={s.key} hidden={i !== 0}>
+            <span class={`panel-tag ${s.tagClass}`}>{s.tag}</span>
+            <h3>{s.name}</h3>
+            <p class="zone-name">{s.zone}</p>
+            {s.specs.map(([label, val]) => (
+              <div class="spec-row"><span class="spec-label">{label}</span><span class="spec-val">{val}</span></div>
+            ))}
+            <p class="panel-note">{s.note}</p>
+          </div>
+        ))}
       </div>
     </div>
 
@@ -71,7 +155,7 @@ const { compact = false } = Astro.props as Props;
     )}
 
     {compact && (
-      <a class="btn btn-primary full-map-link" href="/zone-map">Open the Full Zone Map &rarr;</a>
+      <a class="btn btn-primary full-map-link" href="/zone-map/">Open the Full Zone Map &rarr;</a>
     )}
   </div>
 </div>
@@ -135,6 +219,8 @@ const { compact = false } = Astro.props as Props;
     background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
     padding: 22px; min-height: 340px; display: flex; flex-direction: column;
   }
+  .zone-map .panel-content { display: none; flex-direction: column; height: 100%; }
+  .zone-map .panel-content:not([hidden]) { display: flex; }
   .zone-map .panel-tag {
     font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em;
     text-transform: uppercase; padding: 4px 9px; border-radius: 2px;
@@ -151,73 +237,12 @@ const { compact = false } = Astro.props as Props;
   .zone-map .spec-val { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-align: right; color: var(--text); }
   .zone-map .panel-note { margin-top: auto; padding-top: 14px; font-size: 12px; line-height: 1.5; color: var(--text-dim); border-top: 1px solid var(--line); }
   .zone-map .panel-note strong { color: var(--orange); }
-  .zone-map .placeholder { color: var(--text-dim); font-size: 14px; line-height: 1.6; margin: auto 0; }
-  .zone-map .placeholder b { color: var(--text); }
   .zone-map .footer-note { margin-top: 20px; font-size: 12px; color: var(--text-dim); display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
   .zone-map .footer-note .dot { color: var(--orange); flex: none; }
   .zone-map .full-map-link { margin-top: 20px; }
 </style>
 
 <script is:inline define:vars={{ compact }}>
-  const data = {
-    ohio: {
-      tag: "Statewide", tagClass: "tag-statewide",
-      name: "Ohio", zone: "One rule applies everywhere in the state",
-      specs: [
-        ["Legal rifle calibers", ".357 to .50 caliber, straight-wall only"],
-        ["Bottleneck rifles", "Not legal for deer, any season"],
-        ["Also legal", "Shotguns (slugs), muzzleloaders, handguns \u2265.357"],
-        ["Magazine limit", "3 rounds total, chamber + magazine"],
-        ["Popular calibers", ".350 Legend, .450 Bushmaster, .44 Mag, .45-70"]
-      ],
-      note: "Ohio's rule is the simplest in the region \u2014 no geographic zones, one caliber window statewide."
-    },
-    "michigan-north": {
-      tag: "Zoned \u2014 Northern Zone", tagClass: "tag-zoned",
-      name: "Michigan", zone: "Upper Peninsula + northern Lower Peninsula",
-      specs: [
-        ["Legal rifles", "Any centerfire rifle, including bottleneck cartridges"],
-        ["Restriction type", "None \u2014 traditional open rifle country"],
-        ["Applies to", "U.P. and the northern half of the Lower Peninsula"]
-      ],
-      note: "This is the \u201ceasy\u201d half of Michigan \u2014 the straight-wall rule only kicks in once you cross into the southern Lower Peninsula."
-    },
-    "michigan-south": {
-      tag: "Zoned \u2014 Limited Firearm Zone", tagClass: "tag-zoned",
-      name: "Michigan", zone: "Southern Lower Peninsula (\u201cZone 3\u201d)",
-      specs: [
-        ["Legal rifle calibers", ".35 caliber or larger, straight-wall only"],
-        ["Case length window", "1.16\u2033 minimum \u2013 1.80\u2033 maximum"],
-        ["Bottleneck rifles", "Not legal in this zone"],
-        ["Popular calibers", ".350 Legend, .450 Bushmaster, .44 Mag"]
-      ],
-      note: "Watch this one \u2014 Michigan revised its geographic rifle line for 2026, but the Limited Firearm Zone cartridge rules still apply within it. Confirm current wording in the Michigan Deer Digest before publishing specifics."
-    },
-    indiana: {
-      tag: "Statewide", tagClass: "tag-statewide",
-      name: "Indiana", zone: "One rule applies everywhere in the state",
-      specs: [
-        ["Legal rifles", "Any centerfire rifle, 5.56mm (.223\u2033) bullet diameter or larger"],
-        ["Straight-wall requirement", "Removed \u2014 no longer required"],
-        ["Full metal jacket", "Not legal for deer"],
-        ["Ammo carry limit", "10 rounds while hunting deer"]
-      ],
-      note: "Heads up: Indiana expanded past straight-wall-only in 2025. It now allows most centerfire rifles, so it no longer fits the \u201cSWC-restricted\u201d framing the way Ohio, Michigan, and Iowa do."
-    },
-    iowa: {
-      tag: "Statewide, season-limited", tagClass: "tag-season",
-      name: "Iowa", zone: "Same rule everywhere \u2014 restricted by calendar, not location",
-      specs: [
-        ["Legal bullet diameter", ".350\u2033 to .500\u2033, straight-wall or necked-down"],
-        ["Minimum muzzle energy", "500 ft-lbs"],
-        ["When it's legal", "Youth/disabled season + 1st & 2nd shotgun seasons only"],
-        ["Not legal during", "Archery-only or muzzleloader-only seasons"],
-        ["Popular calibers", ".350 Legend, .450 Bushmaster, .45-70, .44 Mag"]
-      ],
-      note: "Iowa's twist: the caliber window is identical statewide, but it's only legal during specific season windows \u2014 useful nuance for a scheduling-focused CTA."
-    }
-  };
-
   const panelId = compact ? 'panel-inline' : 'panel-full';
   const root = document.getElementById(panelId)?.closest('.zone-map');
   if (root) {
@@ -225,16 +250,12 @@ const { compact = false } = Astro.props as Props;
       el.addEventListener('click', () => {
         root.querySelectorAll('.state').forEach((s) => s.classList.remove('active'));
         root.querySelectorAll(`[data-state="${el.dataset.state}"]`).forEach((s) => s.classList.add('active'));
-        const d = data[el.dataset.state];
+
         const panel = document.getElementById(panelId);
-        if (panel && d) {
-          panel.innerHTML = `
-            <span class="panel-tag ${d.tagClass}">${d.tag}</span>
-            <h3>${d.name}</h3>
-            <p class="zone-name">${d.zone}</p>
-            ${d.specs.map((s) => `<div class="spec-row"><span class="spec-label">${s[0]}</span><span class="spec-val">${s[1]}</span></div>`).join('')}
-            <p class="panel-note">${d.note}</p>
-          `;
+        if (panel) {
+          panel.querySelectorAll('.panel-content').forEach((p) => {
+            p.hidden = p.dataset.panelFor !== el.dataset.state;
+          });
         }
       });
     });

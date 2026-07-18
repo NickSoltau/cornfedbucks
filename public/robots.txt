@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cornfedbucks.com/sitemap-index.xml
