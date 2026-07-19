@@ -1,0 +1,110 @@
+---
+---
+<div class="reticle-tree">
+  <div class="wrap">
+    <p class="eyebrow">CornfedBucks &middot; Decision Framework</p>
+    <h2>Duplex or BDC?</h2>
+    <p class="sub">Two questions. Answer them honestly about your ground, not your ideal hunt.</p>
+
+    <div class="tree-card">
+      <svg viewBox="0 0 700 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decision tree for choosing a duplex or BDC reticle based on shot distance and willingness to range targets">
+
+        <rect x="180" y="20" width="340" height="66" rx="4" class="node node-recoil"/>
+        <text x="350" y="48" class="node-title">Longest shot on your</text>
+        <text x="350" y="66" class="node-title">ag ground?</text>
+
+        <rect x="40" y="140" width="220" height="54" rx="4" class="node node-platform"/>
+        <text x="150" y="172" class="node-title">Under 125 yards</text>
+
+        <rect x="440" y="140" width="220" height="54" rx="4" class="node node-platform"/>
+        <text x="550" y="172" class="node-title">125&ndash;250 yards</text>
+
+        <rect x="40" y="230" width="220" height="66" rx="4" class="node node-outcome"/>
+        <text x="150" y="258" class="node-title node-title--outcome">Standard Duplex</text>
+        <text x="150" y="278" class="node-sub">no ranging needed</text>
+
+        <rect x="410" y="230" width="260" height="66" rx="4" class="node node-platform"/>
+        <text x="540" y="252" class="node-title">Willing to range every</text>
+        <text x="540" y="270" class="node-title">shot &amp; pattern-test?</text>
+
+        <rect x="255" y="330" width="210" height="66" rx="4" class="node node-outcome"/>
+        <text x="360" y="358" class="node-title node-title--outcome">150-Yd Zero Duplex</text>
+        <text x="360" y="378" class="node-sub">aim center 0&ndash;165 yds</text>
+
+        <rect x="480" y="330" width="200" height="66" rx="4" class="node node-outcome"/>
+        <text x="580" y="358" class="node-title node-title--outcome">BDC / Dial Turret</text>
+        <text x="580" y="378" class="node-sub">match to your cartridge</text>
+
+        <path class="link" d="M300,86 C260,110 200,120 150,140"/>
+        <path class="link" d="M400,86 C450,110 510,120 550,140"/>
+        <path class="link" d="M150,194 C150,210 150,215 150,230"/>
+        <path class="link" d="M550,194 C545,210 542,215 540,230"/>
+        <path class="link" d="M480,296 C440,310 400,315 360,330"/>
+        <path class="link" d="M600,296 C595,310 590,315 580,330"/>
+
+      </svg>
+    </div>
+
+    <p class="footer-note"><span class="dot">&#9679;</span> Rule of thumb, not gospel &mdash; pattern your actual rifle and load before trusting any reticle past 100 yards.</p>
+  </div>
+</div>
+
+<style>
+  .reticle-tree {
+    --bg: #1B211C;
+    --panel: #232B24;
+    --line: #3C463D;
+    --orange: #FF6A1A;
+    --gold: #C9A25E;
+    --text: #EFEAE0;
+    --text-dim: #A8B0A2;
+
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    padding: 36px 24px 44px;
+    border-radius: 6px;
+    margin: 2rem 0;
+  }
+  .reticle-tree .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--orange); margin: 0 0 10px;
+  }
+  .reticle-tree h2 {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    font-size: clamp(24px, 4vw, 34px); letter-spacing: .01em;
+    margin: 0 0 10px; color: var(--text); text-transform: uppercase;
+  }
+  .reticle-tree .sub { color: var(--text-dim); font-size: 15px; max-width: 640px; line-height: 1.55; margin: 0 0 24px; }
+
+  .reticle-tree .tree-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+    padding: 18px; position: relative; overflow-x: auto;
+  }
+  .reticle-tree .tree-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--orange), transparent 60%);
+  }
+  .reticle-tree svg { width: 100%; height: auto; display: block; min-width: 560px; }
+
+  .reticle-tree .node { stroke: var(--line); stroke-width: 1.5; }
+  .reticle-tree .node-recoil { fill: rgba(110,134,199,.16); stroke: #6E86C7; }
+  .reticle-tree .node-platform { fill: rgba(201,162,94,.16); stroke: var(--gold); }
+  .reticle-tree .node-outcome { fill: rgba(255,106,26,.14); stroke: var(--orange); }
+
+  .reticle-tree .node-title {
+    font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px;
+    fill: var(--text); text-anchor: middle;
+  }
+  .reticle-tree .node-title--outcome { fill: var(--orange); }
+  .reticle-tree .node-sub {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    fill: var(--text-dim); text-anchor: middle;
+  }
+
+  .reticle-tree .link { fill: none; stroke: var(--line); stroke-width: 1.5; }
+
+  .reticle-tree .footer-note { margin-top: 20px; font-size: 12px; color: var(--text-dim); display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+  .reticle-tree .footer-note .dot { color: var(--orange); flex: none; }
+</style>
