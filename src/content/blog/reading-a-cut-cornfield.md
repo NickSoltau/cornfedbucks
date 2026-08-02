@@ -3,7 +3,7 @@ title: "Reading a Cut Cornfield Like a Scouting Report"
 description: "Why the week a field gets combined matters more than the rut calendar, and how to use it."
 pubDate: 2026-07-01
 fieldNote: "FIELD NOTE NO. 001"
-tags: ["scouting", "ag land", "food plots"]
+tags: ["tactics-scouting", "land-management"]
 ---
 
 <figure class="field-note-hero">

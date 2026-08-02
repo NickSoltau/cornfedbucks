@@ -3,7 +3,7 @@ title: "Food Plots Are Optional. Sanctuary Acres Aren't."
 description: "If you've only got a few acres to set aside on leased ground, here's where that should go."
 pubDate: 2026-07-05
 fieldNote: "FIELD NOTE NO. 003"
-tags: ["food plots", "land management"]
+tags: ["land-management"]
 ---
 
 Every land management article starts with seed blends. None of them start with the part that actually moves the needle on small Midwest parcels: a sanctuary acre you never walk into.
