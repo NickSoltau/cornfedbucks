@@ -30,6 +30,8 @@ Look for:
 
 Because the cover is thin, your margin for a blown wind is smaller too. A deer bedded forty yards off a fence line in a big timber tract might not bust you. A deer bedded fifteen yards off a fence line with row crop on both sides absolutely will. Pick the entry route that keeps your scent in the open field, not in the cover, for as much of the walk as possible.
 
+Drainage ditches with brush on the bank work the same edge logic, and on a lot of properties they run long enough to hunt as a full travel corridor instead of just a crossing — see [Drainage Ditches as Travel Corridors](/blog/drainage-ditches-as-travel-corridors).
+
 ---
 
 Until next time.
