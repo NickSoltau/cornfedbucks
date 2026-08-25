@@ -30,6 +30,8 @@ That shift is predictable enough to hunt before the deer have settled into a new
 
 This is the kind of thing a satellite map from last winter can't tell you. You have to be watching the calendar and the gravel road at the same time.
 
+On corn-belt ground with a dairy or feedlot nearby, you often get this scouting checkpoint twice in one fall instead of once — silage corn comes down early, grain corn comes down weeks later, and each cut resets deer movement on its own schedule. See [Ohio's Two-Stage Corn Harvest](/blog/ohio-two-stage-corn-harvest-deer-hunting) for how to use both cuts instead of just the one.
+
 ---
 
 Until next time.
