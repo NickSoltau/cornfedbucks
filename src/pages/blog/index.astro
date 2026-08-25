@@ -5,12 +5,62 @@ import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { getCollection } from 'astro:content';
 
 const fieldNoteNum = (fn: string) => parseInt(fn.replace(/\D/g, ''), 10) || 0;
+const isSpecialReport = (fn: string) => fn.toUpperCase().startsWith('SPECIAL REPORT');
 
 const posts = (await getCollection('blog'))
   .sort((a, b) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf() ||
     fieldNoteNum(b.data.fieldNote) - fieldNoteNum(a.data.fieldNote)
   );
+
+// --- Topic taxonomy for the filter dropdown ---
+// Tags are grouped so the <select> stays readable as the tag list grows.
+// Anything not in these lists still gets indexed/filterable — it just falls
+// back into "Topic" so a future tag never silently disappears from the filter.
+const TOPIC_LABELS: Record<string, string> = {
+  'tactics-scouting': 'Tactics & Scouting',
+  'cartridges-ammo': 'Cartridges & Ammo',
+  'buying-guide': 'Buying Guides',
+  'optics-gear': 'Optics & Gear',
+  'land-management': 'Land Management',
+  'regulations-law': 'Regulations & Law',
+  'shotguns': 'Shotguns',
+  'youth': 'Youth',
+  'deer-biology': 'Deer Biology',
+  'bowhunting': 'Bowhunting',
+};
+const CARTRIDGE_LABELS: Record<string, string> = {
+  '350-legend': '.350 Legend',
+  '400-legend': '.400 Legend',
+  '450-bushmaster': '.450 Bushmaster',
+  '360-buckhammer': '.360 Buckhammer',
+  '45-70': '.45-70',
+  'slugs': 'Slugs',
+  'muzzleloader': 'Muzzleloader',
+};
+const STATE_TAGS = new Set([
+  'ohio', 'michigan', 'indiana', 'iowa', 'illinois', 'wisconsin', 'minnesota',
+  'pennsylvania', 'arkansas', 'west-virginia', 'tennessee', 'maryland', 'delaware',
+]);
+
+const stateLabel = (tag: string) =>
+  tag.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
+
+const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags)));
+
+const topicGroup = allTags.filter((t) => TOPIC_LABELS[t] || (!CARTRIDGE_LABELS[t] && !STATE_TAGS.has(t)));
+const cartridgeGroup = allTags.filter((t) => CARTRIDGE_LABELS[t]);
+const stateGroup = allTags.filter((t) => STATE_TAGS.has(t));
+
+const labelFor = (t: string) => TOPIC_LABELS[t] || CARTRIDGE_LABELS[t] || (STATE_TAGS.has(t) ? stateLabel(t) : stateLabel(t));
+
+const sortGroup = (a: string, b: string) => labelFor(a).localeCompare(labelFor(b));
+topicGroup.sort(sortGroup);
+cartridgeGroup.sort(sortGroup);
+stateGroup.sort(sortGroup);
+
+const fieldNoteCount = posts.filter((p) => !isSpecialReport(p.data.fieldNote)).length;
+const specialReportCount = posts.filter((p) => isSpecialReport(p.data.fieldNote)).length;
 ---
 <Layout title="Field Notes" description="All field reports and ground-level whitetail strategy from Cornfed Bucks.">
   <section class="blog-index">
@@ -18,29 +68,326 @@ const posts = (await getCollection('blog'))
       <p class="eyebrow">The log</p>
       <h1>Field Notes</h1>
       <p class="blog-index__sub">Every report, oldest field-craft to newest, all in one place.</p>
-      <div class="blog-index__grid">
-        {posts.map((post) => (
-          <ArticleCard
-            slug={post.id}
-            title={post.data.title}
-            description={post.data.description}
-            fieldNote={post.data.fieldNote}
-            pubDate={post.data.pubDate}
-          />
-        ))}
+
+      <div class="blog-toolbar">
+        <div class="blog-toolbar__group" role="group" aria-label="Filter by type">
+          <button type="button" class="chip is-active" data-type-filter="all">All ({posts.length})</button>
+          <button type="button" class="chip" data-type-filter="field-note">Field Notes ({fieldNoteCount})</button>
+          <button type="button" class="chip" data-type-filter="special-report">Special Reports ({specialReportCount})</button>
+        </div>
+        <div class="blog-toolbar__group">
+          <label for="topic-filter" class="visually-hidden">Filter by topic</label>
+          <select id="topic-filter">
+            <option value="all">All Topics</option>
+            <optgroup label="Topic">
+              {topicGroup.map((t) => <option value={t}>{labelFor(t)}</option>)}
+            </optgroup>
+            {cartridgeGroup.length > 0 && (
+              <optgroup label="Cartridge / Platform">
+                {cartridgeGroup.map((t) => <option value={t}>{labelFor(t)}</option>)}
+              </optgroup>
+            )}
+            {stateGroup.length > 0 && (
+              <optgroup label="State / Region">
+                {stateGroup.map((t) => <option value={t}>{labelFor(t)}</option>)}
+              </optgroup>
+            )}
+          </select>
+        </div>
+        <div class="blog-toolbar__group blog-toolbar__group--sort">
+          <button type="button" id="sort-toggle" class="sort-toggle" data-sort="newest">
+            Sort: Newest First
+          </button>
+        </div>
       </div>
+
+      <p class="blog-index__count" id="results-count" aria-live="polite"></p>
+
+      <ul class="blog-index__grid" id="posts-grid">
+        {posts.map((post) => (
+          <li
+            class="card-item"
+            data-type={isSpecialReport(post.data.fieldNote) ? 'special-report' : 'field-note'}
+            data-tags={post.data.tags.join(',')}
+            data-ts={post.data.pubDate.getTime()}
+          >
+            <ArticleCard
+              slug={post.id}
+              title={post.data.title}
+              description={post.data.description}
+              fieldNote={post.data.fieldNote}
+              pubDate={post.data.pubDate}
+            />
+          </li>
+        ))}
+      </ul>
+
+      <p class="blog-index__empty" id="empty-state" hidden>No field notes match those filters yet — try clearing one.</p>
+
+      <nav class="blog-pagination" id="pagination" aria-label="Field notes pagination"></nav>
     </div>
   </section>
   <NewsletterSignup />
 </Layout>
 
+<script>
+  const PAGE_SIZE = 12;
+  const state = { type: 'all', topic: 'all', sort: 'newest', page: 1 };
+
+  const grid = document.getElementById('posts-grid') as HTMLUListElement;
+  const items = Array.from(grid.querySelectorAll<HTMLLIElement>('.card-item'));
+  const countEl = document.getElementById('results-count') as HTMLParagraphElement;
+  const emptyEl = document.getElementById('empty-state') as HTMLParagraphElement;
+  const paginationEl = document.getElementById('pagination') as HTMLElement;
+  const topicSelect = document.getElementById('topic-filter') as HTMLSelectElement;
+  const sortToggle = document.getElementById('sort-toggle') as HTMLButtonElement;
+  const typeButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-type-filter]'));
+
+  function matches(item: HTMLLIElement): boolean {
+    const type = item.dataset.type;
+    const tags = (item.dataset.tags || '').split(',');
+    if (state.type !== 'all' && type !== state.type) return false;
+    if (state.topic !== 'all' && !tags.includes(state.topic)) return false;
+    return true;
+  }
+
+  function sortItems(list: HTMLLIElement[]): HTMLLIElement[] {
+    return list.slice().sort((a, b) => {
+      const ta = Number(a.dataset.ts);
+      const tb = Number(b.dataset.ts);
+      return state.sort === 'newest' ? tb - ta : ta - tb;
+    });
+  }
+
+  function getPageRange(current: number, total: number): (number | '...')[] {
+    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+    const keep = new Set([1, total, current, current - 1, current + 1]);
+    const sorted = Array.from(keep).filter((p) => p >= 1 && p <= total).sort((a, b) => a - b);
+    const out: (number | '...')[] = [];
+    let prev = 0;
+    for (const p of sorted) {
+      if (prev && p - prev > 1) out.push('...');
+      out.push(p);
+      prev = p;
+    }
+    return out;
+  }
+
+  function renderPagination(totalPages: number) {
+    paginationEl.innerHTML = '';
+    if (totalPages <= 1) return;
+
+    const makeBtn = (label: string, page: number, opts: { current?: boolean; disabled?: boolean } = {}) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = label;
+      btn.className = 'page-btn' + (opts.current ? ' is-active' : '');
+      if (opts.current) btn.setAttribute('aria-current', 'page');
+      if (opts.disabled) btn.disabled = true;
+      btn.addEventListener('click', () => {
+        state.page = page;
+        render();
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      return btn;
+    };
+
+    paginationEl.appendChild(makeBtn('Prev', state.page - 1, { disabled: state.page === 1 }));
+    for (const p of getPageRange(state.page, totalPages)) {
+      if (p === '...') {
+        const span = document.createElement('span');
+        span.textContent = '…';
+        span.className = 'page-ellipsis';
+        paginationEl.appendChild(span);
+      } else {
+        paginationEl.appendChild(makeBtn(String(p), p, { current: p === state.page }));
+      }
+    }
+    paginationEl.appendChild(makeBtn('Next', state.page + 1, { disabled: state.page === totalPages }));
+  }
+
+  function render() {
+    const filtered = sortItems(items.filter(matches));
+    const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+    if (state.page > totalPages) state.page = totalPages;
+
+    const start = (state.page - 1) * PAGE_SIZE;
+    const pageItems = filtered.slice(start, start + PAGE_SIZE);
+    const pageSet = new Set(pageItems);
+
+    items.forEach((item) => {
+      item.hidden = !pageSet.has(item);
+    });
+    pageItems.forEach((item) => grid.appendChild(item));
+
+    emptyEl.hidden = filtered.length !== 0;
+    grid.style.display = filtered.length ? '' : 'none';
+
+    countEl.textContent = filtered.length
+      ? `Showing ${start + 1}–${Math.min(start + PAGE_SIZE, filtered.length)} of ${filtered.length} field notes`
+      : '';
+
+    renderPagination(totalPages);
+  }
+
+  typeButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      typeButtons.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      state.type = btn.dataset.typeFilter || 'all';
+      state.page = 1;
+      render();
+    });
+  });
+
+  topicSelect.addEventListener('change', () => {
+    state.topic = topicSelect.value;
+    state.page = 1;
+    render();
+  });
+
+  sortToggle.addEventListener('click', () => {
+    state.sort = state.sort === 'newest' ? 'oldest' : 'newest';
+    sortToggle.textContent = state.sort === 'newest' ? 'Sort: Newest First' : 'Sort: Oldest First';
+    sortToggle.dataset.sort = state.sort;
+    state.page = 1;
+    render();
+  });
+
+  render();
+</script>
+
 <style>
   .blog-index { padding: 3.5rem 0 4.5rem; }
   .blog-index h1 { font-size: clamp(2rem, 4vw, 2.6rem); }
-  .blog-index__sub { opacity: 0.75; margin: 0 0 2.5rem; }
+  .blog-index__sub { opacity: 0.75; margin: 0 0 2rem; }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .blog-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    margin: 0 0 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px solid var(--stalk);
+  }
+  .blog-toolbar__group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .blog-toolbar__group--sort { margin-left: auto; }
+
+  .chip {
+    font-family: var(--font-tag);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    background: var(--frost);
+    color: var(--ink);
+    border: 2px solid var(--stalk);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+  .chip:hover { border-color: var(--blaze); }
+  .chip.is-active {
+    background: var(--dusk);
+    border-color: var(--dusk);
+    color: var(--frost);
+  }
+
+  #topic-filter {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--ink);
+    background: var(--frost);
+    border: 2px solid var(--stalk);
+    border-radius: 3px;
+    padding: 0.5rem 0.7rem;
+    cursor: pointer;
+  }
+
+  .sort-toggle {
+    font-family: var(--font-tag);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    background: transparent;
+    color: var(--ink);
+    border: 2px solid var(--stalk);
+    border-radius: 3px;
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .sort-toggle:hover { border-color: var(--blaze); color: var(--blaze); }
+
+  .blog-index__count {
+    font-family: var(--font-tag);
+    font-size: 0.78rem;
+    opacity: 0.65;
+    margin: 0 0 1.25rem;
+  }
+
   .blog-index__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.5rem;
+  }
+  .card-item { display: block; }
+  .card-item[hidden] { display: none; }
+
+  .blog-index__empty {
+    font-family: var(--font-body);
+    opacity: 0.75;
+    padding: 2.5rem 0;
+    text-align: center;
+  }
+
+  .blog-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 2.5rem;
+  }
+  .page-btn {
+    font-family: var(--font-tag);
+    font-size: 0.78rem;
+    min-width: 2.25rem;
+    background: var(--frost);
+    color: var(--ink);
+    border: 2px solid var(--stalk);
+    border-radius: 3px;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+  .page-btn:hover:not(:disabled) { border-color: var(--blaze); }
+  .page-btn.is-active {
+    background: var(--dusk);
+    border-color: var(--dusk);
+    color: var(--frost);
+  }
+  .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .page-ellipsis {
+    font-family: var(--font-tag);
+    opacity: 0.6;
+    padding: 0 0.2rem;
   }
 </style>
