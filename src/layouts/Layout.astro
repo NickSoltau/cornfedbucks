@@ -18,6 +18,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <title>{title} — Cornfed Bucks</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
+    <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
 
   </head>
   <body>
@@ -44,6 +45,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <p class="site-footer__tag">Ground-level whitetail strategy for row-crop country.</p>
         <p class="site-footer__copy">&copy; {new Date().getFullYear()} Cornfed Bucks. Bryan, Ohio.</p>
         <p class="site-footer__disclosure">Some links on this site are affiliate links, including Amazon Associate links, from which we may earn a commission.</p>
+        <div class="site-footer__preferred">
+          <span class="site-footer__preferred-label">Get more from us in Google Search</span>
+          <div google-add-preferred-source-btn data-theme="dark"></div>
+        </div>
         <p class="site-footer__legal">
           <a href="/privacy-policy">Privacy Policy</a>
           <span aria-hidden="true">&middot;</span>
@@ -123,6 +128,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .site-footer__disclosure a {
         color: inherit;
         text-decoration: underline;
+      }
+      .site-footer__preferred {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+      }
+      .site-footer__preferred-label {
+        font-family: var(--font-tag);
+        font-size: 0.74rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--husk);
+        opacity: 0.85;
       }
       .site-footer__legal {
         font-size: 0.78rem;
