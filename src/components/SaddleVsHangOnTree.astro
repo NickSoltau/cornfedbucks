@@ -1,0 +1,121 @@
+---
+// Static decision-tree diagram: tree rotation habit -> method/tree-quality -> setup outcome.
+// Visual language matches DecisionTree.astro / ReticleDecisionTree.astro (dark card, orange top accent, mono/Oswald type).
+---
+
+<div class="saddle-tree">
+  <div class="wrap">
+    <p class="eyebrow">CornfedBucks &middot; Decision Framework</p>
+    <h2>Saddle or Hang-On?</h2>
+    <p class="sub">No product picks here, no affiliate link either direction &mdash; just two honest questions about your ground.</p>
+
+    <div class="tree-card">
+      <svg viewBox="0 0 1000 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decision tree for choosing a saddle or hang-on stand based on how many trees you hunt and tree quality">
+
+        <rect x="310" y="20" width="380" height="66" rx="4" class="node node-recoil"/>
+        <text x="500" y="48" class="node-title">Same 1&ndash;2 trees all season,</text>
+        <text x="500" y="66" class="node-title">or rotating across spots?</text>
+
+        <rect x="40" y="140" width="280" height="54" rx="4" class="node node-platform"/>
+        <text x="180" y="172" class="node-title">Same Trees All Season</text>
+
+        <rect x="680" y="140" width="280" height="54" rx="4" class="node node-platform"/>
+        <text x="820" y="172" class="node-title">Rotating Across Spots</text>
+
+        <rect x="40" y="230" width="280" height="54" rx="4" class="node node-platform"/>
+        <text x="180" y="262" class="node-title">Bow, or Straight-Wall Rifle?</text>
+
+        <rect x="680" y="230" width="280" height="54" rx="4" class="node node-platform"/>
+        <text x="820" y="262" class="node-title">Solid, Climbable Tree at Each Spot?</text>
+
+        <rect x="30" y="330" width="150" height="66" rx="4" class="node node-outcome"/>
+        <text x="105" y="358" class="node-title node-title--outcome">Hang-On</text>
+        <text x="105" y="378" class="node-sub">steady seat, long cold sits</text>
+
+        <rect x="200" y="330" width="150" height="66" rx="4" class="node node-outcome"/>
+        <text x="275" y="358" class="node-title node-title--outcome">Hang-On</text>
+        <text x="275" y="378" class="node-sub">steadier rest, better shots</text>
+
+        <rect x="690" y="330" width="150" height="66" rx="4" class="node node-outcome"/>
+        <text x="765" y="358" class="node-title node-title--outcome">Saddle</text>
+        <text x="765" y="378" class="node-sub">mobility earns its keep here</text>
+
+        <rect x="840" y="330" width="150" height="66" rx="4" class="node node-outcome"/>
+        <text x="915" y="358" class="node-title node-title--outcome">Hang-On</text>
+        <text x="915" y="378" class="node-sub">safety beats mobility</text>
+
+        <path class="link" d="M400,86 C320,110 240,120 180,140"/>
+        <path class="link" d="M600,86 C680,110 760,120 820,140"/>
+        <path class="link" d="M180,194 C180,205 180,215 180,230"/>
+        <path class="link" d="M820,194 C820,205 820,215 820,230"/>
+        <path class="link" d="M140,284 C130,300 115,310 105,330"/>
+        <path class="link" d="M220,284 C235,300 255,310 275,330"/>
+        <path class="link" d="M760,284 C755,300 760,310 765,330"/>
+        <path class="link" d="M860,284 C875,300 895,310 915,330"/>
+
+      </svg>
+    </div>
+
+    <p class="footer-note"><span class="dot">&#9679;</span> No affiliate link for a saddle or a hang-on anywhere on this page, so this framework has no reason to nudge you either direction. If your tree count and rotation don't match a saddle's strengths, spending a few hundred dollars on one won't fix a season that was never a mobility problem to begin with.</p>
+  </div>
+</div>
+
+<style>
+  .saddle-tree {
+    --bg: #1B211C;
+    --panel: #232B24;
+    --line: #3C463D;
+    --orange: #FF6A1A;
+    --gold: #C9A25E;
+    --text: #EFEAE0;
+    --text-dim: #A8B0A2;
+
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    padding: 36px 24px 44px;
+    border-radius: 6px;
+    margin: 2rem 0;
+  }
+  .saddle-tree .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--orange); margin: 0 0 10px;
+  }
+  .saddle-tree h2 {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    font-size: clamp(24px, 4vw, 34px); letter-spacing: .01em;
+    margin: 0 0 10px; color: var(--text); text-transform: uppercase;
+  }
+  .saddle-tree .sub { color: var(--text-dim); font-size: 15px; max-width: 640px; line-height: 1.55; margin: 0 0 24px; }
+
+  .saddle-tree .tree-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+    padding: 18px; position: relative; overflow-x: auto;
+  }
+  .saddle-tree .tree-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--orange), transparent 60%);
+  }
+  .saddle-tree svg { width: 100%; height: auto; display: block; min-width: 640px; }
+
+  .saddle-tree .node { stroke: var(--line); stroke-width: 1.5; }
+  .saddle-tree .node-recoil { fill: rgba(110,134,199,.16); stroke: #6E86C7; }
+  .saddle-tree .node-platform { fill: rgba(201,162,94,.16); stroke: var(--gold); }
+  .saddle-tree .node-outcome { fill: rgba(255,106,26,.14); stroke: var(--orange); }
+
+  .saddle-tree .node-title {
+    font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px;
+    fill: var(--text); text-anchor: middle;
+  }
+  .saddle-tree .node-title--outcome { font-size: 15px; fill: var(--orange); }
+  .saddle-tree .node-sub {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    fill: var(--text-dim); text-anchor: middle;
+  }
+
+  .saddle-tree .link { fill: none; stroke: var(--line); stroke-width: 1.5; }
+
+  .saddle-tree .footer-note { margin-top: 20px; font-size: 12px; color: var(--text-dim); display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+  .saddle-tree .footer-note .dot { color: var(--orange); flex: none; }
+</style>
