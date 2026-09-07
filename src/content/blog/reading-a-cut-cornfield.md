@@ -32,6 +32,8 @@ This is the kind of thing a satellite map from last winter can't tell you. You h
 
 On corn-belt ground with a dairy or feedlot nearby, you often get this scouting checkpoint twice in one fall instead of once — silage corn comes down early, grain corn comes down weeks later, and each cut resets deer movement on its own schedule. See [Ohio's Two-Stage Corn Harvest](/blog/ohio-two-stage-corn-harvest-deer-hunting) for how to use both cuts instead of just the one.
 
+Corn and beans don't hunt the same once the combine's through them, either — see [Reading a Cut Soybean Field](/blog/reading-a-cut-soybean-field) for why the food window on beans closes so much faster.
+
 ---
 
 Until next time.
