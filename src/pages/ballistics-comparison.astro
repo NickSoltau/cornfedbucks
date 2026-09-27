@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Ballistics Comparison Tool"
+  description="Compare energy, trajectory, and velocity across straight-wall and shouldered deer cartridges, up to four loads at once — built around the 200-yard wall."
+>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.js" is:inline></script>
+
+  <section class="ballistics">
+    <div class="wrap">
+      <header class="ballistics__header">
+        <p class="eyebrow">Cornfed Bucks — Ballistics Lab</p>
+        <h1>Ballistics Comparison Tool</h1>
+        <p class="ballistics__intro">
+          Pick up to four loads — any mix of straight-wall and shouldered cartridges — and see how
+          they actually fly. Built around the 200-yard wall: most ag-field shots never get past 150.
+        </p>
+        <div class="disclaimer">
+          <b>Heads up:</b> manufacturers don't all measure trajectory the same way — some zero at 100
+          yards, some at 200, and the yardage steps don't line up either. We standardized everything to
+          a 100-yard zero and 50-yard steps, which means some figures here are calculated, not copied
+          straight off the box (marked with a dashed line). A few popular loads don't have any published
+          ballistics from their manufacturer at all, so they're listed but greyed out below rather than
+          faked.
+        </div>
+      </header>
+
+      <div class="layout">
+        <div class="picker">
+          <h2>Select loads</h2>
+          <div class="slot-count" id="slotCount">0 / 4 selected</div>
+          <div id="groups"></div>
+        </div>
+
+        <div id="heroSlot"></div>
+
+        <div class="sidestack" id="sideSlot"></div>
+      </div>
+
+      <footer class="ballistics__footer">
+        Click any small chart on the right to swap it into the main view. Loads/legend are ranked by
+        descending energy at 100&nbsp;yd (highest-hitting load listed first). Data: manufacturer-published
+        ballistics tables, sourced Sept 2026. Dashed segments use a calculated 100-yd-zero trajectory
+        derived from published velocity data (no manufacturer BC available); points past 200&nbsp;yd for
+        those loads are rough estimates, accurate to roughly &plusmn;20&ndash;35% versus a true published
+        figure. Wind drift intentionally excluded — too situational to generalize.
+      </footer>
+    </div>
+  </section>
+
+  <script src="/scripts/ballistics-comparison.js" is:inline></script>
+</Layout>
+
+<style is:global>
+  :root {
+    --ballistics-line-a: var(--blaze);
+    --ballistics-line-b: var(--dusk);
+    --ballistics-line-c: #8a6d3a;
+    --ballistics-line-d: var(--stalk);
+    --ballistics-border: var(--stalk);
+    --ballistics-surface: #ffffff;
+    --ballistics-text: var(--ink);
+    --ballistics-text-dim: var(--stalk);
+  }
+</style>
+
+<style>
+  .ballistics {
+    padding: 3rem 0 4rem;
+  }
+  .ballistics__header { margin-bottom: 1.75rem; }
+  .ballistics__header h1 {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    margin: 0.4rem 0 0.9rem;
+  }
+  .ballistics__intro {
+    color: var(--ink);
+    opacity: 0.85;
+    max-width: 66ch;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .disclaimer {
+    background: #f4e3c8;
+    border: 1px solid var(--husk);
+    border-radius: 6px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-top: 1.1rem;
+  }
+  .disclaimer b { color: var(--blaze); }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr) 320px;
+    gap: 1.1rem;
+    align-items: stretch;
+  }
+  @media (max-width: 1150px) {
+    .layout { grid-template-columns: 240px minmax(0, 1fr); }
+    :global(.sidestack) { grid-column: 1 / -1; }
+  }
+  @media (max-width: 760px) {
+    .layout { grid-template-columns: 1fr; }
+    :global(.sidestack) { grid-column: auto; }
+  }
+
+  :global(.picker) {
+    background: #fff;
+    border: 1px solid var(--stalk);
+    border-radius: 8px;
+    padding: 1rem;
+    position: sticky;
+    top: 1rem;
+    overflow-y: auto;
+  }
+  :global(#heroSlot) { display: flex; flex-direction: column; }
+  :global(#heroSlot .chartcard) { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+  :global(.picker h2) {
+    font-size: 0.82rem;
+    font-family: var(--font-tag);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--stalk);
+    margin: 0 0 0.1rem;
+  }
+  :global(.slot-count) {
+    font-family: var(--font-tag);
+    font-size: 0.75rem;
+    color: var(--blaze);
+    margin-bottom: 0.75rem;
+  }
+  :global(.group) { margin-bottom: 0.4rem; border-bottom: 1px solid var(--husk); }
+  :global(.group summary) {
+    cursor: pointer;
+    padding: 0.6rem 0.25rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-body);
+  }
+  :global(.group summary::-webkit-details-marker) { display: none; }
+  :global(.group summary::after) { content: "+"; color: var(--stalk); font-weight: 400; }
+  :global(.group[open] summary::after) { content: "\2013"; }
+  :global(.group .cat) {
+    font-size: 0.65rem;
+    font-family: var(--font-tag);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--stalk);
+    font-weight: 500;
+  }
+  :global(.loadlist) { padding: 0 0.15rem 0.6rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  :global(.loadrow) {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    border-radius: 5px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    line-height: 1.3;
+  }
+  :global(.loadrow:hover) { background: var(--frost); }
+  :global(.loadrow input) { margin-top: 0.2rem; accent-color: var(--blaze); }
+  :global(.loadrow .name) { color: var(--ink); }
+  :global(.loadrow .meta) { color: var(--stalk); font-size: 0.72rem; }
+  :global(.loadrow.disabled) { opacity: 0.55; cursor: not-allowed; }
+  :global(.loadrow.disabled .name) { text-decoration: line-through; color: var(--stalk); }
+  :global(.loadrow.disabled:hover) { background: none; }
+  :global(.loadrow.maxed:not(.checked)) { opacity: 0.4; cursor: not-allowed; }
+
+  :global(.chartcard) {
+    background: #fff;
+    border: 1px solid var(--stalk);
+    border-radius: 8px;
+    padding: 1.1rem 1.1rem 0.75rem;
+  }
+  :global(.chartcard h3) {
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+  }
+  :global(.chartcard .unit) {
+    font-family: var(--font-tag);
+    font-size: 0.72rem;
+    color: var(--stalk);
+    font-weight: 400;
+  }
+
+  :global(#heroSlot .chart-holder) { flex: 1; min-height: 280px; margin-top: 0.75rem; }
+  :global(#heroSlot h3) { font-size: 1.15rem; }
+
+  :global(.sidestack) { display: flex; flex-direction: column; gap: 0.9rem; }
+  :global(.sidestack .chart-holder) { margin-top: 0.5rem; flex: 1; min-height: 130px; }
+  :global(.sidestack .sidecard) {
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  :global(.sidestack .sidecard:hover) { border-color: var(--blaze); }
+  :global(.sidestack .sidecard:hover .swap-hint) { opacity: 1; }
+  :global(.sidestack .sidecard.pos0) { flex: 1.4; }
+  :global(.sidestack .sidecard.pos0 h3) { font-size: 1.02rem; }
+  :global(.sidestack .sidecard.pos1) { flex: 1; }
+  :global(.sidestack h3) { font-size: 0.85rem; }
+  :global(.sidestack .rank) {
+    font-family: var(--font-tag);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.62rem;
+    color: var(--blaze);
+    font-weight: 600;
+  }
+  :global(.swap-hint) {
+    margin-left: auto;
+    font-size: 0.65rem;
+    color: var(--stalk);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    font-family: var(--font-tag);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  :global(.legend-note) { font-size: 0.72rem; color: var(--stalk); margin-top: 0.6rem; display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  :global(.legend-note span) { display: inline-flex; align-items: center; gap: 0.3rem; }
+  :global(.dash-sample) { display: inline-block; width: 14px; height: 0; border-top: 2px dashed var(--stalk); }
+
+  :global(.empty) {
+    color: var(--stalk);
+    font-size: 0.88rem;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 130px;
+  }
+
+  .ballistics__footer {
+    margin-top: 1.75rem;
+    font-size: 0.74rem;
+    color: var(--stalk);
+    line-height: 1.6;
+    border-top: 1px solid var(--husk);
+    padding-top: 0.9rem;
+  }
+</style>
