@@ -109,6 +109,32 @@ import Layout from '../layouts/Layout.astro';
     :global(.sidestack) { grid-column: auto; }
   }
 
+  /* Below 1150px, #heroSlot/.sidestack no longer get a JS-set pixel height
+     (see syncHeights() in ballistics-comparison.js), so the flex:1 / min-height:0
+     sizing that fills a fixed-height parent on desktop collapses charts to 0px
+     tall. Give chart holders a real fixed height instead. */
+  @media (max-width: 1150px) {
+    :global(#heroSlot .chartcard),
+    :global(.sidestack .sidecard),
+    :global(.sidestack .sidecard.pos0),
+    :global(.sidestack .sidecard.pos1) {
+      flex: none;
+      min-height: auto;
+    }
+    :global(#heroSlot .chart-holder) {
+      flex: none;
+      height: 320px;
+      min-height: 320px;
+    }
+    :global(.sidestack .chart-holder) {
+      flex: none;
+      height: 240px;
+      min-height: 240px;
+    }
+  }
+
+  :global(.chart-holder) { position: relative; }
+
   :global(.picker) {
     background: #fff;
     border: 1px solid var(--stalk);

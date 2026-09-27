@@ -33,22 +33,34 @@ import Layout from '../layouts/Layout.astro';
       </p>
       <div class="books__grid">
         <a class="book-card" href="https://link.amazon/B03KhoZDf" rel="sponsored noopener" target="_blank">
-          <p class="book-card__title">The Perfect Window</p>
-          <p class="book-card__sub">2026&ndash;27 Season &amp; Rut Calendar</p>
-          <p class="book-card__desc">
-            Harvest timing, rut windows, and legal season dates across all 12 Corn Belt states, laid
-            out on one visual overlap chart.
-          </p>
-          <span class="book-card__cta">Get it on Amazon &rarr;</span>
+          <picture class="book-card__cover">
+            <source srcset="/images/perfect-window-cover.webp" type="image/webp" />
+            <img src="/images/perfect-window-cover.jpg" alt="The Perfect Window book cover" width="500" height="647" loading="lazy" />
+          </picture>
+          <div class="book-card__body">
+            <p class="book-card__title">The Perfect Window</p>
+            <p class="book-card__sub">2026&ndash;27 Season &amp; Rut Calendar</p>
+            <p class="book-card__desc">
+              Harvest timing, rut windows, and legal season dates across all 12 Corn Belt states, laid
+              out on one visual overlap chart.
+            </p>
+            <span class="book-card__cta">Get it on Amazon &rarr;</span>
+          </div>
         </a>
         <a class="book-card" href="https://link.amazon/B0epGKYi9" rel="sponsored noopener" target="_blank">
-          <p class="book-card__title">The Effective Window</p>
-          <p class="book-card__sub">Food Plot &amp; Stand Timing Guide</p>
-          <p class="book-card__desc">
-            For small acreage surrounded by corn and soybeans — siting, timing, and stand placement
-            built around the neighboring field's harvest, not against it.
-          </p>
-          <span class="book-card__cta">Get it on Amazon &rarr;</span>
+          <picture class="book-card__cover">
+            <source srcset="/images/effective-window-cover.webp" type="image/webp" />
+            <img src="/images/effective-window-cover.jpg" alt="The Effective Window book cover" width="500" height="647" loading="lazy" />
+          </picture>
+          <div class="book-card__body">
+            <p class="book-card__title">The Effective Window</p>
+            <p class="book-card__sub">Food Plot &amp; Stand Timing Guide</p>
+            <p class="book-card__desc">
+              For small acreage surrounded by corn and soybeans — siting, timing, and stand placement
+              built around the neighboring field's harvest, not against it.
+            </p>
+            <span class="book-card__cta">Get it on Amazon &rarr;</span>
+          </div>
         </a>
       </div>
     </div>
@@ -87,11 +99,12 @@ import Layout from '../layouts/Layout.astro';
     gap: 1.25rem;
   }
   .book-card {
-    display: block;
+    display: flex;
+    gap: 1.25rem;
     background: var(--frost);
     border: 1px solid var(--stalk);
     border-radius: 6px;
-    padding: 1.5rem 1.5rem 1.25rem;
+    padding: 1.25rem;
     text-decoration: none;
     color: var(--ink);
     transition: border-color 0.15s ease, transform 0.15s ease;
@@ -100,6 +113,17 @@ import Layout from '../layouts/Layout.astro';
     border-color: var(--blaze);
     transform: translateY(-2px);
   }
+  .book-card__cover {
+    flex: 0 0 auto;
+    width: 108px;
+  }
+  .book-card__cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 14px rgba(34, 27, 20, 0.25);
+  }
+  .book-card__body { min-width: 0; }
   .book-card__title {
     font-family: var(--font-display);
     font-size: 1.25rem;
@@ -123,5 +147,10 @@ import Layout from '../layouts/Layout.astro';
     font-family: var(--font-tag);
     font-size: 0.8rem;
     color: var(--blaze);
+  }
+
+  @media (max-width: 420px) {
+    .book-card { flex-direction: column; }
+    .book-card__cover { width: 120px; }
   }
 </style>

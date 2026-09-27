@@ -27,7 +27,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <a href="/" class="site-header__brand">
           <picture>
             <source srcset="/images/cornfedbucks-logo.webp" type="image/webp" />
-            <img src="/images/cornfedbucks-logo.png" alt="" width="44" height="44" class="site-header__logo" />
+            <img src="/images/cornfedbucks-logo.png" alt="" width="72" height="72" class="site-header__logo" />
           </picture>
           Cornfed<span>Bucks</span>
         </a>
@@ -50,7 +50,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <div class="wrap site-footer__inner">
         <picture>
           <source srcset="/images/cornfedbucks-logo-sm.webp" type="image/webp" />
-          <img src="/images/cornfedbucks-logo-sm.png" alt="Cornfed Bucks" width="52" height="52" class="site-footer__logo" />
+          <img src="/images/cornfedbucks-logo-sm.png" alt="Cornfed Bucks" width="96" height="96" class="site-footer__logo" />
         </picture>
         <p class="site-footer__brand">Cornfed Bucks</p>
         <p class="site-footer__tag">Ground-level whitetail strategy for row-crop country.</p>
@@ -88,15 +88,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         gap: 0.6rem;
         font-family: var(--font-display);
         font-weight: 600;
-        font-size: 1.25rem;
+        font-size: 1.45rem;
         text-decoration: none;
         color: var(--frost);
       }
       .site-header__brand span { color: var(--husk); }
       .site-header__logo {
-        width: 2.75rem;
-        height: 2.75rem;
+        width: 4.5rem;
+        height: 4.5rem;
         display: block;
+      }
+      @media (max-width: 560px) {
+        .site-header__logo { width: 3.5rem; height: 3.5rem; }
       }
       .site-header__nav {
         display: flex;
@@ -120,8 +123,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
       .site-footer__inner { text-align: center; }
       .site-footer__logo {
-        width: 3.25rem;
-        height: 3.25rem;
+        width: 6rem;
+        height: 6rem;
         margin: 0 auto;
       }
       .site-footer__brand {
