@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SpecTable from '../components/SpecTable.astro';
+import CartridgeCard from '../components/CartridgeCard.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+---
+<Layout
+  title="Ohio Deer Season Dates 2026-27"
+  description="Ohio's 2026-27 deer season dates, license costs, and straight-wall cartridge rules — archery, gun, muzzleloader, and youth season, all in one place."
+>
+  <section class="pillar">
+    <div class="wrap pillar__inner">
+      <p class="eyebrow">Season Dates — Ohio</p>
+      <h1>Ohio Deer Season Dates: 2026-27</h1>
+      <p class="pillar__intro">
+        Everything you need before you buy a tag or head to the field: every 2026-27 Ohio deer
+        season date, what you'll pay for a license, and whether a straight-wall cartridge is
+        actually required — one page, kept current. This isn't a dated field note; we refresh it
+        in place each year when ODNR publishes new dates.
+      </p>
+
+      <SpecTable
+        caption="Ohio Deer Season Dates — 2026-27"
+        compareColumns={["2026-27"]}
+        metricRows={[
+          { label: "Archery", values: ["Sept. 26, 2026 – Feb. 7, 2027"] },
+          { label: "Youth Gun Weekend", values: ["Nov. 21–22, 2026"] },
+          { label: "Firearm / Gun Week", values: ["Nov. 30–Dec. 6, 2026 & Dec. 19–20, 2026"] },
+          { label: "Muzzleloader", values: ["Jan. 2–5, 2027"] },
+          { label: "One-Buck Rule", values: ["Yes — statewide"] },
+        ]}
+        note="Source: Ohio Wildlife Council's 2026-27 season approval and ODNR's official season-dates release. Hunting hours run 30 minutes before sunrise to 30 minutes after sunset statewide."
+      />
+
+      <h2>County Bag Limit Changes for 2026-27</h2>
+      <p>
+        Ohio's structure is otherwise unchanged from 2025-26, but three counties moved this year
+        for disease reasons: <strong>Athens, Meigs, and Washington</strong> counties — hit by an
+        EHD outbreak in 2025 — are capped at two deer per hunter (no more than one antlerless),
+        while <strong>Defiance, Paulding, and Warren</strong> counties were bumped up to three.
+        Ohio's CWD surveillance area also carries its own expanded season structure, with a
+        six-deer bag limit and added early-season hunting opportunities in September and October — see
+        our <a href="/blog/chronic-wasting-disease-explained/">plain-language CWD explainer</a> if you're
+        hunting inside one of those zones.
+      </p>
+
+      <h2>Can You Hunt With a Straight-Wall Cartridge in Ohio?</h2>
+      <p>
+        Yes — and in Ohio, unlike most of its neighbors, it's still required. Ohio hasn't budged
+        on its straight-wall mandate since 2014, even as Indiana, Iowa, and Michigan all dropped
+        theirs in the last two seasons.
+      </p>
+      <CartridgeCard
+        name="Ohio"
+        url="https://ohiodnr.gov/buy-and-apply/hunting-fishing-boating/hunting-resources/hunting-regulations"
+        linkRel="noopener"
+        description="Straight-wall cartridge required during deer-gun week and the youth/gun weekend. Max 3 rounds in chamber plus magazine combined."
+        stats={[
+          { label: "Case Shape", value: "Required" },
+          { label: "Min Caliber", value: ".357–.50" },
+        ]}
+      />
+      <p>
+        Bowhunting during archery season and muzzleloader season don't carry the straight-wall
+        requirement — it applies specifically to the gun seasons above. Running a breech-loaded
+        muzzleloader like a FireStick or NitroFire instead? Ohio allows those too — see our <a href="/blog/firestick-nitrofire-muzzleloader-legality-2026/">FireStick &amp; NitroFire legality guide</a> for the
+        full state-by-state picture, and our <a href="/blog/straight-wall-cartridge-state-regulations/">straight-wall cartridge regulations guide</a> for how Ohio
+        compares to the other six states in this region.
+      </p>
+
+      <h2>Ohio Deer License Costs, 2026-27</h2>
+      <p>
+        A resident hunting license runs $19, plus a $31.20 either-sex deer permit (about $50
+        total) or a $15 deer management permit if you're only after antlerless deer. Youth 17 and
+        under pay $10 for the license and $16 for either deer permit. Nonresidents pay $180.96 for
+        the hunting license and $218.40 for the either-sex permit — about $399 total. No draw or
+        lottery — buy online at <a href="https://wildohio.gov" rel="noopener" target="_blank">wildohio.gov</a> any
+        time before you hunt. Ohio's license year runs March 1 through the end of February, and
+        hunter education is required for anyone born on or after Jan. 1, 1938 — functionally,
+        everyone.
+      </p>
+      <p>
+        For the full seven-state cost and lottery breakdown — including how Ohio stacks up against
+        Michigan, Indiana, Iowa, Illinois, Minnesota, and Wisconsin — see our <a href="/blog/deer-hunting-license-guide-seven-state/">Deer Hunting License Guide: 7-State Corn Belt Edition</a>.
+      </p>
+
+      <h2>Plan Your Whole Ohio Season</h2>
+      <p>
+        If you're timing stand sits around Ohio's two-stage corn harvest, or weighing a food plot
+        against a mineral site on leased ground, those decisions run on the same calendar as the
+        dates above:
+      </p>
+      <ul class="pillar__crosslinks">
+        <li><a href="/blog/ohio-two-stage-corn-harvest-deer-hunting/">Ohio Corn Harvest &amp; Deer Hunting: Two-Stage Stand Guide</a></li>
+        <li><a href="/blog/food-plot-or-mineral-site-leased-ground/">Food Plot vs. Mineral Site: Deer Hunting Laws by State</a></li>
+        <li><a href="/blog/2026-deer-season-regulations-seven-state-roundup/">2026 Deer Season Regulations: 7-State Bag Limits Guide</a></li>
+      </ul>
+
+      <div class="pillar__cta">
+        <picture class="pillar__cta-cover">
+          <source srcset="/images/perfect-window-cover.webp" type="image/webp" />
+          <img src="/images/perfect-window-cover.jpg" alt="The Perfect Window book cover" width="500" height="647" loading="lazy" />
+        </picture>
+        <div class="pillar__cta-body">
+          <p class="pillar__cta-title">Want every state's dates in one place?</p>
+          <p class="pillar__cta-desc">
+            <em>The Perfect Window</em> lays out harvest timing, rut windows, and legal season
+            dates across all 12 Corn Belt states on one visual overlap chart — handy if you hunt
+            more than just Ohio.
+          </p>
+          <a class="pillar__cta-link" href="https://link.amazon/B03KhoZDf" rel="sponsored noopener" target="_blank">Get it on Amazon &rarr;</a>
+        </div>
+      </div>
+
+      <h2>FAQ</h2>
+
+      <p><strong>Is Ohio a straight-wall cartridge state?</strong><br />
+      Yes. Ohio requires a straight-wall cartridge during deer-gun week and the youth gun weekend,
+      minimum caliber .357–.50, and hasn't changed this rule since 2014.</p>
+
+      <p><strong>When does Ohio's 2026-27 deer archery season start?</strong><br />
+      Saturday, Sept. 26, 2026, running through Sunday, Feb. 7, 2027.</p>
+
+      <p><strong>Does Ohio have a one-buck rule?</strong><br />
+      Yes, statewide — only one antlered deer may be harvested per hunter, regardless of where or
+      how it's taken.</p>
+
+      <p><strong>How much does an Ohio deer license cost?</strong><br />
+      A resident license is $19 plus a $31.20 either-sex deer permit (about $50 total). Nonresidents
+      pay about $399 total ($180.96 license + $218.40 permit).</p>
+
+      <FaqSchema items={[
+        { question: "Is Ohio a straight-wall cartridge state?", answer: "Yes. Ohio requires a straight-wall cartridge during deer-gun week and the youth gun weekend, minimum caliber .357-.50, and hasn't changed this rule since 2014." },
+        { question: "When does Ohio's 2026-27 deer archery season start?", answer: "Saturday, Sept. 26, 2026, running through Sunday, Feb. 7, 2027." },
+        { question: "Does Ohio have a one-buck rule?", answer: "Yes, statewide — only one antlered deer may be harvested per hunter, regardless of where or how it's taken." },
+        { question: "How much does an Ohio deer license cost?", answer: "A resident license is $19 plus a $31.20 either-sex deer permit (about $50 total). Nonresidents pay about $399 total ($180.96 license + $218.40 permit)." }
+      ]} />
+
+      <p class="pillar__disclaimer">
+        Season dates and county exceptions sourced from the Ohio Wildlife Council's 2026-27 season
+        approval and ODNR's official regulations. County- or zone-level exceptions can override
+        anything listed here — always confirm current rules at <a href="https://ohiodnr.gov/buy-and-apply/hunting-fishing-boating/hunting-resources/hunting-regulations" rel="noopener" target="_blank">ohiodnr.gov</a> before
+        you buy a license or head afield.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pillar { padding: 3rem 0 5rem; }
+  .pillar__inner { max-width: 720px; }
+  .pillar h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin: 0.4rem 0 0.9rem;
+  }
+  .pillar__intro {
+    color: var(--ink);
+    opacity: 0.85;
+    line-height: 1.55;
+    margin: 0 0 1.75rem;
+  }
+  .pillar h2 {
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    margin: 2.25rem 0 0.9rem;
+  }
+  .pillar p {
+    margin: 0 0 1.1rem;
+    line-height: 1.6;
+  }
+  .pillar__crosslinks {
+    margin: 0 0 1.75rem;
+    padding-left: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .pillar__cta {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--husk);
+    border: 1px solid var(--stalk);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 0.5rem 0 2.25rem;
+  }
+  .pillar__cta-cover { flex: 0 0 auto; width: 84px; }
+  .pillar__cta-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 14px rgba(34, 27, 20, 0.25);
+  }
+  .pillar__cta-body { min-width: 0; }
+  .pillar__cta-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 0.35rem;
+  }
+  .pillar__cta-desc { font-size: 0.9rem; margin: 0 0 0.75rem; }
+  .pillar__cta-link {
+    font-family: var(--font-tag);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--blaze);
+    text-decoration: none;
+  }
+  .pillar__cta-link:hover { text-decoration: underline; }
+
+  @media (max-width: 420px) {
+    .pillar__cta { flex-direction: column; }
+    .pillar__cta-cover { width: 100px; }
+  }
+
+  .pillar__disclaimer {
+    margin-top: 2.25rem;
+    font-size: 0.82rem;
+    color: var(--stalk);
+    line-height: 1.6;
+    border-top: 1px solid var(--husk);
+    padding-top: 1rem;
+  }
+</style>
