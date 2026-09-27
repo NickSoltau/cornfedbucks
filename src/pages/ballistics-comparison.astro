@@ -98,7 +98,7 @@ import Layout from '../layouts/Layout.astro';
     display: grid;
     grid-template-columns: 260px minmax(0, 1fr) 320px;
     gap: 1.1rem;
-    align-items: stretch;
+    align-items: start;
   }
   @media (max-width: 1150px) {
     .layout { grid-template-columns: 240px minmax(0, 1fr); }
@@ -131,9 +131,42 @@ import Layout from '../layouts/Layout.astro';
       height: 240px;
       min-height: 240px;
     }
+    /* Without JS-driven heights below 1150px, the picker's natural height
+       (15 collapsible cartridges) is often much taller than the chart next
+       to it. align-items:start (above) stops that from stretching the chart
+       cell, but the picker itself still needs a cap + internal scroll or it
+       just pushes the page very long before the chart is reachable. */
+    :global(.picker) {
+      max-height: 60vh;
+      overflow-y: auto;
+    }
   }
 
   :global(.chart-holder) { position: relative; }
+
+  /* Short / landscape-phone viewports (e.g. a phone rotated sideways) have
+     very little vertical room — often under 430px total. Compact the header
+     copy and chart heights so the actual tool is reachable without several
+     screens of scrolling. Desktop and normal portrait-phone heights are
+     untouched. */
+  @media (max-height: 500px) {
+    .ballistics { padding: 0.85rem 0 1.5rem; }
+    .ballistics__header { margin-bottom: 0.85rem; }
+    .ballistics__header .eyebrow { display: none; }
+    .ballistics__header h1 {
+      font-size: 1.3rem;
+      margin: 0 0 0.4rem;
+    }
+    .ballistics__intro { display: none; }
+    .disclaimer {
+      padding: 0.5rem 0.7rem;
+      font-size: 0.72rem;
+      margin-top: 0.6rem;
+    }
+    :global(.picker) { max-height: 44vh; }
+    :global(#heroSlot .chart-holder) { height: 200px; min-height: 200px; }
+    :global(.sidestack .chart-holder) { height: 140px; min-height: 140px; }
+  }
 
   :global(.picker) {
     background: #fff;
@@ -143,6 +176,14 @@ import Layout from '../layouts/Layout.astro';
     position: sticky;
     top: 1rem;
     overflow-y: auto;
+  }
+  /* Below 760px, .layout collapses to a single column (picker, hero chart,
+     and sidestack all stacked in normal flow) — sticky then pins the picker
+     to the top of the viewport while the charts scroll up underneath it,
+     overlapping. Sticky only makes sense next to a taller side-by-side
+     column, so drop it once the layout stops being side-by-side. */
+  @media (max-width: 760px) {
+    :global(.picker) { position: static; }
   }
   :global(#heroSlot) { display: flex; flex-direction: column; }
   :global(#heroSlot .chartcard) { flex: 1; display: flex; flex-direction: column; min-height: 0; }
