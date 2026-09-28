@@ -1,0 +1,233 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SpecTable from '../components/SpecTable.astro';
+import CartridgeCard from '../components/CartridgeCard.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+---
+<Layout
+  title="Indiana Deer Season Dates 2026-27"
+  description="Indiana's 2026-27 deer season dates, license costs, and rifle rules — archery, youth, firearms, and muzzleloader season, all in one place, updated yearly."
+>
+  <section class="pillar">
+    <div class="wrap pillar__inner">
+      <p class="eyebrow">Season Dates — Indiana</p>
+      <h1>Indiana Deer Season Dates: 2026-27</h1>
+      <p class="pillar__intro">
+        Everything you need before you buy a tag or head to the field: the full rundown of
+        2026-27 Indiana deer season dates, what you'll pay for a license, and what's legal to
+        hunt with — one page, kept current. This isn't a dated field note; we refresh it in
+        place each year when the DNR publishes new dates.
+      </p>
+
+      <h2>2026-27 Indiana Deer Season Dates at a Glance</h2>
+
+      <SpecTable
+        caption="Indiana Deer Season Dates — 2026-27"
+        compareColumns={["2026-27"]}
+        metricRows={[
+          { label: "Youth Season", values: ["Sept. 26–27, 2026"] },
+          { label: "Archery", values: ["Oct. 1, 2026 – Jan. 3, 2027"] },
+          { label: "Firearms", values: ["Nov. 14–29, 2026"] },
+          { label: "Muzzleloader", values: ["Dec. 5–20, 2026"] },
+          { label: "Bag Limit", values: ["1 antlered + 6 antlerless, combined"] },
+        ]}
+        note="Source: Indiana DNR's 2026-27 Hunting & Trapping Guide and deer hunting seasons page. Deer Reduction Zones run separately, Sept. 15, 2026 – Jan. 31, 2027, with a 10-deer limit and earn-a-buck requirement."
+      />
+
+      <h2>Indiana's Statewide Bag Limit: 1 Buck, 6 Antlerless</h2>
+      <p>
+        Indiana's bag limit is the most clear-cut of the seven states in this region: <strong>one
+        antlered deer and six antlerless deer, combined, across youth, archery, firearms, and
+        muzzleloader seasons.</strong> County antlerless quotas can cap you below the statewide
+        six, so check your county before you plan a multi-deer season. Deer Reduction Zones run
+        on their own separate calendar (Sept. 15, 2026 – Jan. 31, 2027) with a 10-deer limit and
+        an earn-a-buck requirement.
+      </p>
+
+      <h2>Can You Hunt With a Straight-Wall Cartridge in Indiana?</h2>
+      <p>
+        Yes — but it isn't required anymore. Indiana dropped its straight-wall case-shape
+        requirement, one of three states in this region to do so in the last two seasons.
+      </p>
+      <CartridgeCard
+        name="Indiana"
+        url="https://www.in.gov/dnr/fish-and-wildlife/hunting-and-trapping/hunting-trapping-guide/deer-hunting-questions-and-answers/"
+        linkRel="noopener"
+        description="No shape requirement as of the 2025–26 season. Any centerfire rifle cartridge, public or private land. 10-round possession limit for such cartridges."
+        stats={[
+          { label: "Case Shape", value: "Not required (2025–26)" },
+          { label: "Min Diameter", value: ".219in (5.56mm)+" },
+        ]}
+      />
+      <p>
+        Running a breech-loaded muzzleloader like a FireStick or NitroFire during muzzleloader
+        season instead? It's legal this season via a fast-tracked interim rule, with the
+        permanent version still working through Indiana's Natural Resources Commission — see our <a href="/blog/firestick-nitrofire-muzzleloader-legality-2026/">FireStick &amp; NitroFire legality guide</a> for
+        the latest on where that vote stands, and our <a href="/blog/straight-wall-cartridge-state-regulations/">straight-wall cartridge regulations guide</a> for
+        how Indiana compares to the other six states in this region.
+      </p>
+
+      <h2>Indiana Deer License Costs, 2026-27</h2>
+      <p>
+        A resident annual hunting license is $20. Single-season deer licenses (archery, firearm,
+        or muzzleloader) run $39 each, or you can buy the Deer License Bundle for $91, which
+        covers two antlerless tags and one antlered tag across every season.
+      </p>
+      <p>
+        Nonresidents pay $90 for the hunting license and $240 per single-season deer license, or
+        $550 for the full bundle. Everything is over the counter — no draw, no application
+        window. Indiana's license year runs April 1 through March 31, and hunter education is
+        required for anyone born after Dec. 31, 1986.
+      </p>
+      <p>
+        For the full seven-state cost and lottery breakdown — including how Indiana stacks up
+        against Ohio, Michigan, Iowa, Illinois, Minnesota, and Wisconsin — see our <a href="/blog/deer-hunting-license-guide-seven-state/">Deer Hunting License Guide: 7-State Corn Belt Edition</a>.
+      </p>
+
+      <h2>Plan Your Whole Indiana Season</h2>
+      <p>
+        A few more things worth lining up against the dates above before opening day:
+      </p>
+      <ul class="pillar__crosslinks">
+        <li><a href="/blog/indiana-double-crop-wheat-soybean-calendar/">Indiana's Double-Crop Wheat-Soybean Calendar and Early-October Bedding Shifts</a></li>
+        <li><a href="/blog/firestick-nitrofire-muzzleloader-legality-2026/">FireStick &amp; NitroFire Muzzleloaders: Legal States 2026-27</a></li>
+        <li><a href="/blog/2026-deer-season-regulations-seven-state-roundup/">2026 Deer Season Regulations: 7-State Bag Limits Guide</a></li>
+      </ul>
+
+      <h2>More Corn Belt Season-Date Guides</h2>
+      <ul class="pillar__crosslinks pillar__hub">
+        <li><a href="/ohio-deer-season-dates/">Ohio Deer Season Dates</a></li>
+        <li><a href="/michigan-deer-season-dates/">Michigan Deer Season Dates</a></li>
+        <li><a href="/iowa-deer-season-dates/">Iowa Deer Season Dates</a></li>
+        <li><a href="/illinois-deer-season-dates/">Illinois Deer Season Dates</a></li>
+        <li><a href="/minnesota-deer-season-dates/">Minnesota Deer Season Dates</a></li>
+        <li><a href="/wisconsin-deer-season-dates/">Wisconsin Deer Season Dates</a></li>
+      </ul>
+
+      <div class="pillar__cta">
+        <picture class="pillar__cta-cover">
+          <source srcset="/images/perfect-window-cover.webp" type="image/webp" />
+          <img src="/images/perfect-window-cover.jpg" alt="The Perfect Window book cover" width="500" height="647" loading="lazy" />
+        </picture>
+        <div class="pillar__cta-body">
+          <p class="pillar__cta-title">Want every state's dates in one place?</p>
+          <p class="pillar__cta-desc">
+            <em>The Perfect Window</em> lays out harvest timing, rut windows, and legal season
+            dates across all 12 Corn Belt states on one visual overlap chart — handy if you hunt
+            more than just Indiana.
+          </p>
+          <a class="pillar__cta-link" href="https://link.amazon/B03KhoZDf" rel="sponsored noopener" target="_blank">Get it on Amazon &rarr;</a>
+        </div>
+      </div>
+
+      <h2>FAQ</h2>
+
+      <p><strong>Is Indiana a straight-wall cartridge state?</strong><br />
+      Not anymore. Indiana dropped its straight-wall case-shape requirement as of the 2025–26
+      season — any centerfire rifle cartridge with a bullet diameter of .219" (5.56mm) or
+      larger is legal now, on public or private land.</p>
+
+      <p><strong>When does Indiana's 2026-27 deer archery season start?</strong><br />
+      Thursday, Oct. 1, 2026, running through Sunday, Jan. 3, 2027.</p>
+
+      <p><strong>What's Indiana's deer bag limit?</strong><br />
+      One antlered deer and six antlerless deer, combined, across youth, archery, firearms, and
+      muzzleloader seasons — county quotas can cap the antlerless number lower.</p>
+
+      <p><strong>How much does an Indiana deer license cost?</strong><br />
+      A resident hunting license is $20, plus $39 per single-season deer license (or $91 for the
+      full bundle). Nonresidents pay $90 for the license and $240 per deer license, or $550 for
+      the bundle.</p>
+
+      <FaqSchema items={[
+        { question: "Is Indiana a straight-wall cartridge state?", answer: "Not anymore. Indiana dropped its straight-wall case-shape requirement as of the 2025-26 season - any centerfire rifle cartridge with a bullet diameter of .219in (5.56mm) or larger is legal now, on public or private land." },
+        { question: "When does Indiana's 2026-27 deer archery season start?", answer: "Thursday, Oct. 1, 2026, running through Sunday, Jan. 3, 2027." },
+        { question: "What's Indiana's deer bag limit?", answer: "One antlered deer and six antlerless deer, combined, across youth, archery, firearms, and muzzleloader seasons - county quotas can cap the antlerless number lower." },
+        { question: "How much does an Indiana deer license cost?", answer: "A resident hunting license is $20, plus $39 per single-season deer license, or $91 for the full bundle. Nonresidents pay $90 for the license and $240 per deer license, or $550 for the bundle." }
+      ]} />
+
+      <p class="pillar__disclaimer">
+        Season dates and bag limits sourced from Indiana DNR's 2026-27 Hunting &amp; Trapping
+        Guide and deer hunting seasons page. County- or zone-level exceptions can override
+        anything listed here — always confirm current rules at <a href="https://www.in.gov/dnr/fish-and-wildlife/hunting-and-trapping/deer-hunting/" rel="noopener" target="_blank">in.gov/dnr</a> before
+        you buy a license or head afield.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pillar { padding: 3rem 0 5rem; }
+  .pillar__inner { max-width: 720px; }
+  .pillar h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin: 0.4rem 0 0.9rem;
+  }
+  .pillar__intro {
+    color: var(--ink);
+    opacity: 0.85;
+    line-height: 1.55;
+    margin: 0 0 1.75rem;
+  }
+  .pillar h2 {
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    margin: 2.25rem 0 0.9rem;
+  }
+  .pillar p {
+    margin: 0 0 1.1rem;
+    line-height: 1.6;
+  }
+  .pillar__crosslinks {
+    margin: 0 0 1.75rem;
+    padding-left: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .pillar__cta {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--husk);
+    border: 1px solid var(--stalk);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 0.5rem 0 2.25rem;
+  }
+  .pillar__cta-cover { flex: 0 0 auto; width: 84px; }
+  .pillar__cta-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 14px rgba(34, 27, 20, 0.25);
+  }
+  .pillar__cta-body { min-width: 0; }
+  .pillar__cta-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 0.35rem;
+  }
+  .pillar__cta-desc { font-size: 0.9rem; margin: 0 0 0.75rem; }
+  .pillar__cta-link {
+    font-family: var(--font-tag);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--blaze);
+    text-decoration: none;
+  }
+  .pillar__cta-link:hover { text-decoration: underline; }
+
+  @media (max-width: 420px) {
+    .pillar__cta { flex-direction: column; }
+    .pillar__cta-cover { width: 100px; }
+  }
+
+  .pillar__disclaimer {
+    margin-top: 2.25rem;
+    font-size: 0.82rem;
+    color: var(--stalk);
+    line-height: 1.6;
+    border-top: 1px solid var(--husk);
+    padding-top: 1rem;
+  }
+</style>

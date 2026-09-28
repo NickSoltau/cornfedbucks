@@ -1,0 +1,240 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SpecTable from '../components/SpecTable.astro';
+import CartridgeCard from '../components/CartridgeCard.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+---
+<Layout
+  title="Michigan Deer Season Dates 2026-27"
+  description="Michigan's 2026-27 deer season dates, license costs, and rifle rules — archery, regular firearm, and December firearm season, all in one place, updated yearly."
+>
+  <section class="pillar">
+    <div class="wrap pillar__inner">
+      <p class="eyebrow">Season Dates — Michigan</p>
+      <h1>Michigan Deer Season Dates: 2026-27</h1>
+      <p class="pillar__intro">
+        Everything you need before you buy a tag or head to the field: the full rundown of
+        2026-27 Michigan deer season dates, what you'll pay for a license, and what changed
+        with the Limited Firearms Zone — one page, kept current. This isn't a dated field
+        note; we refresh it in place each year when the DNR publishes new dates.
+      </p>
+
+      <h2>2026-27 Michigan Deer Season Dates at a Glance</h2>
+
+      <SpecTable
+        caption="Michigan Deer Season Dates — 2026-27"
+        compareColumns={["2026-27"]}
+        metricRows={[
+          { label: "Archery", values: ["Oct. 1–Nov. 14, 2026 & Dec. 1, 2026–Jan. 1, 2027"] },
+          { label: "Early Antlerless / Liberty Hunt", values: ["Sept. 12–13, 2026"] },
+          { label: "Regular Firearm", values: ["Nov. 15–30, 2026"] },
+          { label: "December Firearm (Lower Peninsula)", values: ["Dec. 4–6, 2026"] },
+          { label: "Late Antlerless", values: ["Dec. 7, 2026 – Jan. 1, 2027"] },
+          { label: "One-Buck Rule", values: ["Not yet — starts 2027"] },
+        ]}
+        note="Source: Michigan DNR's 2026 hunting season calendar and deer regulations summary. Hunting hours run 30 minutes before sunrise to 30 minutes after sunset statewide."
+      />
+
+      <h2>Michigan's One-Buck Rule Doesn't Start Until 2027</h2>
+      <p>
+        This is the single most confusing change on this list, so it's worth saying plainly:
+        Michigan's new one-buck rule was approved alongside the rest of the 2026 changes, which
+        makes it easy to assume it's already in effect. It isn't. For the 2026 season, Michigan's
+        statewide limit is still <strong>two antlered deer per hunter per year</strong> (DMU 117
+        is the one exception, capped at one). The true one-buck rule applies to the Lower
+        Peninsula starting with the <strong>2027</strong> season.
+      </p>
+      <p>
+        A single deer license covers one buck (3+ points on one side) or one antlerless deer; a
+        combo license covers one antlered plus one antlerless, or two antlerless — holding both
+        license types in the same year is how the two-buck total is reached in 2026.
+      </p>
+
+      <h2>What Rifle Can You Hunt With in Michigan?</h2>
+      <p>
+        No case-shape requirement, and it's the biggest firearms change in this state's recent
+        history: the Limited Firearms Deer Zone in the Lower Peninsula — the line that used to
+        keep bottleneck rifles out of southern Michigan — is gone entirely for 2026.
+      </p>
+      <CartridgeCard
+        name="Michigan"
+        url="https://www.michigan.gov/dnr/about/newsroom/releases/2026/05/15/nrc-approves-deer-regulation-changes-for-2026-and-2027"
+        linkRel="noopener"
+        description="No shape requirement in the former Limited Firearms Zone as of 2026 — all legal firearms, including bottleneck cartridges, are permitted throughout the Lower Peninsula."
+        stats={[
+          { label: "Case Shape", value: "Not required (2026)" },
+          { label: "Min Caliber", value: "Larger than .22 rimfire" },
+        ]}
+      />
+      <p>
+        A straight-wall cartridge like the .350 Legend or .400 Legend is still a smart, low-recoil
+        choice for realistic row-crop shot distances — the law just no longer forces the issue.
+        See our <a href="/blog/straight-wall-cartridge-state-regulations/">straight-wall cartridge regulations guide</a> for
+        how Michigan compares to the other six states in this region.
+      </p>
+
+      <h2>Michigan Deer License Costs, 2026-27</h2>
+      <p>
+        Michigan uses a two-step system: every hunter buys a base license first, then adds a
+        species-specific deer license. The resident base license is $11, and a single deer
+        license is $20 — about $31 total. Nonresidents pay a $151 base license plus the same
+        $20 deer license, for $171 total.
+      </p>
+      <p>
+        Youth ages 10–16 get a discounted $6 base license, with the deer license running $20
+        (or $40 for a two-tag deer combo). No draw or lottery — licenses are sold over the
+        counter. Michigan's deer season itself is framed Aug. 1, 2026 through July 31, 2027,
+        though the base license runs on its own cycle through March 31. Hunter education is
+        required for anyone born on or after Jan. 1, 1960.
+      </p>
+      <p>
+        For the full seven-state cost and lottery breakdown — including how Michigan stacks up
+        against Ohio, Indiana, Iowa, Illinois, Minnesota, and Wisconsin — see our <a href="/blog/deer-hunting-license-guide-seven-state/">Deer Hunting License Guide: 7-State Corn Belt Edition</a>.
+      </p>
+
+      <h2>Plan Your Whole Michigan Season</h2>
+      <p>
+        A few more things worth lining up against the dates above before opening day:
+      </p>
+      <ul class="pillar__crosslinks">
+        <li><a href="/blog/chronic-wasting-disease-explained/">Chronic Wasting Disease: What It Actually Is (And What It Isn't)</a></li>
+        <li><a href="/blog/food-plot-or-mineral-site-leased-ground/">Food Plot vs. Mineral Site: Deer Hunting Laws by State</a></li>
+        <li><a href="/blog/2026-deer-season-regulations-seven-state-roundup/">2026 Deer Season Regulations: 7-State Bag Limits Guide</a></li>
+      </ul>
+
+      <h2>More Corn Belt Season-Date Guides</h2>
+      <ul class="pillar__crosslinks pillar__hub">
+        <li><a href="/ohio-deer-season-dates/">Ohio Deer Season Dates</a></li>
+        <li><a href="/indiana-deer-season-dates/">Indiana Deer Season Dates</a></li>
+        <li><a href="/iowa-deer-season-dates/">Iowa Deer Season Dates</a></li>
+        <li><a href="/illinois-deer-season-dates/">Illinois Deer Season Dates</a></li>
+        <li><a href="/minnesota-deer-season-dates/">Minnesota Deer Season Dates</a></li>
+        <li><a href="/wisconsin-deer-season-dates/">Wisconsin Deer Season Dates</a></li>
+      </ul>
+
+      <div class="pillar__cta">
+        <picture class="pillar__cta-cover">
+          <source srcset="/images/perfect-window-cover.webp" type="image/webp" />
+          <img src="/images/perfect-window-cover.jpg" alt="The Perfect Window book cover" width="500" height="647" loading="lazy" />
+        </picture>
+        <div class="pillar__cta-body">
+          <p class="pillar__cta-title">Want every state's dates in one place?</p>
+          <p class="pillar__cta-desc">
+            <em>The Perfect Window</em> lays out harvest timing, rut windows, and legal season
+            dates across all 12 Corn Belt states on one visual overlap chart — handy if you hunt
+            more than just Michigan.
+          </p>
+          <a class="pillar__cta-link" href="https://link.amazon/B03KhoZDf" rel="sponsored noopener" target="_blank">Get it on Amazon &rarr;</a>
+        </div>
+      </div>
+
+      <h2>FAQ</h2>
+
+      <p><strong>Is Michigan a straight-wall cartridge state?</strong><br />
+      Not anymore, and not statewide. The Limited Firearms Deer Zone that once restricted the
+      Lower Peninsula to straight-wall and other limited firearms is gone for 2026 — any legal
+      firearm, including bottleneck cartridges, is now allowed there.</p>
+
+      <p><strong>When does Michigan's 2026-27 deer archery season start?</strong><br />
+      Thursday, Oct. 1, 2026, running (with a short gap) through Friday, Jan. 1, 2027.</p>
+
+      <p><strong>Does Michigan have a one-buck rule?</strong><br />
+      Not yet. For 2026, the statewide limit is still two antlered deer per hunter (one in DMU
+      117). The true one-buck rule starts with the 2027 season in the Lower Peninsula.</p>
+
+      <p><strong>How much does a Michigan deer license cost?</strong><br />
+      Residents pay about $31 total (an $11 base license plus a $20 deer license). Nonresidents
+      pay about $171 total ($151 base license plus the same $20 deer license).</p>
+
+      <FaqSchema items={[
+        { question: "Is Michigan a straight-wall cartridge state?", answer: "Not anymore, and not statewide. The Limited Firearms Deer Zone that once restricted the Lower Peninsula to straight-wall and other limited firearms is gone for 2026 - any legal firearm, including bottleneck cartridges, is now allowed there." },
+        { question: "When does Michigan's 2026-27 deer archery season start?", answer: "Thursday, Oct. 1, 2026, running (with a short gap) through Friday, Jan. 1, 2027." },
+        { question: "Does Michigan have a one-buck rule?", answer: "Not yet. For 2026, the statewide limit is still two antlered deer per hunter (one in DMU 117). The true one-buck rule starts with the 2027 season in the Lower Peninsula." },
+        { question: "How much does a Michigan deer license cost?", answer: "Residents pay about $31 total (an $11 base license plus a $20 deer license). Nonresidents pay about $171 total ($151 base license plus the same $20 deer license)." }
+      ]} />
+
+      <p class="pillar__disclaimer">
+        Season dates and rifle-zone changes sourced from the Michigan DNR's 2026 hunting season
+        calendar and deer regulations summary. DMU-level exceptions can override anything listed
+        here — always confirm current rules at <a href="https://www.michigan.gov/dnr" rel="noopener" target="_blank">michigan.gov/dnr</a> before
+        you buy a license or head afield.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pillar { padding: 3rem 0 5rem; }
+  .pillar__inner { max-width: 720px; }
+  .pillar h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin: 0.4rem 0 0.9rem;
+  }
+  .pillar__intro {
+    color: var(--ink);
+    opacity: 0.85;
+    line-height: 1.55;
+    margin: 0 0 1.75rem;
+  }
+  .pillar h2 {
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    margin: 2.25rem 0 0.9rem;
+  }
+  .pillar p {
+    margin: 0 0 1.1rem;
+    line-height: 1.6;
+  }
+  .pillar__crosslinks {
+    margin: 0 0 1.75rem;
+    padding-left: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .pillar__cta {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--husk);
+    border: 1px solid var(--stalk);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 0.5rem 0 2.25rem;
+  }
+  .pillar__cta-cover { flex: 0 0 auto; width: 84px; }
+  .pillar__cta-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 14px rgba(34, 27, 20, 0.25);
+  }
+  .pillar__cta-body { min-width: 0; }
+  .pillar__cta-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 0.35rem;
+  }
+  .pillar__cta-desc { font-size: 0.9rem; margin: 0 0 0.75rem; }
+  .pillar__cta-link {
+    font-family: var(--font-tag);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--blaze);
+    text-decoration: none;
+  }
+  .pillar__cta-link:hover { text-decoration: underline; }
+
+  @media (max-width: 420px) {
+    .pillar__cta { flex-direction: column; }
+    .pillar__cta-cover { width: 100px; }
+  }
+
+  .pillar__disclaimer {
+    margin-top: 2.25rem;
+    font-size: 0.82rem;
+    color: var(--stalk);
+    line-height: 1.6;
+    border-top: 1px solid var(--husk);
+    padding-top: 1rem;
+  }
+</style>

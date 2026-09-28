@@ -1,0 +1,240 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SpecTable from '../components/SpecTable.astro';
+import CartridgeCard from '../components/CartridgeCard.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+---
+<Layout
+  title="Minnesota Deer Season Dates 2026-27"
+  description="Minnesota's 2026 deer season dates, license costs, and rifle rules — archery, firearms, muzzleloader, and youth season, all in one place, updated yearly."
+>
+  <section class="pillar">
+    <div class="wrap pillar__inner">
+      <p class="eyebrow">Season Dates — Minnesota</p>
+      <h1>Minnesota Deer Season Dates: 2026-27</h1>
+      <p class="pillar__intro">
+        Everything you need before you buy a tag or head to the field: the full rundown of 2026
+        Minnesota deer season dates, what you'll pay for a license, and how the one-buck rule
+        actually works — one page, kept current. This isn't a dated field note; we refresh it
+        in place each year when the DNR publishes new dates.
+      </p>
+
+      <h2>2026 Minnesota Deer Season Dates at a Glance</h2>
+
+      <SpecTable
+        caption="Minnesota Deer Season Dates — 2026"
+        compareColumns={["2026"]}
+        metricRows={[
+          { label: "Archery", values: ["Sept. 19 – Dec. 31, 2026"] },
+          { label: "Youth / Early Antlerless", values: ["Oct. 15–18, 2026"] },
+          { label: "Firearms (100 Series areas)", values: ["Nov. 7–22, 2026"] },
+          { label: "Firearms (200/300 Series areas)", values: ["Nov. 7–15, 2026"] },
+          { label: "Late Southeast Firearms (300B)", values: ["Nov. 21–29, 2026"] },
+          { label: "Muzzleloader", values: ["Nov. 28 – Dec. 13, 2026"] },
+          { label: "One-Buck Rule", values: ["Yes — statewide, one per license year"] },
+        ]}
+        note="Source: Minnesota DNR's deer hunting and season-dates pages. Firearms season length varies 9-16 days by Deer Permit Area (DPA) series — always confirm your specific DPA's dates."
+      />
+
+      <h2>Minnesota's One-Buck-Per-Year Rule</h2>
+      <p>
+        Minnesota's core rule is simple and strict: <strong>one buck per license year, statewide,
+        regardless of how many seasons or weapons you use.</strong> Tag a buck during archery
+        season and that's your buck for the year — firearms and muzzleloader seasons won't give
+        you another shot at one unless you draw a special permit.
+      </p>
+      <p>
+        Antlerless harvest is where it gets complicated: it's managed through Deer Permit Areas
+        (DPAs), each designated bucks-only, lottery, either-sex, or a 2-, 3-, or 5-deer limit,
+        with a statewide antlerless cap of five. Deer registration also changed for 2026: site
+        validation now replaces physical carcass tagging, completed via mobile app, paper form,
+        or the Electronic Licensing System before you transport a harvested deer.
+      </p>
+
+      <h2>Is Minnesota a Straight-Wall Cartridge State?</h2>
+      <p>
+        No — this is a common mix-up. Minnesota has never restricted deer rifles to straight-wall
+        case shape, relying on a caliber rule instead.
+      </p>
+      <CartridgeCard
+        name="Minnesota"
+        url="https://www.dnr.state.mn.us/hunting/deer/index.html"
+        linkRel="noopener"
+        description="No case-shape requirement. Legal rifle cartridge just needs to be .220 caliber or larger, centerfire, loaded with single-projectile soft-point or expanding-bullet ammunition — statewide."
+        stats={[
+          { label: "Case Shape", value: "Not required" },
+          { label: "Min Caliber", value: ".220in+" },
+        ]}
+      />
+      <p>
+        A straight-wall cartridge like the .350 Legend or .400 Legend is still a smart, low-recoil
+        choice for realistic shot distances — Minnesota's statewide shotgun-only zone was also
+        repealed for 2026, so more of the state now allows any qualifying centerfire rifle. See
+        our <a href="/blog/straight-wall-cartridge-state-regulations/">straight-wall cartridge regulations guide</a> for
+        how Minnesota compares to the other six states in this region.
+      </p>
+
+      <h2>Minnesota Deer License Costs, 2026</h2>
+      <p>
+        A resident small-game license is $22, and the deer license — priced identically whether
+        you hunt firearm, archery, or muzzleloader — is $34, for $56 total. Nonresidents pay $102
+        for the base license and $185 for the deer license, landing around $287.
+      </p>
+      <p>
+        Youth 13–17 pay a flat $5 for a deer license regardless of residency or weapon type, and
+        youth 10–12 hunt for free. Minnesota sells deer tags over the counter in most permit
+        areas — no draw required for a standard license, though antlerless permits in
+        lottery-designated DPAs require declaring your area and hitting the September lottery
+        deadline to be automatically entered.
+      </p>
+      <p>
+        For the full seven-state cost and lottery breakdown — including how Minnesota stacks up
+        against Ohio, Michigan, Indiana, Iowa, Illinois, and Wisconsin — see our <a href="/blog/deer-hunting-license-guide-seven-state/">Deer Hunting License Guide: 7-State Corn Belt Edition</a>.
+      </p>
+
+      <h2>Plan Your Whole Minnesota Season</h2>
+      <p>
+        A few more things worth lining up against the dates above before opening day:
+      </p>
+      <ul class="pillar__crosslinks">
+        <li><a href="/blog/chronic-wasting-disease-explained/">Chronic Wasting Disease: What It Actually Is (And What It Isn't)</a></li>
+        <li><a href="/blog/food-plot-or-mineral-site-leased-ground/">Food Plot vs. Mineral Site: Deer Hunting Laws by State</a></li>
+        <li><a href="/blog/2026-deer-season-regulations-seven-state-roundup/">2026 Deer Season Regulations: 7-State Bag Limits Guide</a></li>
+      </ul>
+
+      <h2>More Corn Belt Season-Date Guides</h2>
+      <ul class="pillar__crosslinks pillar__hub">
+        <li><a href="/ohio-deer-season-dates/">Ohio Deer Season Dates</a></li>
+        <li><a href="/michigan-deer-season-dates/">Michigan Deer Season Dates</a></li>
+        <li><a href="/indiana-deer-season-dates/">Indiana Deer Season Dates</a></li>
+        <li><a href="/iowa-deer-season-dates/">Iowa Deer Season Dates</a></li>
+        <li><a href="/illinois-deer-season-dates/">Illinois Deer Season Dates</a></li>
+        <li><a href="/wisconsin-deer-season-dates/">Wisconsin Deer Season Dates</a></li>
+      </ul>
+
+      <div class="pillar__cta">
+        <picture class="pillar__cta-cover">
+          <source srcset="/images/perfect-window-cover.webp" type="image/webp" />
+          <img src="/images/perfect-window-cover.jpg" alt="The Perfect Window book cover" width="500" height="647" loading="lazy" />
+        </picture>
+        <div class="pillar__cta-body">
+          <p class="pillar__cta-title">Want every state's dates in one place?</p>
+          <p class="pillar__cta-desc">
+            <em>The Perfect Window</em> lays out harvest timing, rut windows, and legal season
+            dates across all 12 Corn Belt states on one visual overlap chart — handy if you hunt
+            more than just Minnesota.
+          </p>
+          <a class="pillar__cta-link" href="https://link.amazon/B03KhoZDf" rel="sponsored noopener" target="_blank">Get it on Amazon &rarr;</a>
+        </div>
+      </div>
+
+      <h2>FAQ</h2>
+
+      <p><strong>Is Minnesota a straight-wall cartridge state?</strong><br />
+      No. Minnesota has never restricted deer rifles to straight-wall case shape — any centerfire
+      rifle .220 caliber or larger, loaded with single-projectile soft-point or expanding-bullet
+      ammunition, is legal statewide.</p>
+
+      <p><strong>When does Minnesota's 2026 deer archery season start?</strong><br />
+      Saturday, Sept. 19, 2026, running through Dec. 31, 2026.</p>
+
+      <p><strong>Does Minnesota have a one-buck rule?</strong><br />
+      Yes, statewide — one buck per license year, no matter how many seasons or weapons you hunt
+      with.</p>
+
+      <p><strong>How much does a Minnesota deer license cost?</strong><br />
+      A resident license runs about $56 total ($22 base license plus a $34 deer license, the same
+      price across firearm, archery, and muzzleloader). Nonresidents pay about $287 total.</p>
+
+      <FaqSchema items={[
+        { question: "Is Minnesota a straight-wall cartridge state?", answer: "No. Minnesota has never restricted deer rifles to straight-wall case shape - any centerfire rifle .220 caliber or larger, loaded with single-projectile soft-point or expanding-bullet ammunition, is legal statewide." },
+        { question: "When does Minnesota's 2026 deer archery season start?", answer: "Saturday, Sept. 19, 2026, running through Dec. 31, 2026." },
+        { question: "Does Minnesota have a one-buck rule?", answer: "Yes, statewide - one buck per license year, no matter how many seasons or weapons you hunt with." },
+        { question: "How much does a Minnesota deer license cost?", answer: "A resident license runs about $56 total ($22 base license plus a $34 deer license, the same price across firearm, archery, and muzzleloader). Nonresidents pay about $287 total." }
+      ]} />
+
+      <p class="pillar__disclaimer">
+        Season dates and rule changes sourced from the Minnesota DNR's deer hunting and
+        season-dates pages. DPA-level exceptions can override anything listed here — always
+        confirm current rules at <a href="https://www.dnr.state.mn.us/hunting/deer/index.html" rel="noopener" target="_blank">dnr.state.mn.us</a> before
+        you buy a license or head afield.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pillar { padding: 3rem 0 5rem; }
+  .pillar__inner { max-width: 720px; }
+  .pillar h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin: 0.4rem 0 0.9rem;
+  }
+  .pillar__intro {
+    color: var(--ink);
+    opacity: 0.85;
+    line-height: 1.55;
+    margin: 0 0 1.75rem;
+  }
+  .pillar h2 {
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    margin: 2.25rem 0 0.9rem;
+  }
+  .pillar p {
+    margin: 0 0 1.1rem;
+    line-height: 1.6;
+  }
+  .pillar__crosslinks {
+    margin: 0 0 1.75rem;
+    padding-left: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .pillar__cta {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--husk);
+    border: 1px solid var(--stalk);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 0.5rem 0 2.25rem;
+  }
+  .pillar__cta-cover { flex: 0 0 auto; width: 84px; }
+  .pillar__cta-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 14px rgba(34, 27, 20, 0.25);
+  }
+  .pillar__cta-body { min-width: 0; }
+  .pillar__cta-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 0.35rem;
+  }
+  .pillar__cta-desc { font-size: 0.9rem; margin: 0 0 0.75rem; }
+  .pillar__cta-link {
+    font-family: var(--font-tag);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--blaze);
+    text-decoration: none;
+  }
+  .pillar__cta-link:hover { text-decoration: underline; }
+
+  @media (max-width: 420px) {
+    .pillar__cta { flex-direction: column; }
+    .pillar__cta-cover { width: 100px; }
+  }
+
+  .pillar__disclaimer {
+    margin-top: 2.25rem;
+    font-size: 0.82rem;
+    color: var(--stalk);
+    line-height: 1.6;
+    border-top: 1px solid var(--husk);
+    padding-top: 1rem;
+  }
+</style>

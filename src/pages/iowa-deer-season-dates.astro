@@ -1,0 +1,244 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SpecTable from '../components/SpecTable.astro';
+import CartridgeCard from '../components/CartridgeCard.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+---
+<Layout
+  title="Iowa Deer Season Dates 2026-27"
+  description="Iowa's 2026-27 deer season dates, license costs, and rifle rules — archery, gun, muzzleloader, and youth season, plus the new Zone A/B system, updated yearly."
+>
+  <section class="pillar">
+    <div class="wrap pillar__inner">
+      <p class="eyebrow">Season Dates — Iowa</p>
+      <h1>Iowa Deer Season Dates: 2026-27</h1>
+      <p class="pillar__intro">
+        Everything you need before you buy a tag or head to the field: the full rundown of
+        2026-27 Iowa deer season dates, what you'll pay for a license, and how the new zone
+        system affects what you can shoot — one page, kept current. This isn't a dated field
+        note; we refresh it in place each year when the DNR publishes new dates.
+      </p>
+
+      <h2>2026-27 Iowa Deer Season Dates at a Glance</h2>
+
+      <SpecTable
+        caption="Iowa Deer Season Dates — 2026-27"
+        compareColumns={["2026-27"]}
+        metricRows={[
+          { label: "Youth / Disabled Hunter", values: ["Sept. 19 – Oct. 4, 2026"] },
+          { label: "Archery", values: ["Oct. 1 – Dec. 4, 2026 & Dec. 21, 2026 – Jan. 10, 2027"] },
+          { label: "Early Muzzleloader", values: ["Oct. 17–25, 2026"] },
+          { label: "Regular Gun 1", values: ["Dec. 5–9, 2026"] },
+          { label: "Regular Gun 2", values: ["Dec. 12–20, 2026"] },
+          { label: "Late Muzzleloader", values: ["Dec. 21, 2026 – Jan. 10, 2027"] },
+        ]}
+        note="Source: Iowa DNR's 2026-27 Hunting Seasons & Limits PDF. Iowa doesn't use a one-buck framework — resident hunters can hold up to two General Deer licenses (one archery, one firearm season), each good for one deer."
+      />
+
+      <h2>Iowa's New Zone A / Zone B System for 2026</h2>
+      <p>
+        Iowa's headline change for 2026 didn't touch dates — it touched <strong>who can shoot
+        what, and where.</strong> Starting this season, Iowa splits resident deer hunting into
+        Zone A and Zone B for the first time.
+      </p>
+      <p>
+        Zone B covers eight northwest counties: Crawford, Ida, Lyon, O'Brien, Plymouth, Shelby,
+        Sioux, and Woodbury. Hunting there is <strong>antlered-buck-only</strong> in every season
+        except Youth, Disabled, Landowner-Tenant, and Depredation, and party hunting isn't
+        allowed. A limited number of county-specific Any-Deer licenses go on sale Aug. 15,
+        first-come, first-served.
+      </p>
+      <p>
+        Zone A is everywhere else, mostly unchanged, though Audubon, Carroll, and Greene counties
+        were just added to the antlered-buck-only restriction during first regular gun season.
+      </p>
+
+      <h2>Can You Hunt With a Straight-Wall Cartridge in Iowa?</h2>
+      <p>
+        Yes — but like Indiana and Michigan, Iowa no longer requires one specifically. Iowa
+        dropped its case-shape rule in favor of a diameter-and-energy standard.
+      </p>
+      <CartridgeCard
+        name="Iowa"
+        url="https://www.iowadnr.gov/things-do/hunting-trapping/types-hunting-trapping/deer-hunting"
+        linkRel="noopener"
+        description="No shape requirement. Expanding bullet within the diameter/energy range — straight-wall or necked-down cartridges both qualify."
+        stats={[
+          { label: "Case Shape", value: "Not required" },
+          { label: "Min Diameter/Energy", value: ".350–.500in, 500+ ft-lbs" },
+        ]}
+      />
+      <p>
+        A straight-wall cartridge like the .350 Legend or .450 Bushmaster still fits comfortably
+        inside that window and remains a smart, low-recoil choice for row-crop distances — the
+        law just doesn't require the case shape anymore. See our <a href="/blog/straight-wall-cartridge-state-regulations/">straight-wall cartridge regulations guide</a> for
+        how Iowa compares to the other six states in this region.
+      </p>
+
+      <h2>Iowa Deer License Costs, 2026-27</h2>
+      <p>
+        Residents pay $22 for the hunting license plus roughly $33 for a resident buck (any-sex)
+        tag — the cheapest resident deer setup in this seven-state group.
+      </p>
+      <p>
+        Nonresidents face a very different process: a $131 hunting license, a $15 habitat fee,
+        and a mandatory $498 any-sex-plus-antlerless tag combination, for about $644 total.
+        Nonresident tags are capped and awarded by lottery — the 2026 application window ran
+        May 2 through June 7, with results and any excess-tag sales following in August. If
+        you're planning a nonresident Iowa hunt for next season, mark that window early; it's the
+        tightest deadline in this region.
+      </p>
+      <p>
+        For the full seven-state cost and lottery breakdown — including how Iowa stacks up
+        against Ohio, Michigan, Indiana, Illinois, Minnesota, and Wisconsin — see our <a href="/blog/deer-hunting-license-guide-seven-state/">Deer Hunting License Guide: 7-State Corn Belt Edition</a>.
+      </p>
+
+      <h2>Plan Your Whole Iowa Season</h2>
+      <p>
+        A few more things worth lining up against the dates above before opening day:
+      </p>
+      <ul class="pillar__crosslinks">
+        <li><a href="/blog/iowa-soybean-harvest-timeline/">Iowa's Soybean Harvest Timeline and October Stand Sits</a></li>
+        <li><a href="/blog/food-plot-or-mineral-site-leased-ground/">Food Plot vs. Mineral Site: Deer Hunting Laws by State</a></li>
+        <li><a href="/blog/2026-deer-season-regulations-seven-state-roundup/">2026 Deer Season Regulations: 7-State Bag Limits Guide</a></li>
+      </ul>
+
+      <h2>More Corn Belt Season-Date Guides</h2>
+      <ul class="pillar__crosslinks pillar__hub">
+        <li><a href="/ohio-deer-season-dates/">Ohio Deer Season Dates</a></li>
+        <li><a href="/michigan-deer-season-dates/">Michigan Deer Season Dates</a></li>
+        <li><a href="/indiana-deer-season-dates/">Indiana Deer Season Dates</a></li>
+        <li><a href="/illinois-deer-season-dates/">Illinois Deer Season Dates</a></li>
+        <li><a href="/minnesota-deer-season-dates/">Minnesota Deer Season Dates</a></li>
+        <li><a href="/wisconsin-deer-season-dates/">Wisconsin Deer Season Dates</a></li>
+      </ul>
+
+      <div class="pillar__cta">
+        <picture class="pillar__cta-cover">
+          <source srcset="/images/perfect-window-cover.webp" type="image/webp" />
+          <img src="/images/perfect-window-cover.jpg" alt="The Perfect Window book cover" width="500" height="647" loading="lazy" />
+        </picture>
+        <div class="pillar__cta-body">
+          <p class="pillar__cta-title">Want every state's dates in one place?</p>
+          <p class="pillar__cta-desc">
+            <em>The Perfect Window</em> lays out harvest timing, rut windows, and legal season
+            dates across all 12 Corn Belt states on one visual overlap chart — handy if you hunt
+            more than just Iowa.
+          </p>
+          <a class="pillar__cta-link" href="https://link.amazon/B03KhoZDf" rel="sponsored noopener" target="_blank">Get it on Amazon &rarr;</a>
+        </div>
+      </div>
+
+      <h2>FAQ</h2>
+
+      <p><strong>Is Iowa a straight-wall cartridge state?</strong><br />
+      Not by case shape anymore. Iowa requires an expanding bullet .350"–.500" in diameter with
+      500+ ft-lbs of muzzle energy — straight-wall or necked-down cartridges both qualify as long
+      as they meet that range.</p>
+
+      <p><strong>When does Iowa's 2026-27 deer archery season start?</strong><br />
+      Thursday, Oct. 1, 2026, in a split window running through Dec. 4, then reopening Dec. 21
+      through Jan. 10, 2027.</p>
+
+      <p><strong>What is Iowa's new Zone A/Zone B system?</strong><br />
+      Starting in 2026, eight northwest counties (Zone B) are restricted to antlered-buck-only
+      hunting in most seasons, with no party hunting. The rest of the state (Zone A) is mostly
+      unchanged.</p>
+
+      <p><strong>How much does an Iowa deer license cost?</strong><br />
+      Residents pay about $55 total (a $22 hunting license plus a roughly $33 buck tag) — the
+      cheapest resident setup in this region. Nonresidents pay about $644 total and must apply
+      through a lottery.</p>
+
+      <FaqSchema items={[
+        { question: "Is Iowa a straight-wall cartridge state?", answer: "Not by case shape anymore. Iowa requires an expanding bullet .350in-.500in in diameter with 500+ ft-lbs of muzzle energy - straight-wall or necked-down cartridges both qualify as long as they meet that range." },
+        { question: "When does Iowa's 2026-27 deer archery season start?", answer: "Thursday, Oct. 1, 2026, in a split window running through Dec. 4, then reopening Dec. 21 through Jan. 10, 2027." },
+        { question: "What is Iowa's new Zone A/Zone B system?", answer: "Starting in 2026, eight northwest counties (Zone B) are restricted to antlered-buck-only hunting in most seasons, with no party hunting. The rest of the state (Zone A) is mostly unchanged." },
+        { question: "How much does an Iowa deer license cost?", answer: "Residents pay about $55 total (a $22 hunting license plus a roughly $33 buck tag) - the cheapest resident setup in this region. Nonresidents pay about $644 total and must apply through a lottery." }
+      ]} />
+
+      <p class="pillar__disclaimer">
+        Season dates and zone rules sourced from Iowa DNR's 2026-27 Hunting Seasons &amp; Limits
+        PDF and deer hunting page. County- or zone-level exceptions can override anything listed
+        here — always confirm current rules at <a href="https://www.iowadnr.gov/things-do/hunting-trapping/types-hunting-trapping/deer-hunting" rel="noopener" target="_blank">iowadnr.gov</a> before
+        you buy a license or head afield.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pillar { padding: 3rem 0 5rem; }
+  .pillar__inner { max-width: 720px; }
+  .pillar h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin: 0.4rem 0 0.9rem;
+  }
+  .pillar__intro {
+    color: var(--ink);
+    opacity: 0.85;
+    line-height: 1.55;
+    margin: 0 0 1.75rem;
+  }
+  .pillar h2 {
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    margin: 2.25rem 0 0.9rem;
+  }
+  .pillar p {
+    margin: 0 0 1.1rem;
+    line-height: 1.6;
+  }
+  .pillar__crosslinks {
+    margin: 0 0 1.75rem;
+    padding-left: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .pillar__cta {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--husk);
+    border: 1px solid var(--stalk);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 0.5rem 0 2.25rem;
+  }
+  .pillar__cta-cover { flex: 0 0 auto; width: 84px; }
+  .pillar__cta-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 14px rgba(34, 27, 20, 0.25);
+  }
+  .pillar__cta-body { min-width: 0; }
+  .pillar__cta-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 0.35rem;
+  }
+  .pillar__cta-desc { font-size: 0.9rem; margin: 0 0 0.75rem; }
+  .pillar__cta-link {
+    font-family: var(--font-tag);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--blaze);
+    text-decoration: none;
+  }
+  .pillar__cta-link:hover { text-decoration: underline; }
+
+  @media (max-width: 420px) {
+    .pillar__cta { flex-direction: column; }
+    .pillar__cta-cover { width: 100px; }
+  }
+
+  .pillar__disclaimer {
+    margin-top: 2.25rem;
+    font-size: 0.82rem;
+    color: var(--stalk);
+    line-height: 1.6;
+    border-top: 1px solid var(--husk);
+    padding-top: 1rem;
+  }
+</style>

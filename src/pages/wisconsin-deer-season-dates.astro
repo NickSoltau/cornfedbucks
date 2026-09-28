@@ -1,0 +1,237 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SpecTable from '../components/SpecTable.astro';
+import CartridgeCard from '../components/CartridgeCard.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+---
+<Layout
+  title="Wisconsin Deer Season Dates 2026-27"
+  description="Wisconsin's 2026-27 deer season dates, license costs, and rifle rules — archery, gun, muzzleloader, and youth season, all in one place, updated yearly."
+>
+  <section class="pillar">
+    <div class="wrap pillar__inner">
+      <p class="eyebrow">Season Dates — Wisconsin</p>
+      <h1>Wisconsin Deer Season Dates: 2026-27</h1>
+      <p class="pillar__intro">
+        Everything you need before you buy a tag or head to the field: the full rundown of
+        2026-27 Wisconsin deer season dates, what you'll pay for a license, and how buck tags
+        actually carry (or don't) between seasons — one page, kept current. This isn't a dated
+        field note; we refresh it in place each year when the DNR publishes new dates.
+      </p>
+
+      <h2>2026-27 Wisconsin Deer Season Dates at a Glance</h2>
+
+      <SpecTable
+        caption="Wisconsin Deer Season Dates — 2026-27"
+        compareColumns={["2026-27"]}
+        metricRows={[
+          { label: "Archery / Crossbow", values: ["Sept. 12, 2026 – Jan. 3, 2027"] },
+          { label: "Youth Gun Hunt", values: ["Oct. 10–11, 2026"] },
+          { label: "Gun Season", values: ["Nov. 21–29, 2026"] },
+          { label: "Muzzleloader", values: ["Nov. 30 – Dec. 9, 2026"] },
+          { label: "Antlerless Holiday Hunt", values: ["Dec. 24, 2026 – Jan. 1, 2027"] },
+          { label: "One-Buck Rule", values: ["No — tags are season-specific"] },
+        ]}
+        note="Source: Wisconsin DNR's deer hunting and season-dates pages. Archery/crossbow extends to Jan. 31, 2027 in Metro subunits and select farmland counties."
+      />
+
+      <h2>Wisconsin's Season-Specific Buck Tags</h2>
+      <p>
+        Wisconsin is the loosest of the seven states in this region on total buck limits —
+        there's no statewide antler point restriction and no one-buck rule. The bag limit is one
+        buck deer per unused buck harvest authorization (valid statewide) and one antlerless deer
+        per unused antlerless authorization (valid for a specific zone/DMU/land type). Buy more
+        authorizations, tag more deer, subject to zone-specific antlerless availability.
+      </p>
+      <p>
+        One detail that trips people up: buck harvest authorizations are <strong>season- and
+        weapon-specific.</strong> A bow buck tag from archery season doesn't carry over to gun
+        season — if you fill it in October, you don't get another crack at a buck in November
+        unless you've separately bought a gun-season buck authorization.
+      </p>
+
+      <h2>Is Wisconsin a Straight-Wall Cartridge State?</h2>
+      <p>
+        No — this is a common mix-up. Wisconsin has never restricted deer rifles to straight-wall
+        case shape, and eliminated its shotgun-only zones back in 2014.
+      </p>
+      <CartridgeCard
+        name="Wisconsin"
+        url="https://dnr.wisconsin.gov/topic/hunt/deer"
+        linkRel="noopener"
+        description="No case-shape requirement. Any centerfire rifle .22 caliber or larger is legal for deer in all 72 counties — no maximum caliber. Wisconsin eliminated its shotgun-only zones back in 2014."
+        stats={[
+          { label: "Case Shape", value: "Not required" },
+          { label: "Min Caliber", value: ".22in+" },
+        ]}
+      />
+      <p>
+        A straight-wall cartridge like the .350 Legend or .400 Legend is still a smart, low-recoil
+        choice for realistic row-crop shot distances — Wisconsin's rule just doesn't require it.
+        See our <a href="/blog/straight-wall-cartridge-state-regulations/">straight-wall cartridge regulations guide</a> for
+        how Wisconsin compares to the other six states in this region.
+      </p>
+
+      <h2>Wisconsin Deer License Costs, 2026-27</h2>
+      <p>
+        A resident deer license — gun, archery, or crossbow, all priced the same — is $24.
+        Junior hunters (12–17) pay $20, and hunters under 12 pay $7.
+      </p>
+      <p>
+        Nonresidents pay a flat $200 for a gun, archery, or crossbow deer license, with a $24 rate
+        for students and military and $7 for nonresidents under 12. A proposed fee increase (to
+        $44 resident) has been floated for a future budget cycle but has not taken effect.
+        Wisconsin's license year runs April 1 through March 31, and everything is over the
+        counter — no draw required.
+      </p>
+      <p>
+        For the full seven-state cost and lottery breakdown — including how Wisconsin stacks up
+        against Ohio, Michigan, Indiana, Iowa, Illinois, and Minnesota — see our <a href="/blog/deer-hunting-license-guide-seven-state/">Deer Hunting License Guide: 7-State Corn Belt Edition</a>.
+      </p>
+
+      <h2>Plan Your Whole Wisconsin Season</h2>
+      <p>
+        A few more things worth lining up against the dates above before opening day:
+      </p>
+      <ul class="pillar__crosslinks">
+        <li><a href="/blog/chronic-wasting-disease-explained/">Chronic Wasting Disease: What It Actually Is (And What It Isn't)</a></li>
+        <li><a href="/blog/food-plot-or-mineral-site-leased-ground/">Food Plot vs. Mineral Site: Deer Hunting Laws by State</a></li>
+        <li><a href="/blog/2026-deer-season-regulations-seven-state-roundup/">2026 Deer Season Regulations: 7-State Bag Limits Guide</a></li>
+      </ul>
+
+      <h2>More Corn Belt Season-Date Guides</h2>
+      <ul class="pillar__crosslinks pillar__hub">
+        <li><a href="/ohio-deer-season-dates/">Ohio Deer Season Dates</a></li>
+        <li><a href="/michigan-deer-season-dates/">Michigan Deer Season Dates</a></li>
+        <li><a href="/indiana-deer-season-dates/">Indiana Deer Season Dates</a></li>
+        <li><a href="/iowa-deer-season-dates/">Iowa Deer Season Dates</a></li>
+        <li><a href="/illinois-deer-season-dates/">Illinois Deer Season Dates</a></li>
+        <li><a href="/minnesota-deer-season-dates/">Minnesota Deer Season Dates</a></li>
+      </ul>
+
+      <div class="pillar__cta">
+        <picture class="pillar__cta-cover">
+          <source srcset="/images/perfect-window-cover.webp" type="image/webp" />
+          <img src="/images/perfect-window-cover.jpg" alt="The Perfect Window book cover" width="500" height="647" loading="lazy" />
+        </picture>
+        <div class="pillar__cta-body">
+          <p class="pillar__cta-title">Want every state's dates in one place?</p>
+          <p class="pillar__cta-desc">
+            <em>The Perfect Window</em> lays out harvest timing, rut windows, and legal season
+            dates across all 12 Corn Belt states on one visual overlap chart — handy if you hunt
+            more than just Wisconsin.
+          </p>
+          <a class="pillar__cta-link" href="https://link.amazon/B03KhoZDf" rel="sponsored noopener" target="_blank">Get it on Amazon &rarr;</a>
+        </div>
+      </div>
+
+      <h2>FAQ</h2>
+
+      <p><strong>Is Wisconsin a straight-wall cartridge state?</strong><br />
+      No. Wisconsin has never restricted deer rifles to straight-wall case shape — any centerfire
+      rifle .22 caliber or larger is legal statewide, in all 72 counties.</p>
+
+      <p><strong>When does Wisconsin's 2026-27 deer archery season start?</strong><br />
+      Saturday, Sept. 12, 2026, running through Jan. 3, 2027 (through Jan. 31, 2027 in Metro
+      subunits and select farmland counties).</p>
+
+      <p><strong>Does a Wisconsin buck tag carry over between seasons?</strong><br />
+      No. Buck harvest authorizations are season- and weapon-specific — a bow tag filled in
+      archery season doesn't give you a buck opportunity in gun season.</p>
+
+      <p><strong>How much does a Wisconsin deer license cost?</strong><br />
+      A resident deer license is $24, whether you hunt gun, archery, or crossbow. Nonresidents
+      pay a flat $200.</p>
+
+      <FaqSchema items={[
+        { question: "Is Wisconsin a straight-wall cartridge state?", answer: "No. Wisconsin has never restricted deer rifles to straight-wall case shape - any centerfire rifle .22 caliber or larger is legal statewide, in all 72 counties." },
+        { question: "When does Wisconsin's 2026-27 deer archery season start?", answer: "Saturday, Sept. 12, 2026, running through Jan. 3, 2027 (through Jan. 31, 2027 in Metro subunits and select farmland counties)." },
+        { question: "Does a Wisconsin buck tag carry over between seasons?", answer: "No. Buck harvest authorizations are season- and weapon-specific - a bow tag filled in archery season doesn't give you a buck opportunity in gun season." },
+        { question: "How much does a Wisconsin deer license cost?", answer: "A resident deer license is $24, whether you hunt gun, archery, or crossbow. Nonresidents pay a flat $200." }
+      ]} />
+
+      <p class="pillar__disclaimer">
+        Season dates and tag rules sourced from the Wisconsin DNR's deer hunting and season-dates
+        pages. Zone- or DMU-level exceptions can override anything listed here — always confirm
+        current rules at <a href="https://dnr.wisconsin.gov/topic/hunt/deer" rel="noopener" target="_blank">dnr.wisconsin.gov</a> before
+        you buy a license or head afield.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pillar { padding: 3rem 0 5rem; }
+  .pillar__inner { max-width: 720px; }
+  .pillar h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin: 0.4rem 0 0.9rem;
+  }
+  .pillar__intro {
+    color: var(--ink);
+    opacity: 0.85;
+    line-height: 1.55;
+    margin: 0 0 1.75rem;
+  }
+  .pillar h2 {
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    margin: 2.25rem 0 0.9rem;
+  }
+  .pillar p {
+    margin: 0 0 1.1rem;
+    line-height: 1.6;
+  }
+  .pillar__crosslinks {
+    margin: 0 0 1.75rem;
+    padding-left: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .pillar__cta {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--husk);
+    border: 1px solid var(--stalk);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 0.5rem 0 2.25rem;
+  }
+  .pillar__cta-cover { flex: 0 0 auto; width: 84px; }
+  .pillar__cta-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 14px rgba(34, 27, 20, 0.25);
+  }
+  .pillar__cta-body { min-width: 0; }
+  .pillar__cta-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 0.35rem;
+  }
+  .pillar__cta-desc { font-size: 0.9rem; margin: 0 0 0.75rem; }
+  .pillar__cta-link {
+    font-family: var(--font-tag);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--blaze);
+    text-decoration: none;
+  }
+  .pillar__cta-link:hover { text-decoration: underline; }
+
+  @media (max-width: 420px) {
+    .pillar__cta { flex-direction: column; }
+    .pillar__cta-cover { width: 100px; }
+  }
+
+  .pillar__disclaimer {
+    margin-top: 2.25rem;
+    font-size: 0.82rem;
+    color: var(--stalk);
+    line-height: 1.6;
+    border-top: 1px solid var(--husk);
+    padding-top: 1rem;
+  }
+</style>
