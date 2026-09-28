@@ -20,9 +20,10 @@ import Layout from '../layouts/Layout.astro';
           <b>Heads up:</b> manufacturers don't all measure trajectory the same way — some zero at 100
           yards, some at 200, and the yardage steps don't line up either. We standardized everything to
           a 100-yard zero and 50-yard steps, which means some figures here are calculated, not copied
-          straight off the box (marked with a dashed line). A few popular loads don't have any published
-          ballistics from their manufacturer at all, so they're listed but greyed out below rather than
-          faked.
+          straight off the box (marked with a dashed line). Some makers, mostly Winchester, don't publish
+          ballistics tables for their popular deer loads, so for those we use ammo.com's published
+          tables (marked "via ammo.com" in the list). A few loads have no published numbers anywhere,
+          so they're greyed out below rather than faked.
         </div>
       </header>
 
@@ -41,10 +42,13 @@ import Layout from '../layouts/Layout.astro';
       <footer class="ballistics__footer">
         Click any small chart on the right to swap it into the main view. Loads/legend are ranked by
         descending energy at 100&nbsp;yd (highest-hitting load listed first). Data: manufacturer-published
-        ballistics tables, sourced Sept 2026. Dashed segments use a calculated 100-yd-zero trajectory
-        derived from published velocity data (no manufacturer BC available); points past 200&nbsp;yd for
-        those loads are rough estimates, accurate to roughly &plusmn;20&ndash;35% versus a true published
-        figure. Wind drift intentionally excluded — too situational to generalize.
+        ballistics tables, plus ammo.com's published tables for loads whose makers don't publish their
+        own (marked &ldquo;via ammo.com&rdquo;), sourced Sept 2026. Dashed segments are calculated. Some are
+        converted to a 100-yd zero from a table published at a different zero, or filled in between
+        published yardages; those stay close to the published numbers. Others use a trajectory
+        estimated from published velocity data (no manufacturer BC available), and points past
+        200&nbsp;yd for those loads are rough estimates, accurate to roughly &plusmn;20&ndash;35% versus a
+        true published figure. Wind drift intentionally excluded — too situational to generalize.
       </footer>
     </div>
   </section>

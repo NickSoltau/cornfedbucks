@@ -41,7 +41,7 @@ function buildPicker() {
     loadsSorted.forEach(l => {
       const disabled = l.dataStatus !== 'Published';
       const label = `${l.manufacturer} ${l.productLine}`;
-      const meta = disabled ? 'no manufacturer ballistics data' : `${l.bulletWt}gr`;
+      const meta = disabled ? 'no published ballistics data' : `${l.bulletWt}gr` + (l.sourceName ? ` · via ${l.sourceName}` : '');
       const row = makeRow(cartridge, loadKeyOf(cartridge, l.manufacturer, l.productLine), label, meta, false, disabled, { cartridge, isGeneric: false, entry: l });
       list.appendChild(row);
     });
