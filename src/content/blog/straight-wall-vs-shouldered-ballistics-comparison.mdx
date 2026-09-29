@@ -1,0 +1,108 @@
+---
+title: "Straight-Wall vs Shouldered Ballistics: Why It's Not Simple"
+description: "Comparing straight-wall and shouldered cartridge ballistics sounds easy until you read the tables. Here's what we found building our free comparison tool."
+pubDate: 2026-09-29
+fieldNote: "FIELD NOTE NO. 053"
+tags: ["cartridges-ammo"]
+---
+
+import FaqSchema from '../../components/FaqSchema.astro';
+
+<figure class="field-note-hero">
+  <picture>
+    <source srcset="/images/fn053-ballistics-comparison-hero.webp" type="image/webp" />
+    <img src="/images/fn053-ballistics-comparison-hero.jpg" alt="Line charts from the CornfedBucks Ballistics Comparison Tool showing trajectory, energy and velocity for a generic .308 Winchester against a generic .350 Legend out to 300 yards" width="1376" height="768" />
+  </picture>
+  <figcaption class="field-note-hero__caption">The CornfedBucks Ballistics Comparison Tool: generic .308 Winchester vs generic .350 Legend, 100-yard zero.</figcaption>
+</figure>
+
+A fair straight-wall vs shouldered ballistics comparison is harder than it looks, because manufacturers don't publish their numbers the same way. Some zero their rifles at 100 yards and some at 200. Some list every 50 yards and some every 100. And some of the most popular deer loads on the shelf don't have a published table at all.
+
+We ran into all three while building the [Ballistics Comparison Tool](/ballistics-comparison/), which lets you put up to four loads side by side. This Field Note is about what we found, what we did about it, and how to read the charts without getting fooled.
+
+## Problem One: The Zero Isn't the Same
+
+A trajectory table tells you how far a bullet drops or rises compared to the line of your sights. That depends on where the rifle is zeroed. Zero at 100 yards and the bullet crosses your line at 100. Zero at 200 and it crosses at 200, so the drop at every other distance shifts.
+
+Some manufacturers publish 100-yard-zero tables. Others only publish 200-yard-zero tables. If you put the two side by side, the numbers don't mean the same thing.
+
+In our dataset, every Hornady load (15 of 15) only had a table at a zero other than 100 yards, and so did six Winchester loads and one Barnes load. That's 22 of the 73 loads that have published data.
+
+## Problem Two: The Distances Don't Line Up
+
+Straight-wall cartridge makers often publish in 50-yard steps. Many shouldered-cartridge makers publish in 100-yard steps, at 100, 200 and 300 yards. To chart them together you need points in between, and those have to be worked out, not read off the box.
+
+## Problem Three: Some Popular Loads Have No Table
+
+Some makers, mostly Winchester, don't publish ballistics tables for their popular deer loads. For those, we use ammo.com's published tables and mark them "via ammo.com" in the tool. That covers 14 loads. Four loads have no published numbers anywhere we could find, so they show up greyed out in the tool instead of filled in with a guess.
+
+## What We Did About It
+
+We built the tool around a few rules:
+
+- **One standard.** Everything is shown at a 100-yard zero in 50-yard steps, so the lines are comparable.
+- **Real numbers first.** Figures are taken from manufacturers' published tables whenever they exist.
+- **Calculated points are marked.** Where we had to convert a zero or fill in between published distances, the line is dashed.
+- **No made-up numbers.** If a load has no published data, we grey it out. We don't guess.
+
+There's a cost to this. For loads converted from a 200-yard-zero table, or estimated from published velocity because no ballistic coefficient was available, the numbers hold up close but get rougher farther out. Past 200 yards on those loads, our own tool says the trajectory is accurate to roughly plus or minus 20 to 35 percent. That covers 13 loads, mostly Hornady.
+
+## What a Clean Comparison Looks Like
+
+The cleanest comparisons are the ones where nothing had to be converted. Federal publishes 100-yard-zero tables for both its Fusion .350 Legend and Fusion .308 Winchester loads, so those two can sit side by side straight from the manufacturer's tables:
+
+| | .350 Legend (Fusion 160 gr) | .308 Win (Fusion 150 gr) |
+|---|---|---|
+| Velocity at 100 yd | 1,993 fps | 2,600 fps |
+| Energy at 100 yd | 1,411 ft-lbs | 2,252 ft-lbs |
+| Energy at 200 yd | 1,041 ft-lbs | 1,903 ft-lbs |
+| Energy at 300 yd | 760 ft-lbs | 1,599 ft-lbs |
+| Drop at 200 yd | 7.3 in | 3.6 in |
+| Drop at 300 yd | 26.6 in | 13.4 in |
+
+Source: Federal Premium's published tables for each load, 100-yard zero.
+
+Two things stand out. First, the shouldered cartridge carries more energy and drops less at every distance shown. Second, look at the last 100 yards of the straight-wall's table: drop goes from 7.3 inches at 200 yards to 26.6 at 300, a jump of 19.3 inches. The .308 gains 9.8 inches over the same stretch.
+
+That's the "200-yard wall" from our [straight-wall pillar guide](/blog/ultimate-guide-straight-wall-cartridge-hunting/). It isn't that the cartridge stops working at 200. It's that past there, small mistakes in range cost you a lot of inches.
+
+This is one matched pair, not a verdict on every load. The point of the tool is to check the loads you actually shoot.
+
+## What This Means for You
+
+If your state requires a straight-wall cartridge, the comparison is more of a planning tool than a choice. Check your state's rule in our [straight-wall cartridge state guide](/blog/straight-wall-cartridge-state-regulations/), then use the tool to see how your load falls off past 150 yards.
+
+If you have a choice, don't trust any chart until you know the zero and the yardage steps behind it. When we say a number is calculated, we mean it, and the dashed lines are there so you can tell.
+
+Either way, know your distance. Drop in the 200 to 300 range is where a bad guess hurts most. Our [BDC vs. duplex reticle guide](/blog/reticle-choice-bdc-vs-duplex/) covers holdovers.
+
+## FAQ: Straight-Wall vs Shouldered Ballistics
+
+### What does "zeroed at 100 yards" mean?
+
+It means the rifle is sighted in so the bullet hits the point of aim at 100 yards. The bullet is below your line of sight past that, and slightly above it before that. A 200-yard zero moves that crossing point out, so the numbers at other distances change.
+
+### Are the numbers in your tool exact?
+
+Where a manufacturer publishes a table, we use it as published. Where we had to convert or fill in, the line is dashed. Loads converted from a different zero or estimated from velocity are less certain, especially past 200 yards.
+
+### Why are some loads greyed out?
+
+Because no manufacturer table or ammo.com table exists for them that we could find. We'd rather show a greyed-out entry than invent numbers.
+
+<FaqSchema items={[
+  { question: "What does \"zeroed at 100 yards\" mean?", answer: "It means the rifle is sighted in so the bullet hits the point of aim at 100 yards. The bullet is below your line of sight past that, and slightly above it before that. A 200-yard zero moves that crossing point out, so the numbers at other distances change." },
+  { question: "Are the numbers in your tool exact?", answer: "Where a manufacturer publishes a table, we use it as published. Where we had to convert or fill in, the line is dashed. Loads converted from a different zero or estimated from velocity are less certain, especially past 200 yards." },
+  { question: "Why are some loads greyed out?", answer: "Because no manufacturer table or ammo.com table exists for them that we could find. We'd rather show a greyed-out entry than invent numbers." }
+]} />
+
+Want more of these dropped straight into your inbox? **[Join The Monday Morning Report here.](/#newsletter)**
+
+## The Bottom Line
+
+An honest ballistics comparison starts with knowing how each number was made. Pick the loads you actually shoot, check whether the line is solid or dashed, and pay attention to what happens between 200 and 300 yards. Then try it yourself in the [Ballistics Comparison Tool](/ballistics-comparison/).
+
+Sources: Federal Premium published ballistics tables for Fusion .350 Legend 160 gr FSP and Fusion .308 Winchester 150 gr FSP; ammo.com published tables; CornfedBucks Ballistics Comparison Tool dataset (sourced Sept. 2026).
+
+Until next time.
+Nick
