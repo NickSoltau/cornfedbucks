@@ -13,11 +13,10 @@ import FaqSchema from '../components/FaqSchema.astro';
       <p class="eyebrow">Season Dates — Minnesota</p>
       <h1>Minnesota Deer Season Dates: 2026-27</h1>
       <p class="pillar__intro">
-        Everything you need before you buy a tag or head to the field: the full rundown of 2026
-        Minnesota deer season dates, what you'll pay for a license, and how the one-buck rule
-        actually works — one page, kept current. This isn't a dated field note; we refresh it
+        Minnesota's 2026 firearms deer season opens Nov. 7, running through Nov. 22 in 100 Series areas and Nov. 15 in 200/300 Series areas. Muzzleloader is Nov. 28–Dec. 13 and archery runs Sept. 19–Dec. 31. Minnesota allows one buck per license year. This isn't a dated field note; we refresh it
         in place each year when the DNR publishes new dates.
       </p>
+      <p class="pillar__updated">Last updated: October 1, 2026</p>
 
       <h2>2026 Minnesota Deer Season Dates at a Glance</h2>
 
@@ -66,6 +65,9 @@ import FaqSchema from '../components/FaqSchema.astro';
           { label: "Min Caliber", value: ".220in+" },
         ]}
       />
+      <p>
+        Want to see how your cartridge actually flies? Try our <a href="/ballistics-comparison/">ballistics comparison tool</a> or read <a href="/blog/straight-wall-vs-shouldered-ballistics-comparison/">Straight-Wall vs Shouldered Ballistics</a>.
+      </p>
       <p>
         A straight-wall cartridge like the .350 Legend or .400 Legend is still a smart, low-recoil
         choice for realistic shot distances — Minnesota's statewide shotgun-only zone was also
@@ -152,6 +154,16 @@ import FaqSchema from '../components/FaqSchema.astro';
         { question: "Does Minnesota have a one-buck rule?", answer: "Yes, statewide - one buck per license year, no matter how many seasons or weapons you hunt with." },
         { question: "How much does a Minnesota deer license cost?", answer: "A resident license runs about $56 total ($22 base license plus a $34 deer license, the same price across firearm, archery, and muzzleloader). Nonresidents pay about $287 total." }
       ]} />
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "Minnesota Deer Season Dates 2026-27",
+        url: "https://cornfedbucks.com/minnesota-deer-season-dates/",
+        dateModified: "2026-10-01",
+        inLanguage: "en-US",
+        isPartOf: { "@type": "WebSite", name: "CornfedBucks", url: "https://cornfedbucks.com/" },
+        author: { "@type": "Person", name: "Nick" }
+      })} />
 
       <p class="pillar__disclaimer">
         Season dates and rule changes sourced from the Minnesota DNR's deer hunting and
@@ -175,6 +187,11 @@ import FaqSchema from '../components/FaqSchema.astro';
     opacity: 0.85;
     line-height: 1.55;
     margin: 0 0 1.75rem;
+  }
+  .pillar .pillar__updated {
+    font-size: 0.82rem;
+    color: var(--stalk);
+    margin: -1.1rem 0 1.75rem;
   }
   .pillar h2 {
     font-size: clamp(1.3rem, 2.4vw, 1.6rem);

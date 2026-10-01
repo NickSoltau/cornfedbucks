@@ -13,11 +13,10 @@ import FaqSchema from '../components/FaqSchema.astro';
       <p class="eyebrow">Season Dates — Michigan</p>
       <h1>Michigan Deer Season Dates: 2026-27</h1>
       <p class="pillar__intro">
-        Everything you need before you buy a tag or head to the field: the full rundown of
-        2026-27 Michigan deer season dates, what you'll pay for a license, and what changed
-        with the Limited Firearms Zone — one page, kept current. This isn't a dated field
+        Michigan's 2026-27 regular firearm deer season runs Nov. 15–30, 2026, with archery Oct. 1–Nov. 14 and again Dec. 1, 2026–Jan. 1, 2027. The December firearm season in the Lower Peninsula is Dec. 4–6. Michigan's one-buck rule does not start until 2027. This isn't a dated field
         note; we refresh it in place each year when the DNR publishes new dates.
       </p>
+      <p class="pillar__updated">Last updated: October 1, 2026</p>
 
       <h2>2026-27 Michigan Deer Season Dates at a Glance</h2>
 
@@ -66,6 +65,9 @@ import FaqSchema from '../components/FaqSchema.astro';
           { label: "Min Caliber", value: "Larger than .22 rimfire" },
         ]}
       />
+      <p>
+        Want to see how your cartridge actually flies? Try our <a href="/ballistics-comparison/">ballistics comparison tool</a> or read <a href="/blog/straight-wall-vs-shouldered-ballistics-comparison/">Straight-Wall vs Shouldered Ballistics</a>.
+      </p>
       <p>
         A straight-wall cartridge like the .350 Legend or .400 Legend is still a smart, low-recoil
         choice for realistic row-crop shot distances — the law just no longer forces the issue.
@@ -152,6 +154,16 @@ import FaqSchema from '../components/FaqSchema.astro';
         { question: "Does Michigan have a one-buck rule?", answer: "Not yet. For 2026, the statewide limit is still two antlered deer per hunter (one in DMU 117). The true one-buck rule starts with the 2027 season in the Lower Peninsula." },
         { question: "How much does a Michigan deer license cost?", answer: "Residents pay about $31 total (an $11 base license plus a $20 deer license). Nonresidents pay about $171 total ($151 base license plus the same $20 deer license)." }
       ]} />
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "Michigan Deer Season Dates 2026-27",
+        url: "https://cornfedbucks.com/michigan-deer-season-dates/",
+        dateModified: "2026-10-01",
+        inLanguage: "en-US",
+        isPartOf: { "@type": "WebSite", name: "CornfedBucks", url: "https://cornfedbucks.com/" },
+        author: { "@type": "Person", name: "Nick" }
+      })} />
 
       <p class="pillar__disclaimer">
         Season dates and rifle-zone changes sourced from the Michigan DNR's 2026 hunting season
@@ -175,6 +187,11 @@ import FaqSchema from '../components/FaqSchema.astro';
     opacity: 0.85;
     line-height: 1.55;
     margin: 0 0 1.75rem;
+  }
+  .pillar .pillar__updated {
+    font-size: 0.82rem;
+    color: var(--stalk);
+    margin: -1.1rem 0 1.75rem;
   }
   .pillar h2 {
     font-size: clamp(1.3rem, 2.4vw, 1.6rem);

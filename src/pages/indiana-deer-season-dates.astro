@@ -13,11 +13,10 @@ import FaqSchema from '../components/FaqSchema.astro';
       <p class="eyebrow">Season Dates — Indiana</p>
       <h1>Indiana Deer Season Dates: 2026-27</h1>
       <p class="pillar__intro">
-        Everything you need before you buy a tag or head to the field: the full rundown of
-        2026-27 Indiana deer season dates, what you'll pay for a license, and what's legal to
-        hunt with — one page, kept current. This isn't a dated field note; we refresh it in
+        Indiana's 2026-27 deer firearms season runs Nov. 14–29, 2026. Archery runs Oct. 1, 2026–Jan. 3, 2027 and muzzleloader runs Dec. 5–20. The statewide bag limit is one antlered and six antlerless deer, combined. This isn't a dated field note; we refresh it in
         place each year when the DNR publishes new dates.
       </p>
+      <p class="pillar__updated">Last updated: October 1, 2026</p>
 
       <h2>2026-27 Indiana Deer Season Dates at a Glance</h2>
 
@@ -59,6 +58,9 @@ import FaqSchema from '../components/FaqSchema.astro';
           { label: "Min Diameter", value: ".219in (5.56mm)+" },
         ]}
       />
+      <p>
+        Want to see how your cartridge actually flies? Try our <a href="/ballistics-comparison/">ballistics comparison tool</a> or read <a href="/blog/straight-wall-vs-shouldered-ballistics-comparison/">Straight-Wall vs Shouldered Ballistics</a>.
+      </p>
       <p>
         Running a breech-loaded muzzleloader like a FireStick or NitroFire during muzzleloader
         season instead? It's legal this season via a fast-tracked interim rule, with the
@@ -145,6 +147,16 @@ import FaqSchema from '../components/FaqSchema.astro';
         { question: "What's Indiana's deer bag limit?", answer: "One antlered deer and six antlerless deer, combined, across youth, archery, firearms, and muzzleloader seasons - county quotas can cap the antlerless number lower." },
         { question: "How much does an Indiana deer license cost?", answer: "A resident hunting license is $20, plus $39 per single-season deer license, or $91 for the full bundle. Nonresidents pay $90 for the license and $240 per deer license, or $550 for the bundle." }
       ]} />
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "Indiana Deer Season Dates 2026-27",
+        url: "https://cornfedbucks.com/indiana-deer-season-dates/",
+        dateModified: "2026-10-01",
+        inLanguage: "en-US",
+        isPartOf: { "@type": "WebSite", name: "CornfedBucks", url: "https://cornfedbucks.com/" },
+        author: { "@type": "Person", name: "Nick" }
+      })} />
 
       <p class="pillar__disclaimer">
         Season dates and bag limits sourced from Indiana DNR's 2026-27 Hunting &amp; Trapping
@@ -168,6 +180,11 @@ import FaqSchema from '../components/FaqSchema.astro';
     opacity: 0.85;
     line-height: 1.55;
     margin: 0 0 1.75rem;
+  }
+  .pillar .pillar__updated {
+    font-size: 0.82rem;
+    color: var(--stalk);
+    margin: -1.1rem 0 1.75rem;
   }
   .pillar h2 {
     font-size: clamp(1.3rem, 2.4vw, 1.6rem);

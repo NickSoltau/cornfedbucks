@@ -13,11 +13,10 @@ import FaqSchema from '../components/FaqSchema.astro';
       <p class="eyebrow">Season Dates — Iowa</p>
       <h1>Iowa Deer Season Dates: 2026-27</h1>
       <p class="pillar__intro">
-        Everything you need before you buy a tag or head to the field: the full rundown of
-        2026-27 Iowa deer season dates, what you'll pay for a license, and how the new zone
-        system affects what you can shoot — one page, kept current. This isn't a dated field
+        Iowa's 2026-27 deer season includes two regular gun seasons: Dec. 5–9 and Dec. 12–20, 2026. Archery runs Oct. 1–Dec. 4 and Dec. 21, 2026–Jan. 10, 2027. Early muzzleloader is Oct. 17–25 and late muzzleloader is Dec. 21–Jan. 10. This isn't a dated field
         note; we refresh it in place each year when the DNR publishes new dates.
       </p>
+      <p class="pillar__updated">Last updated: October 1, 2026</p>
 
       <h2>2026-27 Iowa Deer Season Dates at a Glance</h2>
 
@@ -68,6 +67,9 @@ import FaqSchema from '../components/FaqSchema.astro';
           { label: "Min Diameter/Energy", value: ".350–.500in, 500+ ft-lbs" },
         ]}
       />
+      <p>
+        Want to see how your cartridge actually flies? Try our <a href="/ballistics-comparison/">ballistics comparison tool</a> or read <a href="/blog/straight-wall-vs-shouldered-ballistics-comparison/">Straight-Wall vs Shouldered Ballistics</a>.
+      </p>
       <p>
         A straight-wall cartridge like the .350 Legend or .450 Bushmaster still fits comfortably
         inside that window and remains a smart, low-recoil choice for row-crop distances — the
@@ -156,6 +158,16 @@ import FaqSchema from '../components/FaqSchema.astro';
         { question: "What is Iowa's new Zone A/Zone B system?", answer: "Starting in 2026, eight northwest counties (Zone B) are restricted to antlered-buck-only hunting in most seasons, with no party hunting. The rest of the state (Zone A) is mostly unchanged." },
         { question: "How much does an Iowa deer license cost?", answer: "Residents pay about $55 total (a $22 hunting license plus a roughly $33 buck tag) - the cheapest resident setup in this region. Nonresidents pay about $644 total and must apply through a lottery." }
       ]} />
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "Iowa Deer Season Dates 2026-27",
+        url: "https://cornfedbucks.com/iowa-deer-season-dates/",
+        dateModified: "2026-10-01",
+        inLanguage: "en-US",
+        isPartOf: { "@type": "WebSite", name: "CornfedBucks", url: "https://cornfedbucks.com/" },
+        author: { "@type": "Person", name: "Nick" }
+      })} />
 
       <p class="pillar__disclaimer">
         Season dates and zone rules sourced from Iowa DNR's 2026-27 Hunting Seasons &amp; Limits
@@ -179,6 +191,11 @@ import FaqSchema from '../components/FaqSchema.astro';
     opacity: 0.85;
     line-height: 1.55;
     margin: 0 0 1.75rem;
+  }
+  .pillar .pillar__updated {
+    font-size: 0.82rem;
+    color: var(--stalk);
+    margin: -1.1rem 0 1.75rem;
   }
   .pillar h2 {
     font-size: clamp(1.3rem, 2.4vw, 1.6rem);

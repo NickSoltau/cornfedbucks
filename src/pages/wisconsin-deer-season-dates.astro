@@ -13,11 +13,10 @@ import FaqSchema from '../components/FaqSchema.astro';
       <p class="eyebrow">Season Dates — Wisconsin</p>
       <h1>Wisconsin Deer Season Dates: 2026-27</h1>
       <p class="pillar__intro">
-        Everything you need before you buy a tag or head to the field: the full rundown of
-        2026-27 Wisconsin deer season dates, what you'll pay for a license, and how buck tags
-        actually carry (or don't) between seasons — one page, kept current. This isn't a dated
+        Wisconsin's 2026-27 gun deer season runs Nov. 21–29, 2026, followed by muzzleloader Nov. 30–Dec. 9. Archery and crossbow run Sept. 12, 2026–Jan. 3, 2027. Buck tags in Wisconsin are season-specific. This isn't a dated
         field note; we refresh it in place each year when the DNR publishes new dates.
       </p>
+      <p class="pillar__updated">Last updated: October 1, 2026</p>
 
       <h2>2026-27 Wisconsin Deer Season Dates at a Glance</h2>
 
@@ -65,6 +64,9 @@ import FaqSchema from '../components/FaqSchema.astro';
           { label: "Min Caliber", value: ".22in+" },
         ]}
       />
+      <p>
+        Want to see how your cartridge actually flies? Try our <a href="/ballistics-comparison/">ballistics comparison tool</a> or read <a href="/blog/straight-wall-vs-shouldered-ballistics-comparison/">Straight-Wall vs Shouldered Ballistics</a>.
+      </p>
       <p>
         A straight-wall cartridge like the .350 Legend or .400 Legend is still a smart, low-recoil
         choice for realistic row-crop shot distances — Wisconsin's rule just doesn't require it.
@@ -149,6 +151,16 @@ import FaqSchema from '../components/FaqSchema.astro';
         { question: "Does a Wisconsin buck tag carry over between seasons?", answer: "No. Buck harvest authorizations are season- and weapon-specific - a bow tag filled in archery season doesn't give you a buck opportunity in gun season." },
         { question: "How much does a Wisconsin deer license cost?", answer: "A resident deer license is $24, whether you hunt gun, archery, or crossbow. Nonresidents pay a flat $200." }
       ]} />
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "Wisconsin Deer Season Dates 2026-27",
+        url: "https://cornfedbucks.com/wisconsin-deer-season-dates/",
+        dateModified: "2026-10-01",
+        inLanguage: "en-US",
+        isPartOf: { "@type": "WebSite", name: "CornfedBucks", url: "https://cornfedbucks.com/" },
+        author: { "@type": "Person", name: "Nick" }
+      })} />
 
       <p class="pillar__disclaimer">
         Season dates and tag rules sourced from the Wisconsin DNR's deer hunting and season-dates
@@ -172,6 +184,11 @@ import FaqSchema from '../components/FaqSchema.astro';
     opacity: 0.85;
     line-height: 1.55;
     margin: 0 0 1.75rem;
+  }
+  .pillar .pillar__updated {
+    font-size: 0.82rem;
+    color: var(--stalk);
+    margin: -1.1rem 0 1.75rem;
   }
   .pillar h2 {
     font-size: clamp(1.3rem, 2.4vw, 1.6rem);
