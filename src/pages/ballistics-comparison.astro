@@ -1,8 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+import dataset from '../../public/data/ballistics-dataset.json';
+
+const cartridgeCount = Object.keys(dataset).length;
+const loadCount = Object.values(dataset).reduce((n, c) => n + c.loads.length, 0);
+
+// Same SWC classification the picker uses (public/scripts/ballistics-comparison.js).
+const swcSet = new Set(['.350 Legend', '.400 Legend', '.450 Bushmaster', '.360 Buckhammer', '.45-70 Govt']);
+const rows = Object.entries(dataset)
+  .map(([name, c]) => ({
+    name,
+    type: swcSet.has(name) ? 'SWC' : 'Shouldered',
+    e100: c.generic['100'].energy,
+    e200: c.generic['200'].energy,
+    e300: c.generic['300'].energy,
+    d200: -c.generic['200'].trajectory,
+    d300: -c.generic['300'].trajectory,
+  }))
+  .sort((a, b) => b.e100 - a.e100);
+
+const faqItems = [
+  { question: "What does a 100-yard zero mean on this tool?", answer: "It means every load is shown as if the rifle is sighted in to hit the point of aim at 100 yards. The bullet is below your line of sight past that and slightly above it before that. We convert tables published at other zeros so the lines can be compared." },
+  { question: "What does a dashed line mean?", answer: "A dashed segment is calculated, not copied from a manufacturer table. Some are converted to a 100-yard zero from a table published at a different zero. Others are filled in between published yardages or estimated from published velocity." },
+  { question: "Why are some loads greyed out?", answer: "No manufacturer table or ammo.com table exists for them that we could find. We show them greyed out instead of guessing numbers." },
+  { question: "Where does the data come from?", answer: "From manufacturers' published ballistics tables, plus ammo.com's published tables for loads whose makers don't publish their own. Those are marked via ammo.com in the load list. The data was sourced in September 2026." },
+];
 ---
 <Layout
-  title="Ballistics Comparison Tool"
+  title="Straight-Wall vs Shouldered Ballistics Tool"
   description="Compare energy, trajectory, and velocity across straight-wall and shouldered deer cartridges, up to four loads at once — built around the 200-yard wall."
 >
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.js" is:inline></script>
@@ -16,6 +42,10 @@ import Layout from '../layouts/Layout.astro';
           Pick up to four loads — any mix of straight-wall and shouldered cartridges — and see how
           they actually fly. Built around the 200-yard wall: most ag-field shots never get past 150.
         </p>
+        <p class="ballistics__intro ballistics__intro--summary">
+          This tool compares energy, trajectory and velocity out to 300 yards for {cartridgeCount} cartridges and {loadCount} loads, from straight-wall rounds like the .350 Legend to shouldered rounds like the .308 Winchester. Everything is standardized to a 100-yard zero and 50-yard steps. Want to know how the data was built? Read <a href="/blog/straight-wall-vs-shouldered-ballistics-comparison/">Straight-Wall vs Shouldered Ballistics</a>.
+        </p>
+        <p class="ballistics__updated">Data sourced Sept. 2026 · Last updated: October 1, 2026</p>
         <div class="disclaimer">
           <b>Heads up:</b> manufacturers don't all measure trajectory the same way — some zero at 100
           yards, some at 200, and the yardage steps don't line up either. We standardized everything to
@@ -38,6 +68,64 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="sidestack" id="sideSlot"></div>
       </div>
+
+      <section class="ballistics__glance">
+        <h2>Ballistics at a Glance: Generic Figures, 100-Yard Zero</h2>
+        <p class="ballistics__glance-note">
+          These are generic figures — the average of the loads for each cartridge — so individual
+          loads vary. Ranked by energy at 100&nbsp;yd, highest first.
+        </p>
+        <div class="ballistics__table-scroll">
+          <table class="ballistics__table">
+            <thead>
+              <tr>
+                <th scope="col">Cartridge</th>
+                <th scope="col">Type</th>
+                <th scope="col">Energy at 100 yd (ft-lbs)</th>
+                <th scope="col">Energy at 200 yd</th>
+                <th scope="col">Energy at 300 yd</th>
+                <th scope="col">Drop at 200 yd (in)</th>
+                <th scope="col">Drop at 300 yd (in)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr>
+                  <th scope="row">{r.name}</th>
+                  <td>{r.type}</td>
+                  <td>{Math.round(r.e100)}</td>
+                  <td>{Math.round(r.e200)}</td>
+                  <td>{Math.round(r.e300)}</td>
+                  <td>{r.d200.toFixed(1)}</td>
+                  <td>{r.d300.toFixed(1)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="ballistics__faq">
+        <h2>FAQ: Ballistics Comparison</h2>
+        {faqItems.map((qa) => (
+          <p><strong>{qa.question}</strong><br />{qa.answer}</p>
+        ))}
+        <FaqSchema items={faqItems} />
+      </section>
+
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        name: "CornfedBucks Ballistics Comparison Tool",
+        url: "https://cornfedbucks.com/ballistics-comparison/",
+        applicationCategory: "UtilitiesApplication",
+        operatingSystem: "Any",
+        isAccessibleForFree: true,
+        dateModified: "2026-10-01",
+        inLanguage: "en-US",
+        author: { "@type": "Person", name: "Nick" },
+        isPartOf: { "@type": "WebSite", name: "CornfedBucks", url: "https://cornfedbucks.com/" }
+      })} />
 
       <footer class="ballistics__footer">
         Click any small chart on the right to swap it into the main view. Loads/legend are ranked by
@@ -84,6 +172,13 @@ import Layout from '../layouts/Layout.astro';
     max-width: 66ch;
     line-height: 1.55;
     margin: 0;
+  }
+
+  .ballistics__intro--summary { margin-top: 0.75rem; }
+  .ballistics__updated {
+    font-size: 0.82rem;
+    color: var(--stalk);
+    margin: 0.6rem 0 0;
   }
 
   .disclaimer {
@@ -319,6 +414,52 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     justify-content: center;
     min-height: 130px;
+  }
+
+  .ballistics__glance,
+  .ballistics__faq { margin-top: 2.5rem; max-width: 820px; }
+  .ballistics__glance h2,
+  .ballistics__faq h2 {
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    margin: 0 0 0.9rem;
+  }
+  .ballistics__glance-note,
+  .ballistics__faq p {
+    line-height: 1.6;
+    margin: 0 0 1.1rem;
+  }
+  .ballistics__table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background: var(--frost);
+    border: 1px solid var(--stalk);
+    border-top: 4px solid var(--blaze);
+  }
+  .ballistics__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+  }
+  .ballistics__table th,
+  .ballistics__table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-top: 1px solid var(--stalk);
+    white-space: nowrap;
+  }
+  .ballistics__table thead th {
+    font-family: var(--font-tag);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--stalk);
+    border-top: none;
+  }
+  .ballistics__table tbody th[scope='row'] {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--ink);
   }
 
   .ballistics__footer {
