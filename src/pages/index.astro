@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import { getCollection } from 'astro:content';
+import { seasonDateStates } from '../data/seasonDateStates';
 
 const fieldNoteNum = (fn: string) => parseInt(fn.replace(/\D/g, ''), 10) || 0;
 
@@ -14,6 +15,26 @@ const posts = (await getCollection('blog'))
   .slice(0, 3);
 
 const latest = posts[0];
+
+const allPosts = await getCollection('blog');
+const popularSlugs = [
+  'best-400-legend-ammo',
+  'best-scopes-for-350-legend',
+  '350-legend-vs-400-legend',
+  '400-legend-vs-450-bushmaster',
+  'how-to-choose-straight-wall-cartridge',
+  'deer-hunting-license-guide-seven-state',
+  '2026-deer-season-regulations-seven-state-roundup',
+  'ohio-two-stage-corn-harvest-deer-hunting',
+];
+const popularGuides = [
+  ...popularSlugs.map((slug) => {
+    const post = allPosts.find((p) => p.id === slug);
+    if (!post) throw new Error(`Popular guide not found: ${slug}`);
+    return { href: `/blog/${slug}/`, title: post.data.title };
+  }),
+  { href: '/ballistics-comparison/', title: 'Straight-Wall vs Shouldered Ballistics Tool' },
+];
 ---
 <Layout title="Home">
   <section class="hero" role="img" aria-label="Whitetail buck standing at the edge of a cut cornfield at dusk">
@@ -51,6 +72,31 @@ const latest = posts[0];
         ))}
       </div>
       <a href="/blog" class="featured__more">All field notes &rarr;</a>
+    </div>
+  </section>
+
+  <section class="linklist">
+    <div class="wrap">
+      <p class="eyebrow">Know before you go</p>
+      <h2>Season Dates by State</h2>
+      <ul class="linklist__grid">
+        {seasonDateStates.map((state) => (
+          <li><a href={state.href}>{state.name} Deer Season Dates</a></li>
+        ))}
+      </ul>
+      <a href="/deer-season-dates/" class="featured__more">All season dates &rarr;</a>
+    </div>
+  </section>
+
+  <section class="linklist linklist--alt">
+    <div class="wrap">
+      <p class="eyebrow">Start here</p>
+      <h2>Popular Guides</h2>
+      <ul class="linklist__grid">
+        {popularGuides.map((guide) => (
+          <li><a href={guide.href}>{guide.title}</a></li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -151,5 +197,39 @@ const latest = posts[0];
     font-size: 0.85rem;
     text-decoration: none;
     color: var(--blaze);
+  }
+
+  .linklist {
+    padding: 3rem 0;
+  }
+  .linklist--alt {
+    background: var(--husk);
+  }
+  .linklist h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 0.4rem 0 1.5rem;
+  }
+  .linklist__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.75rem 1.5rem;
+  }
+  .linklist__grid a {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--frost);
+    border: 2px solid var(--stalk);
+    border-radius: 3px;
+    padding: 0.8rem 1rem;
+    font-weight: 500;
+    line-height: 1.35;
+    transition: border-color 0.15s ease;
+  }
+  .linklist__grid a:hover {
+    border-color: var(--blaze);
   }
 </style>
