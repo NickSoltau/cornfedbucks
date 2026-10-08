@@ -9,7 +9,7 @@ interface Props {
 const { slug, title, description, fieldNote, pubDate } = Astro.props;
 const formatted = pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 ---
-<a class="card" href={`/blog/${slug}`}>
+<a class="card" href={`/blog/${slug}/`}>
   <p class="card__tag">{fieldNote}</p>
   <h3 class="card__title">{title}</h3>
   <p class="card__desc">{description}</p>
