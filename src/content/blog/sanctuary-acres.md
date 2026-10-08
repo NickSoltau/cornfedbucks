@@ -22,9 +22,9 @@ A one- to three-acre block of thick cover that gets zero foot traffic, year-roun
 
 If you only do one land management project this year and you're working with limited acreage, skip the plot and fence off the sanctuary instead. You can always add a plot next year. You can't un-pressure a bedding area once deer have decided it isn't safe.
 
-If a drainage ditch runs along or into your sanctuary acre, it deserves the same no-entry discipline — see [Drainage Ditches as Travel Corridors](/blog/drainage-ditches-as-travel-corridors) for how to hunt that corridor without walking through the exact cover you're trying to protect.
+If a drainage ditch runs along or into your sanctuary acre, it deserves the same no-entry discipline — see [Drainage Ditches as Travel Corridors](/blog/drainage-ditches-as-travel-corridors/) for how to hunt that corridor without walking through the exact cover you're trying to protect.
 
-When food really does matter — holding deer on your ground after harvest — put that effort into a food plot instead of a mineral site. See [Food Plot vs. Mineral Site](/blog/food-plot-or-mineral-site-leased-ground) for why a plot survives a lease change and a bait ban doesn't.
+When food really does matter — holding deer on your ground after harvest — put that effort into a food plot instead of a mineral site. See [Food Plot vs. Mineral Site](/blog/food-plot-or-mineral-site-leased-ground/) for why a plot survives a lease change and a bait ban doesn't.
 
 ---
 

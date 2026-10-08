@@ -39,7 +39,7 @@ const popularGuides = [
 <Layout title="Home">
   <section class="hero" role="img" aria-label="Whitetail buck standing at the edge of a cut cornfield at dusk">
     <div class="wrap hero__inner">
-      <a href={`/blog/${latest.id}`} class="eyebrow eyebrow--link">{latest.data.fieldNote} — Just Published</a>
+      <a href={`/blog/${latest.id}/`} class="eyebrow eyebrow--link">{latest.data.fieldNote} — Just Published</a>
       <h1>Corn-fed bucks live<br />on the edge of the field, <br />not in the middle of the woods.</h1>
       <p class="hero__sub">
         Field reports and ground-level strategy for hunters working real Midwest row-crop
@@ -47,7 +47,7 @@ const popularGuides = [
       </p>
       <p class="hero__authority">Regulations checked, not recycled — we track every rule change so you don't have to.</p>
       <div class="hero__actions">
-        <a href="/blog" class="btn btn-primary">Read the Latest Report</a>
+        <a href="/blog/" class="btn btn-primary">Read the Latest Report</a>
         <a href="#newsletter" class="btn btn-secondary">Get the Newsletter</a>
       </div>
     </div>
@@ -71,7 +71,7 @@ const popularGuides = [
           />
         ))}
       </div>
-      <a href="/blog" class="featured__more">All field notes &rarr;</a>
+      <a href="/blog/" class="featured__more">All field notes &rarr;</a>
     </div>
   </section>
 
