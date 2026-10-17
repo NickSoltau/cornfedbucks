@@ -133,6 +133,58 @@ let cards = {};    // metric -> card DOM element
 
 function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
 
+// Chart.js draws its default tooltip on the canvas, which clips long load names
+// at the chart edge. This renders the tooltip as an HTML element instead.
+function externalTooltip(context) {
+  const { chart, tooltip } = context;
+  let el = document.getElementById('ballistics-tooltip');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'ballistics-tooltip';
+    el.style.cssText = 'position:fixed;z-index:9999;pointer-events:none;max-width:min(320px, calc(100vw - 16px));white-space:normal;overflow-wrap:anywhere;padding:10px;border-radius:4px;font-size:12px;line-height:1.4;opacity:0;left:0;top:0;';
+    document.body.appendChild(el);
+  }
+  if (tooltip.opacity === 0) { el.style.opacity = '0'; return; }
+
+  el.style.background = cssVar('--ballistics-surface');
+  el.style.color = cssVar('--ballistics-text');
+  el.style.border = `1px solid ${cssVar('--ballistics-border')}`;
+  el.textContent = '';
+
+  (tooltip.title || []).forEach(t => {
+    const title = document.createElement('div');
+    title.style.fontWeight = '600';
+    title.style.marginBottom = '4px';
+    title.textContent = t;
+    el.appendChild(title);
+  });
+
+  (tooltip.dataPoints || []).forEach(dp => {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:flex-start;gap:6px;';
+    const swatch = document.createElement('span');
+    swatch.style.cssText = `flex:none;width:10px;height:10px;margin-top:3px;border-radius:2px;background:${dp.dataset.borderColor};`;
+    const text = document.createElement('span');
+    text.textContent = `${dp.dataset.label}: ${dp.formattedValue}`;
+    row.appendChild(swatch);
+    row.appendChild(text);
+    el.appendChild(row);
+  });
+
+  const rect = chart.canvas.getBoundingClientRect();
+  const margin = 8, offset = 12;
+  const x = rect.left + tooltip.caretX;
+  const y = rect.top + tooltip.caretY;
+  el.style.opacity = '1';
+  const w = el.offsetWidth, h = el.offsetHeight;
+  let left = x + offset;
+  if (left + w > window.innerWidth - margin) left = x - offset - w;
+  left = Math.max(margin, Math.min(left, window.innerWidth - w - margin));
+  let top = Math.max(margin, Math.min(y - h / 2, window.innerHeight - h - margin));
+  el.style.left = `${left}px`;
+  el.style.top = `${top}px`;
+}
+
 function resolvedColor(varName) {
   const probe = document.createElement('div');
   probe.style.color = `var(${varName})`;
@@ -152,7 +204,7 @@ function makeChart(canvasId) {
       interaction: { mode: 'index', intersect: false },
       plugins: {
         legend: { display: false, position: 'bottom', labels: { color: cssVar('--ballistics-text-dim'), font: { family: "'Work Sans'", size: 11.5 }, boxWidth: 12, padding: 12 } },
-        tooltip: { backgroundColor: cssVar('--ballistics-surface'), titleColor: cssVar('--ballistics-text'), bodyColor: cssVar('--ballistics-text'), borderColor: cssVar('--ballistics-border'), borderWidth: 1, padding: 10 }
+        tooltip: { enabled: false, external: externalTooltip }
       },
       scales: {
         x: { title: { display: true, text: 'Yardage', color: cssVar('--ballistics-text-dim') }, ticks: { color: cssVar('--ballistics-text-dim'), font: { size: 10.5 } }, grid: { color: cssVar('--ballistics-border') } },
