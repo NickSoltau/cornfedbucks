@@ -73,8 +73,14 @@ function onToggle(cb, payload) {
   } else {
     selected = selected.filter(s => s.id !== id);
   }
+  const picker = document.querySelector('.picker');
+  const pickerTop = picker.scrollTop, pageY = window.scrollY;
   updateSlotCount();
   renderCharts();
+  // Chart/legend re-layout can nudge scroll positions; restore them.
+  picker.scrollTop = pickerTop;
+  window.scrollTo(window.scrollX, pageY);
+  requestAnimationFrame(() => { picker.scrollTop = pickerTop; });
 }
 
 function updateSlotCount() {
@@ -318,6 +324,9 @@ function syncHeights() {
     heroSlot.style.height = '';
     sideSlot.style.height = '';
   } else {
+    // Setting height:auto to measure collapses the picker's scroll area and
+    // resets scrollTop to 0, so remember it and put it back afterwards.
+    const prevScroll = picker.scrollTop;
     picker.style.height = 'auto';
     const natural = picker.scrollHeight;
     const maxAllowed = window.innerHeight - 64;
@@ -325,6 +334,7 @@ function syncHeights() {
     picker.style.height = h + 'px';
     heroSlot.style.height = h + 'px';
     sideSlot.style.height = h + 'px';
+    picker.scrollTop = prevScroll;
   }
   Object.values(charts).forEach(c => c.resize());
 }
