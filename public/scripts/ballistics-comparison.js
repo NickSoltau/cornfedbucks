@@ -210,8 +210,9 @@ function seriesFor(sel, metric) {
 
 function labelFor(sel) {
   if (sel.isGeneric) return `Generic ${sel.cartridge}`;
-  const third = sel.entry.sourceType === 'third-party' ? ` (${sel.entry.sourceLabel})` : '';
-  return `${sel.cartridge} — ${sel.entry.manufacturer} ${sel.entry.productLine}${third}`;
+  // Tag goes up front so it survives legend truncation on long load names.
+  const tag = sel.entry.sourceType === 'third-party' ? ' [ammo.com]' : '';
+  return `${sel.cartridge}${tag} — ${sel.entry.manufacturer} ${sel.entry.productLine}`;
 }
 
 function repEnergy(sel) {
@@ -373,7 +374,7 @@ function makeChart(canvasId, metric) {
       layout: { padding: { right: 8 } },
       interaction: { mode: 'xSnap', intersect: false },
       plugins: {
-        legend: { display: false, position: 'bottom', labels: { color: cssVar('--ballistics-text-dim'), font: { family: "'Work Sans'", size: 11.5 }, boxWidth: 12, padding: 12 } },
+        legend: { display: false, position: 'bottom', align: 'start', labels: { color: cssVar('--ballistics-text-dim'), font: { family: "'Work Sans'", size: 11.5 }, boxWidth: 12, padding: 12 } },
         tooltip: { enabled: false, external: externalTooltip }
       },
       scales: {
