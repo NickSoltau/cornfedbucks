@@ -92,6 +92,13 @@ const faqItems = [
         300 yd for now.
       </p>
 
+      <p class="ballistics__presets">
+        <b>Head-to-heads:</b>
+        <a href="/ballistics-comparison/?loads=.350%20Legend::GENERIC,.450%20Bushmaster::GENERIC">.350 Legend vs .450 Bushmaster</a> ·
+        <a href="/ballistics-comparison/?loads=.308%20Winchester::GENERIC,6.5%20Creedmoor::GENERIC">.308 vs 6.5 Creedmoor</a> ·
+        <a href="/ballistics-comparison/?loads=.300%20AAC%20Blackout::GENERIC,.300%20AAC%20Blackout%20Subsonic::GENERIC">.300 BLK supersonic vs subsonic</a>
+      </p>
+
       <section class="ballistics__glance">
         <h2>Ballistics at a Glance: Generic Figures</h2>
         <p class="ballistics__glance-note">
@@ -238,6 +245,12 @@ const faqItems = [
     color: var(--stalk);
     max-width: 70ch;
   }
+  .ballistics__presets {
+    margin: 0.6rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .ballistics__presets a { color: var(--blaze); }
   .ballistics__toolnote {
     margin: 1rem 0 0;
     font-size: 0.78rem;
