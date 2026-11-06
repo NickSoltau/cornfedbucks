@@ -3942,42 +3942,154 @@
      "Sight height of 1.5 in is assumed; the Barnes page does not state it."
     ],
     "sourceType": "factory"
+   },
+   {
+    "manufacturer": "Federal",
+    "productLine": "Terminal Ascent 130gr",
+    "bulletWt": 130,
+    "bulletType": "Terminal Ascent (bonded, Slipstream tip)",
+    "source": "https://www.federalpremium.com/rifle/terminal-ascent/11-P65CRDTA1.html",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 2800,
+      "100": 2629,
+      "200": 2464,
+      "300": 2305,
+      "400": 2152,
+      "500": 2005
+     },
+     "energy": {
+      "0": 2263,
+      "100": 1995,
+      "200": 1752,
+      "300": 1533,
+      "400": 1337,
+      "500": 1160
+     },
+     "trajectory": [
+      {
+       "zeroYd": 100,
+       "inches": {
+        "50": -0.2,
+        "100": 0,
+        "200": -3.5,
+        "300": -12.8
+       },
+       "tableLabel": "Average Range"
+      },
+      {
+       "zeroYd": 200,
+       "inches": {
+        "50": 0.7,
+        "100": 1.8,
+        "200": 0,
+        "300": -7.5,
+        "400": -21.6,
+        "500": -43.1
+       },
+       "tableLabel": "Long Range",
+       "printedZeroYd": 100,
+       "labelNote": "Page footnote says 100 yd; the numbers match a 200 yd zero (checked against Nosler, which publishes both zeros)."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.7,
+      "200": 2.5,
+      "300": 5.8,
+      "400": 10.7,
+      "500": 17.2
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 2714,
+      "energy": 2127,
+      "basis": [
+       "velocity interpolated from published table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2546,
+      "energy": 1872,
+      "trajectory": -1.09,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2384,
+      "energy": 1641,
+      "trajectory": -7.38,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -28.57,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -51.96,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Published BC G1 .532 / G7 .263.",
+     "Wind drift is as printed by Federal (10 mph crosswind, stated on the Federal page).",
+     "Same bullet as the +Peak 130 gr Terminal Ascent, in a standard-pressure case."
+    ],
+    "sightHeightBasis": "assumed",
+    "sourceType": "factory"
    }
   ],
   "generic": {
    "published": {
     "velocity": {
-     "0": 2746,
-     "100": 2562,
-     "200": 2386,
-     "300": 2218
+     "0": 2754,
+     "100": 2572,
+     "200": 2397,
+     "300": 2230
     },
     "energy": {
-     "0": 2270,
-     "100": 1976,
-     "200": 1715,
-     "300": 1481
+     "0": 2269,
+     "100": 1979,
+     "200": 1720,
+     "300": 1489
     }
    },
    "calculated": {
     "velocity": {
-     "50": 2653,
-     "150": 2474,
-     "250": 2301
+     "50": 2662,
+     "150": 2484,
+     "250": 2313
     },
     "energy": {
-     "50": 2119,
-     "150": 1843,
-     "250": 1594
+     "50": 2120,
+     "150": 1847,
+     "250": 1601
     },
     "trajectory": {
      "0": -1.5,
-     "50": -0.13,
+     "50": -0.14,
      "100": 0.0,
-     "150": -1.19,
-     "200": -3.81,
-     "250": -7.94,
-     "300": -13.76
+     "150": -1.17,
+     "200": -3.77,
+     "250": -7.86,
+     "300": -13.62
     }
    },
    "note": "Average of the loads shown for this cartridge. Trajectory is always an average of 100 yd-zero values, so it sits in the calculated layer."
@@ -9017,7 +9129,8 @@
      }
     },
     "notes": [
-     "Published BC .269."
+     "Published BC .269.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -9122,7 +9235,8 @@
     },
     "notes": [
      "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
-     "24in test barrel."
+     "24in test barrel.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -9227,7 +9341,8 @@
     },
     "notes": [
      "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
-     "24in test barrel."
+     "24in test barrel.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -9327,7 +9442,8 @@
      }
     },
     "notes": [
-     "Published BC .310."
+     "Published BC .310.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -9432,7 +9548,8 @@
     },
     "notes": [
      "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
-     "24in test barrel."
+     "24in test barrel.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -9533,7 +9650,8 @@
     },
     "notes": [
      "Published BC .310.",
-     "Loaded for 16in-class MSR barrels (2750 fps), so it is slower than the other .223 loads by design."
+     "Loaded for 16in-class MSR barrels (2750 fps), so it is slower than the other .223 loads by design.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -9633,7 +9751,8 @@
      }
     },
     "notes": [
-     "Published BC .305."
+     "Published BC .305.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -9738,7 +9857,8 @@
     },
     "notes": [
      "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
-     "24in test barrel."
+     "24in test barrel.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -9838,7 +9958,8 @@
      }
     },
     "notes": [
-     "Published BC .301 G1."
+     "Published BC .301 G1.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -9943,7 +10064,8 @@
     },
     "notes": [
      "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
-     "24in test barrel."
+     "24in test barrel.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -10043,7 +10165,8 @@
      }
     },
     "notes": [
-     "Published BC .372 G1."
+     "Published BC .372 G1.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    }
@@ -10091,7 +10214,8 @@
     }
    },
    "note": "Average of the loads shown for this cartridge. Trajectory is always an average of 100 yd-zero values, so it sits in the calculated layer."
-  }
+  },
+  "deerHuntingNote": "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
  },
  "5.56x45mm NATO": {
   "category": "Shouldered",
@@ -10192,7 +10316,8 @@
      }
     },
     "notes": [
-     "Published BC .246."
+     "Published BC .246.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -10298,7 +10423,8 @@
     "notes": [
      "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
      "20in test barrel.",
-     "Hornady publishes the identical table for its .223 Frontier 55gr FMJ-BT. Only the stated test barrel differs (20in here, 24in on the .223 page)."
+     "Hornady publishes the identical table for its .223 Frontier 55gr FMJ-BT. Only the stated test barrel differs (20in here, 24in on the .223 page).",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -10374,7 +10500,8 @@
      }
     },
     "notes": [
-     "20in test barrel."
+     "20in test barrel.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -10480,7 +10607,8 @@
     "notes": [
      "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
      "20in test barrel.",
-     "Hornady lists -2.4in at the muzzle for this load (2.4in sight height), so the conversion uses that sight height."
+     "Hornady lists -2.4in at the muzzle for this load (2.4in sight height), so the conversion uses that sight height.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -10586,7 +10714,8 @@
     "notes": [
      "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
      "20in test barrel.",
-     "Hornady Frontier 5.56 62gr FMJ publishes the identical table (same bullet, different product line)."
+     "Hornady Frontier 5.56 62gr FMJ publishes the identical table (same bullet, different product line).",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -10680,7 +10809,8 @@
      }
     },
     "notes": [
-     "Sight height of 1.5 in is assumed; the Winchester page does not state it."
+     "Sight height of 1.5 in is assumed; the Winchester page does not state it.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -10785,7 +10915,8 @@
      }
     },
     "notes": [
-     "Sight height of 1.5 in is assumed; the Winchester page does not state it."
+     "Sight height of 1.5 in is assumed; the Winchester page does not state it.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    }
@@ -10833,7 +10964,8 @@
     }
    },
    "note": "Average of the loads shown for this cartridge. Trajectory is always an average of 100 yd-zero values, so it sits in the calculated layer."
-  }
+  },
+  "deerHuntingNote": "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
  },
  ".300 AAC Blackout": {
   "category": "Shouldered",
@@ -11803,7 +11935,8 @@
     "calculated": {},
     "notes": [
      "Factory tables end at 100 yd. Nothing is shown past that.",
-     "Published BC .130."
+     "Published BC .130.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -11844,7 +11977,8 @@
     "calculated": {},
     "notes": [
      "Factory tables end at 100 yd. Nothing is shown past that.",
-     "Published BC .118."
+     "Published BC .118.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -11885,7 +12019,8 @@
     "calculated": {},
     "notes": [
      "Factory tables end at 100 yd. Nothing is shown past that.",
-     "Published BC .125."
+     "Published BC .125.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -11927,7 +12062,8 @@
     "notes": [
      "Factory tables end at 100 yd. Nothing is shown past that.",
      "Published BC .084.",
-     "Hyper-velocity load; sheds speed quickly."
+     "Hyper-velocity load; sheds speed quickly.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -11975,7 +12111,8 @@
     "calculated": {},
     "notes": [
      "Factory tables end at 150 yd. Nothing is shown past that.",
-     "Federal's 'Long Range' trajectory table is the 100yd-zero table (its 'Average Range' table is a 50yd zero)."
+     "Federal's 'Long Range' trajectory table is the 100yd-zero table (its 'Average Range' table is a 50yd zero).",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -12024,7 +12161,8 @@
     "notes": [
      "Factory tables end at 150 yd. Nothing is shown past that.",
      "Published BC .116.",
-     "Remington's 'Long Range' trajectory table is the 100yd-zero table (its 'Average Range' table is a 50yd zero)."
+     "Remington's 'Long Range' trajectory table is the 100yd-zero table (its 'Average Range' table is a 50yd zero).",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -12061,7 +12199,8 @@
     "notes": [
      "Printed trajectory is +3.5 in at 100 yd on a 'Short Range' column, which does not fit a short-range zero (expected about -4 in). Possible sign error on Winchester's page. Shown as printed. The zero distance is not stated.",
      "Sight height of 1.5 in is assumed; the Winchester page does not state it.",
-     "Positive 3.5 in at 100 yd is odd for a short-range (50 yd) zero; looks like a sign problem on the page. Report as printed and flag."
+     "Positive 3.5 in at 100 yd is odd for a short-range (50 yd) zero; looks like a sign problem on the page. Report as printed and flag.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "maxPublishedRange": 100,
     "sourceType": "factory"
@@ -12101,7 +12240,8 @@
     "notes": [
      "Sold as 'Standard Target Velocity', but Winchester prints 1300 fps at the muzzle, which is supersonic, so it is grouped with standard .22 LR.",
      "Sight height of 1.5 in is assumed; the Winchester page does not state it.",
-     "Muzzle 1300 fps is supersonic: product does not belong in a subsonic group."
+     "Muzzle 1300 fps is supersonic: product does not belong in a subsonic group.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "maxPublishedRange": 100,
     "sourceType": "factory"
@@ -12132,7 +12272,8 @@
     }
    },
    "note": "Average of the loads shown for this cartridge. Trajectory is always an average of 100 yd-zero values, so it sits in the calculated layer."
-  }
+  },
+  "deerHuntingNote": "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
  },
  ".22 LR Subsonic": {
   "category": "Rimfire",
@@ -12174,7 +12315,8 @@
     "calculated": {},
     "notes": [
      "Factory tables end at 100 yd. Nothing is shown past that.",
-     "Published BC .120."
+     "Published BC .120.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    },
@@ -12223,7 +12365,8 @@
     "notes": [
      "Factory tables end at 150 yd. Nothing is shown past that.",
      "Published BC .079.",
-     "Remington's 'Long Range' trajectory table is the 100yd-zero table (its 'Average Range' table is a 50yd zero)."
+     "Remington's 'Long Range' trajectory table is the 100yd-zero table (its 'Average Range' table is a 50yd zero).",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
     ],
     "sourceType": "factory"
    }
@@ -12251,6 +12394,1911 @@
     }
    },
    "note": "Average of the loads shown for this cartridge. Trajectory is always an average of 100 yd-zero values, so it sits in the calculated layer."
+  },
+  "deerHuntingNote": "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
+ },
+ "6.5 Creedmoor +Peak": {
+  "category": "Shouldered",
+  "loads": [
+   {
+    "manufacturer": "Federal",
+    "productLine": "+Peak Terminal Ascent 130gr",
+    "bulletWt": 130,
+    "bulletType": "Terminal Ascent (bonded, Slipstream tip), Peak Alloy case",
+    "source": "https://www.federalpremium.com/rifle/terminal-ascent/11-P65CRDPKTA1.html",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 3100,
+      "100": 2917,
+      "200": 2741,
+      "300": 2572,
+      "400": 2409,
+      "500": 2252
+     },
+     "energy": {
+      "0": 2774,
+      "100": 2456,
+      "200": 2169,
+      "300": 1909,
+      "400": 1675,
+      "500": 1464
+     },
+     "trajectory": [
+      {
+       "zeroYd": 100,
+       "inches": {
+        "50": -0.3,
+        "100": 0,
+        "200": -2.6,
+        "300": -9.9
+       },
+       "tableLabel": "Average Range"
+      },
+      {
+       "zeroYd": 200,
+       "inches": {
+        "50": 0.4,
+        "100": 1.3,
+        "200": 0,
+        "300": -5.9,
+        "400": -17.1,
+        "500": -34.3
+       },
+       "tableLabel": "Long Range",
+       "printedZeroYd": 100,
+       "labelNote": "Page footnote says 100 yd; the numbers match a 200 yd zero (checked against Nosler, which publishes both zeros)."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.5,
+      "200": 2.2,
+      "300": 5.0,
+      "400": 9.1,
+      "500": 14.8
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 3007,
+      "energy": 2611,
+      "basis": [
+       "velocity interpolated from published table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2828,
+      "energy": 2309,
+      "trajectory": -0.75,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2656,
+      "energy": 2037,
+      "trajectory": -5.56,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -22.24,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -40.75,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Published BC G1 .532 / G7 .263.",
+     "Wind drift is as printed by Federal (10 mph crosswind, stated on the Federal page).",
+     "High-pressure ammunition (80,000 psi Peak Alloy case). Federal says it works in many 6.5 Creedmoor rifles but not in CVA break-action rifles; check with your rifle's maker."
+    ],
+    "sightHeightBasis": "assumed",
+    "sourceType": "factory"
+   },
+   {
+    "manufacturer": "Federal",
+    "productLine": "+Peak Fusion Tipped 155gr",
+    "bulletWt": 155,
+    "bulletType": "Fusion Tipped (bonded, polymer tip), Peak Alloy case",
+    "source": "https://www.federalpremium.com/rifle/fusion-tipped-rifle/11-F65CRDPKTFS2.html",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 2900,
+      "100": 2748,
+      "200": 2600,
+      "300": 2458,
+      "400": 2320,
+      "500": 2186
+     },
+     "energy": {
+      "0": 2894,
+      "100": 2598,
+      "200": 2327,
+      "300": 2079,
+      "400": 1852,
+      "500": 1645
+     },
+     "trajectory": [
+      {
+       "zeroYd": 100,
+       "inches": {
+        "50": -0.2,
+        "100": 0,
+        "200": -3.1,
+        "300": -11.4
+       },
+       "tableLabel": "Average Range"
+      },
+      {
+       "zeroYd": 200,
+       "inches": {
+        "50": 0.6,
+        "100": 1.6,
+        "200": 0,
+        "300": -6.7,
+        "400": -19.1,
+        "500": -38.1
+       },
+       "tableLabel": "Long Range",
+       "printedZeroYd": 100,
+       "labelNote": "Page footnote says 100 yd; the numbers match a 200 yd zero (checked against Nosler, which publishes both zeros)."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.5,
+      "200": 2.1,
+      "300": 4.7,
+      "400": 8.6,
+      "500": 14.0
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 2823,
+      "energy": 2744,
+      "basis": [
+       "velocity interpolated from published table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2673,
+      "energy": 2460,
+      "trajectory": -0.94,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2528,
+      "energy": 2200,
+      "trajectory": -6.53,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -25.3,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -45.77,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Published BC G1 .613 / G7 .307.",
+     "Wind drift is as printed by Federal (10 mph crosswind, stated on the Federal page).",
+     "High-pressure ammunition (80,000 psi Peak Alloy case). Federal says it works in many 6.5 Creedmoor rifles but not in CVA break-action rifles; check with your rifle's maker."
+    ],
+    "sightHeightBasis": "assumed",
+    "sourceType": "factory"
+   },
+   {
+    "manufacturer": "Federal",
+    "productLine": "+Peak Barnes LRX 127gr",
+    "bulletWt": 127,
+    "bulletType": "Barnes LRX (all-copper), Peak Alloy case",
+    "source": "https://www.federalpremium.com/rifle/barnes-lrx/11-P65CRDPKLRX1.html",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 3050,
+      "100": 2845,
+      "200": 2649,
+      "300": 2461,
+      "400": 2281,
+      "500": 2108
+     },
+     "energy": {
+      "0": 2623,
+      "100": 2282,
+      "200": 1978,
+      "300": 1707,
+      "400": 1467,
+      "500": 1253
+     },
+     "trajectory": [
+      {
+       "zeroYd": 100,
+       "inches": {
+        "50": -0.3,
+        "100": 0,
+        "200": -2.8,
+        "300": -10.6
+       },
+       "tableLabel": "Average Range"
+      },
+      {
+       "zeroYd": 200,
+       "inches": {
+        "50": 0.5,
+        "100": 1.4,
+        "200": 0,
+        "300": -6.3,
+        "400": -18.4,
+        "500": -37.3
+       },
+       "tableLabel": "Long Range",
+       "printedZeroYd": 100,
+       "labelNote": "Page footnote says 100 yd; the numbers match a 200 yd zero (checked against Nosler, which publishes both zeros)."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.6,
+      "200": 2.6,
+      "300": 5.9,
+      "400": 10.9,
+      "500": 17.7
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 2946,
+      "energy": 2448,
+      "basis": [
+       "velocity interpolated from published table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2746,
+      "energy": 2127,
+      "trajectory": -0.82,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2554,
+      "energy": 1840,
+      "trajectory": -5.99,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -24.04,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -44.34,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Published BC G1 .468 / G7 .229.",
+     "Wind drift is as printed by Federal (10 mph crosswind, stated on the Federal page).",
+     "Some reviews list 3,100 fps for this load. Federal's own product page prints 3,050 fps, which is used here.",
+     "High-pressure ammunition (80,000 psi Peak Alloy case). Federal says it works in many 6.5 Creedmoor rifles but not in CVA break-action rifles; check with your rifle's maker."
+    ],
+    "sightHeightBasis": "assumed",
+    "sourceType": "factory"
+   },
+   {
+    "manufacturer": "Federal",
+    "productLine": "+Peak Berger Elite Hunter 156gr",
+    "bulletWt": 156,
+    "bulletType": "Berger Elite Hunter, Peak Alloy case",
+    "source": "https://www.federalpremium.com/rifle/berger-elite-hunter/11-P65CRDPKBH1.html",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 2850,
+      "100": 2714,
+      "200": 2582,
+      "300": 2453,
+      "400": 2328,
+      "500": 2207
+     },
+     "energy": {
+      "0": 2813,
+      "100": 2551,
+      "200": 2308,
+      "300": 2084,
+      "400": 1878,
+      "500": 1688
+     },
+     "trajectory": [
+      {
+       "zeroYd": 100,
+       "inches": {
+        "50": -0.2,
+        "100": 0,
+        "200": -3.2,
+        "300": -11.6
+       },
+       "tableLabel": "Average Range"
+      },
+      {
+       "zeroYd": 200,
+       "inches": {
+        "50": 0.6,
+        "100": 1.6,
+        "200": 0,
+        "300": -6.8,
+        "400": -19.3,
+        "500": -38.5
+       },
+       "tableLabel": "Long Range",
+       "printedZeroYd": 100,
+       "labelNote": "Page footnote says 100 yd; the numbers match a 200 yd zero (checked against Nosler, which publishes both zeros)."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.5,
+      "200": 2.0,
+      "300": 4.3,
+      "400": 7.9,
+      "500": 12.7
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 2781,
+      "energy": 2680,
+      "basis": [
+       "velocity interpolated from published table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2648,
+      "energy": 2429,
+      "trajectory": -0.99,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2517,
+      "energy": 2195,
+      "trajectory": -6.73,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -25.8,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -46.42,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Published BC G1 .679 / G7 .347.",
+     "Wind drift is as printed by Federal (10 mph crosswind, stated on the Federal page).",
+     "Some reviews list 2,900 fps for this load. Federal's own product page prints 2,850 fps, which is used here.",
+     "High-pressure ammunition (80,000 psi Peak Alloy case). Federal says it works in many 6.5 Creedmoor rifles but not in CVA break-action rifles; check with your rifle's maker."
+    ],
+    "sightHeightBasis": "assumed",
+    "sourceType": "factory"
+   },
+   {
+    "manufacturer": "Federal",
+    "productLine": "+Peak Gold Medal Sierra Tipped MatchKing 153gr",
+    "bulletWt": 153,
+    "bulletType": "Sierra Tipped MatchKing (match bullet), Peak Alloy case",
+    "source": "https://www.federalpremium.com/rifle/gold-medal-sierra-tipped-matchking/11-GM65CRDPKTMK1.html",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 2850,
+      "100": 2706,
+      "200": 2567,
+      "300": 2431,
+      "400": 2300,
+      "500": 2173
+     },
+     "energy": {
+      "0": 2759,
+      "100": 2488,
+      "200": 2238,
+      "300": 2008,
+      "400": 1797,
+      "500": 1604
+     },
+     "trajectory": [
+      {
+       "zeroYd": 100,
+       "inches": {
+        "50": -0.2,
+        "100": 0,
+        "200": -3.3,
+        "300": -11.7
+       },
+       "tableLabel": "Average Range"
+      },
+      {
+       "zeroYd": 200,
+       "inches": {
+        "50": 0.6,
+        "100": 1.6,
+        "200": 0,
+        "300": -6.8,
+        "400": -19.6,
+        "500": -39.1
+       },
+       "tableLabel": "Long Range",
+       "printedZeroYd": 100,
+       "labelNote": "Page footnote says 100 yd; the numbers match a 200 yd zero (checked against Nosler, which publishes both zeros)."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.5,
+      "200": 2.1,
+      "300": 4.6,
+      "400": 8.4,
+      "500": 13.6
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 2777,
+      "energy": 2621,
+      "basis": [
+       "velocity interpolated from published table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2636,
+      "energy": 2361,
+      "trajectory": -1.0,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2498,
+      "energy": 2120,
+      "trajectory": -6.79,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -26.12,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -47.1,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Published BC G1 .642 / G7 .320.",
+     "Wind drift is as printed by Federal (10 mph crosswind, stated on the Federal page).",
+     "Match bullet, usage listed by Federal as Long Range / Target Shooting, not big game.",
+     "Federal's category page shows 2,900 fps for this load in one listing; the product page table (2,850 fps) is used here.",
+     "High-pressure ammunition (80,000 psi Peak Alloy case). Federal says it works in many 6.5 Creedmoor rifles but not in CVA break-action rifles; check with your rifle's maker."
+    ],
+    "sightHeightBasis": "assumed",
+    "sourceType": "factory"
+   }
+  ],
+  "generic": {
+   "published": {
+    "velocity": {
+     "0": 2950,
+     "100": 2786,
+     "200": 2628,
+     "300": 2475,
+     "400": 2328,
+     "500": 2185
+    },
+    "energy": {
+     "0": 2773,
+     "100": 2475,
+     "200": 2204,
+     "300": 1957,
+     "400": 1734,
+     "500": 1531
+    }
+   },
+   "calculated": {
+    "velocity": {
+     "50": 2867,
+     "150": 2706,
+     "250": 2551
+    },
+    "energy": {
+     "50": 2621,
+     "150": 2337,
+     "250": 2078
+    },
+    "trajectory": {
+     "0": -1.5,
+     "50": -0.24,
+     "100": 0.0,
+     "150": -0.9,
+     "200": -3.0,
+     "250": -6.32,
+     "300": -11.04,
+     "400": -24.7,
+     "500": -44.88
+    }
+   },
+   "note": "Average of the loads shown for this cartridge. Trajectory is always an average of 100 yd-zero values, so it sits in the calculated layer."
   }
+ },
+ "7mm Backcountry": {
+  "category": "Shouldered",
+  "loads": [
+   {
+    "manufacturer": "Federal",
+    "productLine": "Terminal Ascent 170gr",
+    "bulletWt": 170,
+    "bulletType": "Terminal Ascent (bonded, polymer tip), Peak Alloy case",
+    "source": "https://www.federalpremium.com/rifle/terminal-ascent/11-P7BCTA3.html",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 3150,
+      "100": 2997,
+      "200": 2849,
+      "300": 2706,
+      "400": 2567,
+      "500": 2433
+     },
+     "energy": {
+      "0": 3745,
+      "100": 3390,
+      "200": 3063,
+      "300": 2763,
+      "400": 2488,
+      "500": 2234
+     },
+     "trajectory": [
+      {
+       "zeroYd": 100,
+       "inches": {
+        "50": -0.3,
+        "100": 0,
+        "200": -2.3,
+        "300": -9.0
+       },
+       "tableLabel": "Average Range"
+      },
+      {
+       "zeroYd": 200,
+       "inches": {
+        "50": 0.3,
+        "100": 1.2,
+        "200": 0,
+        "300": -5.5,
+        "400": -15.8,
+        "500": -31.2
+       },
+       "tableLabel": "Long Range",
+       "printedZeroYd": 100,
+       "labelNote": "Page footnote says 100 yd; the numbers match a 200 yd zero (checked against Nosler, which publishes both zeros)."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.4,
+      "200": 1.7,
+      "300": 4.0,
+      "400": 7.3,
+      "500": 11.5
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 3073,
+      "energy": 3566,
+      "basis": [
+       "velocity interpolated from published table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2922,
+      "energy": 3224,
+      "trajectory": -0.67,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2777,
+      "energy": 2912,
+      "trajectory": -5.12,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -20.37,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -37.04,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Published BC G1 .646.",
+     "Wind drift is as printed by Federal (10 mph crosswind, stated on the Federal page).",
+     "High-pressure Peak Alloy case ammunition; use only in rifles chambered for 7mm Backcountry."
+    ],
+    "sightHeightBasis": "assumed",
+    "sourceType": "factory"
+   },
+   {
+    "manufacturer": "Federal",
+    "productLine": "Fusion Tipped 175gr",
+    "bulletWt": 175,
+    "bulletType": "Fusion Tipped (bonded, polymer tip), Peak Alloy case",
+    "source": "https://www.federalpremium.com/rifle/fusion-tipped-rifle/11-F7BCTFS2.html",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 3125,
+      "100": 2954,
+      "200": 2790,
+      "300": 2632,
+      "400": 2479,
+      "500": 2331
+     },
+     "energy": {
+      "0": 3794,
+      "100": 3391,
+      "200": 3024,
+      "300": 2691,
+      "400": 2387,
+      "500": 2111
+     },
+     "trajectory": [
+      {
+       "zeroYd": 100,
+       "inches": {
+        "50": -0.3,
+        "100": 0,
+        "200": -2.5,
+        "300": -9.5
+       },
+       "tableLabel": "Average Range"
+      },
+      {
+       "zeroYd": 200,
+       "inches": {
+        "50": 0.3,
+        "100": 1.2,
+        "200": 0,
+        "300": -5.7,
+        "400": -16.5,
+        "500": -32.8
+       },
+       "tableLabel": "Long Range",
+       "printedZeroYd": 100,
+       "labelNote": "Page footnote says 100 yd; the numbers match a 200 yd zero (checked against Nosler, which publishes both zeros)."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.4,
+      "200": 1.9,
+      "300": 4.6,
+      "400": 8.3,
+      "500": 13.3
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 3038,
+      "energy": 3587,
+      "basis": [
+       "velocity interpolated from published table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2871,
+      "energy": 3204,
+      "trajectory": -0.71,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2710,
+      "energy": 2855,
+      "trajectory": -5.35,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -21.36,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -39.0,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Published BC G1 .575.",
+     "Wind drift is as printed by Federal (10 mph crosswind, stated on the Federal page).",
+     "High-pressure Peak Alloy case ammunition; use only in rifles chambered for 7mm Backcountry."
+    ],
+    "sightHeightBasis": "assumed",
+    "sourceType": "factory"
+   }
+  ],
+  "generic": {
+   "published": {
+    "velocity": {
+     "0": 3138,
+     "100": 2976,
+     "200": 2820,
+     "300": 2669,
+     "400": 2523,
+     "500": 2382
+    },
+    "energy": {
+     "0": 3770,
+     "100": 3390,
+     "200": 3044,
+     "300": 2727,
+     "400": 2438,
+     "500": 2172
+    }
+   },
+   "calculated": {
+    "velocity": {
+     "50": 3056,
+     "150": 2896,
+     "250": 2744
+    },
+    "energy": {
+     "50": 3576,
+     "150": 3214,
+     "250": 2884
+    },
+    "trajectory": {
+     "0": -1.5,
+     "50": -0.3,
+     "100": 0.0,
+     "150": -0.69,
+     "200": -2.4,
+     "250": -5.23,
+     "300": -9.25,
+     "400": -20.87,
+     "500": -38.02
+    }
+   },
+   "note": "Average of the loads shown for this cartridge. Trajectory is always an average of 100 yd-zero values, so it sits in the calculated layer."
+  }
+ },
+ ".25 Creedmoor": {
+  "category": "Shouldered",
+  "loads": [
+   {
+    "manufacturer": "Hornady",
+    "productLine": "Precision Hunter 128gr ELD-X",
+    "bulletWt": 128,
+    "bulletType": "ELD-X (Heat Shield tip)",
+    "source": "https://www.hornady.com/ammunition/rifle/25-creedmoor-128-gr-eld-x",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 2850,
+      "100": 2704,
+      "200": 2563,
+      "300": 2427,
+      "400": 2294,
+      "500": 2166
+     },
+     "energy": {
+      "0": 2308,
+      "100": 2078,
+      "200": 1868,
+      "300": 1674,
+      "400": 1496,
+      "500": 1333
+     },
+     "trajectory": [
+      {
+       "zeroYd": 200,
+       "inches": {
+        "0": -1.5,
+        "100": 1.6,
+        "200": 0,
+        "300": -6.9,
+        "400": -19.8,
+        "500": -39.2
+       }
+      }
+     ]
+    },
+    "calculated": {
+     "50": {
+      "velocity": 2776,
+      "energy": 2191,
+      "trajectory": -0.19,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2633,
+      "energy": 1971,
+      "trajectory": -1.0,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "200": {
+      "trajectory": -3.24,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2495,
+      "energy": 1770,
+      "trajectory": -6.81,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "300": {
+      "trajectory": -11.77,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -26.19,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -47.26,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
+     "24 in test barrel."
+    ],
+    "sightHeightBasis": "stated",
+    "sourceType": "factory"
+   },
+   {
+    "manufacturer": "Hornady",
+    "productLine": "Match 134gr ELD Match",
+    "bulletWt": 134,
+    "bulletType": "ELD Match (Heat Shield tip)",
+    "source": "https://www.hornady.com/ammunition/rifle/25-creedmoor-134-gr-eld-match",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 2800,
+      "100": 2659,
+      "200": 2522,
+      "300": 2389,
+      "400": 2260,
+      "500": 2135
+     },
+     "energy": {
+      "0": 2333,
+      "100": 2103,
+      "200": 1892,
+      "300": 1698,
+      "400": 1520,
+      "500": 1356
+     },
+     "trajectory": [
+      {
+       "zeroYd": 200,
+       "inches": {
+        "0": -1.5,
+        "100": 1.7,
+        "200": 0,
+        "300": -7.2,
+        "400": -20.5,
+        "500": -40.6
+       }
+      }
+     ]
+    },
+    "calculated": {
+     "50": {
+      "velocity": 2729,
+      "energy": 2217,
+      "trajectory": -0.17,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2590,
+      "energy": 1996,
+      "trajectory": -1.06,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "200": {
+      "trajectory": -3.41,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2455,
+      "energy": 1794,
+      "trajectory": -7.12,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "300": {
+      "trajectory": -12.27,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -27.21,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -49.0,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
+     "24 in test barrel.",
+     "Match bullet, not a hunting bullet."
+    ],
+    "sightHeightBasis": "stated",
+    "sourceType": "factory"
+   }
+  ],
+  "generic": {
+   "published": {
+    "velocity": {
+     "0": 2825,
+     "100": 2682,
+     "200": 2542,
+     "300": 2408,
+     "400": 2277,
+     "500": 2150
+    },
+    "energy": {
+     "0": 2320,
+     "100": 2090,
+     "200": 1880,
+     "300": 1686,
+     "400": 1508,
+     "500": 1344
+    }
+   },
+   "calculated": {
+    "velocity": {
+     "50": 2752,
+     "150": 2612,
+     "250": 2475
+    },
+    "energy": {
+     "50": 2204,
+     "150": 1984,
+     "250": 1782
+    },
+    "trajectory": {
+     "0": -1.5,
+     "50": -0.18,
+     "100": 0.0,
+     "150": -1.03,
+     "200": -3.33,
+     "250": -6.96,
+     "300": -12.02,
+     "400": -26.7,
+     "500": -48.13
+    }
+   },
+   "note": "Average of the loads shown for this cartridge. Trajectory is always an average of 100 yd-zero values, so it sits in the calculated layer."
+  }
+ },
+ ".22 ARC": {
+  "category": "Shouldered",
+  "loads": [
+   {
+    "manufacturer": "Hornady",
+    "productLine": "Precision Hunter 80gr ELD-X",
+    "bulletWt": 80,
+    "bulletType": "ELD-X (Heat Shield tip)",
+    "source": "https://www.hornady.com/ammunition/rifle/22-arc-80-gr-eld-x-precision-hunter",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 3010,
+      "100": 2814,
+      "200": 2626,
+      "300": 2447,
+      "400": 2274,
+      "500": 2108
+     },
+     "energy": {
+      "0": 1609,
+      "100": 1406,
+      "200": 1225,
+      "300": 1063,
+      "400": 918,
+      "500": 789
+     },
+     "trajectory": [
+      {
+       "zeroYd": 100,
+       "inches": {
+        "0": -1.5,
+        "100": 0,
+        "200": -2.9,
+        "300": -10.9,
+        "400": -24.6,
+        "500": -45.1
+       }
+      }
+     ]
+    },
+    "calculated": {
+     "50": {
+      "velocity": 2911,
+      "energy": 1506,
+      "trajectory": -0.24,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2719,
+      "energy": 1314,
+      "trajectory": -0.86,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2536,
+      "energy": 1143,
+      "trajectory": -6.17,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "24 in test barrel.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
+    ],
+    "sightHeightBasis": "stated",
+    "sourceType": "factory"
+   },
+   {
+    "manufacturer": "Federal",
+    "productLine": "Fusion Rifle 90gr Soft Point",
+    "bulletWt": 90,
+    "bulletType": "Fusion Soft Point (bonded)",
+    "source": "https://www.federalpremium.com/rifle/fusion/11-F22ARCFS3.html",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 2700,
+      "100": 2491,
+      "200": 2291,
+      "300": 2101,
+      "400": 1919,
+      "500": 1749
+     },
+     "energy": {
+      "0": 1457,
+      "100": 1240,
+      "200": 1049,
+      "300": 882,
+      "400": 736,
+      "500": 611
+     },
+     "trajectory": [
+      {
+       "zeroYd": 100,
+       "inches": {
+        "50": -0.1,
+        "100": 0,
+        "200": -4.1,
+        "300": -14.9
+       },
+       "tableLabel": "Average Range"
+      },
+      {
+       "zeroYd": 200,
+       "inches": {
+        "50": 0.9,
+        "100": 2.0,
+        "200": 0,
+        "300": -8.8,
+        "400": -25.2,
+        "500": -51.4
+       },
+       "tableLabel": "Long Range",
+       "printedZeroYd": 100,
+       "labelNote": "Page footnote says 100 yd; the numbers match a 200 yd zero (checked against Nosler, which publishes both zeros)."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.8,
+      "200": 3.3,
+      "300": 7.9,
+      "400": 14.5,
+      "500": 23.8
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 2594,
+      "energy": 1345,
+      "basis": [
+       "velocity interpolated from published table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2390,
+      "energy": 1142,
+      "trajectory": -1.29,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2195,
+      "energy": 963,
+      "trajectory": -8.56,
+      "basis": [
+       "velocity interpolated from published table",
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -33.53,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -61.92,
+      "basis": [
+       "100 yd zero, calculated: factory table skips this distance"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Published BC G1 .424.",
+     "Wind drift is as printed by Federal (10 mph crosswind, stated on the Federal page).",
+     "Federal lists a terminal-performance minimum velocity of 1,700 fps; this load is at 1,749 fps at 500 yd.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
+    ],
+    "sightHeightBasis": "assumed",
+    "sourceType": "factory"
+   }
+  ],
+  "generic": {
+   "published": {
+    "velocity": {
+     "0": 2855,
+     "100": 2652,
+     "200": 2458,
+     "300": 2274,
+     "400": 2096,
+     "500": 1928
+    },
+    "energy": {
+     "0": 1533,
+     "100": 1323,
+     "200": 1137,
+     "300": 972,
+     "400": 827,
+     "500": 700
+    }
+   },
+   "calculated": {
+    "velocity": {
+     "50": 2752,
+     "150": 2554,
+     "250": 2366
+    },
+    "energy": {
+     "50": 1426,
+     "150": 1228,
+     "250": 1053
+    },
+    "trajectory": {
+     "0": -1.5,
+     "50": -0.17,
+     "100": 0.0,
+     "150": -1.07,
+     "200": -3.5,
+     "250": -7.37,
+     "300": -12.9,
+     "400": -29.07,
+     "500": -53.51
+    }
+   },
+   "note": "Average of the loads shown for this cartridge. Trajectory is always an average of 100 yd-zero values, so it sits in the calculated layer."
+  },
+  "deerHuntingNote": "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
+ },
+ ".22 Creedmoor": {
+  "category": "Shouldered",
+  "loads": [
+   {
+    "manufacturer": "Hornady",
+    "productLine": "Precision Hunter 80gr ELD-X",
+    "bulletWt": 80,
+    "bulletType": "ELD-X (Heat Shield tip)",
+    "source": "https://www.hornady.com/ammunition/rifle/22-creedmoor-90-gr.-eld-x-precision-hunter",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 3285,
+      "100": 3076,
+      "200": 2877,
+      "300": 2687,
+      "400": 2505,
+      "500": 2330
+     },
+     "energy": {
+      "0": 1917,
+      "100": 1680,
+      "200": 1470,
+      "300": 1282,
+      "400": 1114,
+      "500": 964
+     },
+     "trajectory": [
+      {
+       "zeroYd": 200,
+       "inches": {
+        "0": -1.5,
+        "100": 1.1,
+        "200": 0,
+        "300": -5.3,
+        "400": -15.4,
+        "500": -31.1
+       }
+      }
+     ]
+    },
+    "calculated": {
+     "50": {
+      "velocity": 3179,
+      "energy": 1796,
+      "trajectory": -0.32,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2975,
+      "energy": 1573,
+      "trajectory": -0.59,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "200": {
+      "trajectory": -2.17,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2781,
+      "energy": 1374,
+      "trajectory": -4.79,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "300": {
+      "trajectory": -8.53,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -19.72,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -36.52,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
+     "24 in test barrel.",
+     "Hornady's page URL says 90-gr but the page title and table are the 80 gr ELD-X (item 83412). Retailer listings show different 500 yd numbers; Hornady's own table is used.",
+     "Hornady's calculator export for 3,285 fps / 80 gr differs slightly from this printed table (about 4 to 17 fps and 2 in at 500 yd). The printed table is used.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt.",
+     ".22 Creedmoor is a bottleneck .224 cartridge. Hornady rates the 80 gr ELD-X for coyote and medium game."
+    ],
+    "sightHeightBasis": "stated",
+    "sourceType": "factory"
+   },
+   {
+    "manufacturer": "Hornady",
+    "productLine": "Match 80gr ELD Match",
+    "bulletWt": 80,
+    "bulletType": "ELD Match (Heat Shield tip)",
+    "source": "https://www.hornady.com/ammunition/rifle/22-creedmoor-80-gr.-eld-match",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 3285,
+      "100": 3076,
+      "200": 2877,
+      "300": 2687,
+      "400": 2505,
+      "500": 2330
+     },
+     "energy": {
+      "0": 1917,
+      "100": 1680,
+      "200": 1470,
+      "300": 1282,
+      "400": 1114,
+      "500": 964
+     },
+     "trajectory": [
+      {
+       "zeroYd": 200,
+       "inches": {
+        "0": -1.5,
+        "100": 1.1,
+        "200": 0,
+        "300": -5.3,
+        "400": -15.4,
+        "500": -31.1
+       }
+      }
+     ]
+    },
+    "calculated": {
+     "50": {
+      "velocity": 3179,
+      "energy": 1796,
+      "trajectory": -0.32,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 2975,
+      "energy": 1573,
+      "trajectory": -0.59,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "200": {
+      "trajectory": -2.17,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2781,
+      "energy": 1374,
+      "trajectory": -4.79,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "300": {
+      "trajectory": -8.53,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -19.72,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -36.52,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
+     "24 in test barrel.",
+     "Match bullet, not a hunting bullet.",
+     "Hornady's Match page prints numbers identical to its ELD-X page. Same weight and velocity, so plausible, but worth confirming in your own browser.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt.",
+     ".22 Creedmoor is a bottleneck .224 cartridge. Hornady rates the 80 gr ELD-X for coyote and medium game."
+    ],
+    "sightHeightBasis": "stated",
+    "sourceType": "factory"
+   },
+   {
+    "manufacturer": "Hornady",
+    "productLine": "Superformance 65gr CX",
+    "bulletWt": 65,
+    "bulletType": "CX (monolithic copper alloy)",
+    "source": "https://www.hornady.com/22creedmoor",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 3650,
+      "100": 3345,
+      "200": 3061,
+      "300": 2794,
+      "400": 2543,
+      "500": 2306
+     },
+     "energy": {
+      "0": 1922,
+      "100": 1615,
+      "200": 1352,
+      "300": 1126,
+      "400": 933,
+      "500": 768
+     },
+     "trajectory": [
+      {
+       "inches": {
+        "0": -1.5,
+        "100": 0.78,
+        "200": -0.05,
+        "300": -4.59,
+        "400": -13.59,
+        "500": -27.97
+       },
+       "zeroUnknown": true,
+       "tableLabel": "Hornady calculator export",
+       "labelNote": "The export does not state its zero. Values at 200 yd are close to zero but not exactly zero, so no zero is assigned."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.65,
+      "200": 2.69,
+      "300": 6.28,
+      "400": 11.62,
+      "500": 18.96
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 3494,
+      "energy": 1762,
+      "trajectory": -0.39,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 3201,
+      "energy": 1479,
+      "trajectory": -0.38,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "200": {
+      "trajectory": -1.6,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2925,
+      "energy": 1235,
+      "trajectory": -3.76,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "300": {
+      "trajectory": -6.93,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -16.76,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -32.11,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
+     "Modeled numbers from Hornady's calculator, not Hornady's printed product-page table. Wind speed for the drift values is not stated in the export.",
+     "Which load each export belongs to was identified from bullet weight (energy = weight x velocity squared / 450240), not from the file names.",
+     "Hornady's .22 Creedmoor page lists this load at 3,660 fps; the export starts at 3,650 fps.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt.",
+     ".22 Creedmoor is a bottleneck .224 cartridge. Hornady rates the 80 gr ELD-X for coyote and medium game."
+    ],
+    "sightHeightBasis": "stated",
+    "sourceType": "third-party",
+    "sourceLabel": "Hornady ballistic calculator export (downloaded Nov 6, 2026), not a printed factory table",
+    "sourceUrl": "https://www.hornady.com/22creedmoor"
+   },
+   {
+    "manufacturer": "Hornady",
+    "productLine": "V-Match 69gr ELD-VT",
+    "bulletWt": 69,
+    "bulletType": "ELD-VT (varmint)",
+    "source": "https://www.hornady.com/22creedmoor",
+    "dataStatus": "Published",
+    "sightHeightIn": 1.5,
+    "published": {
+     "velocity": {
+      "0": 3550,
+      "100": 3292,
+      "200": 3049,
+      "300": 2819,
+      "400": 2601,
+      "500": 2394
+     },
+     "energy": {
+      "0": 1931,
+      "100": 1661,
+      "200": 1424,
+      "300": 1218,
+      "400": 1037,
+      "500": 878
+     },
+     "trajectory": [
+      {
+       "inches": {
+        "0": -1.5,
+        "100": 0.76,
+        "200": -0.19,
+        "300": -4.87,
+        "400": -13.93,
+        "500": -28.13
+       },
+       "zeroUnknown": true,
+       "tableLabel": "Hornady calculator export",
+       "labelNote": "The export does not state its zero. Values at 200 yd are close to zero but not exactly zero, so no zero is assigned."
+      }
+     ],
+     "windDriftIn": {
+      "0": 0,
+      "100": 0.57,
+      "200": 2.37,
+      "300": 5.5,
+      "400": 10.13,
+      "500": 16.41
+     }
+    },
+    "calculated": {
+     "50": {
+      "velocity": 3419,
+      "energy": 1791,
+      "trajectory": -0.38,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "150": {
+      "velocity": 3169,
+      "energy": 1539,
+      "trajectory": -0.42,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "200": {
+      "trajectory": -1.7,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "250": {
+      "velocity": 2932,
+      "energy": 1317,
+      "trajectory": -3.92,
+      "basis": [
+       "velocity interpolated from published table",
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "300": {
+      "trajectory": -7.15,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "400": {
+      "trajectory": -17.0,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     },
+     "500": {
+      "trajectory": -32.07,
+      "basis": [
+       "re-zeroed to 100 yd from published velocity table"
+      ],
+      "lowConfidence": false
+     }
+    },
+    "notes": [
+     "Factory publishes only a 200 yd-zero table; the 100 yd-zero view is calculated.",
+     "Modeled numbers from Hornady's calculator, not Hornady's printed product-page table. Wind speed for the drift values is not stated in the export.",
+     "Which load each export belongs to was identified from bullet weight (energy = weight x velocity squared / 450240), not from the file names.",
+     "Hornady's .22 Creedmoor page lists this load at 3,560 fps; the export starts at 3,550 fps.",
+     "Varmint/predator bullet, not a deer bullet.",
+     "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt.",
+     ".22 Creedmoor is a bottleneck .224 cartridge. Hornady rates the 80 gr ELD-X for coyote and medium game."
+    ],
+    "sightHeightBasis": "stated",
+    "sourceType": "third-party",
+    "sourceLabel": "Hornady ballistic calculator export (downloaded Nov 6, 2026), not a printed factory table",
+    "sourceUrl": "https://www.hornady.com/22creedmoor"
+   }
+  ],
+  "generic": {
+   "published": {
+    "velocity": {
+     "0": 3285,
+     "100": 3076,
+     "200": 2877,
+     "300": 2687,
+     "400": 2505,
+     "500": 2330
+    },
+    "energy": {
+     "0": 1917,
+     "100": 1680,
+     "200": 1470,
+     "300": 1282,
+     "400": 1114,
+     "500": 964
+    }
+   },
+   "calculated": {
+    "velocity": {
+     "50": 3179,
+     "150": 2975,
+     "250": 2781
+    },
+    "energy": {
+     "50": 1796,
+     "150": 1573,
+     "250": 1374
+    },
+    "trajectory": {
+     "0": -1.5,
+     "50": -0.32,
+     "100": 0.0,
+     "150": -0.59,
+     "200": -2.17,
+     "250": -4.79,
+     "300": -8.53,
+     "400": -19.72,
+     "500": -36.52
+    }
+   },
+   "note": "Average of the loads shown for this cartridge. Trajectory is always an average of 100 yd-zero values, so it sits in the calculated layer."
+  },
+  "deerHuntingNote": "Deer-hunting rule: treat any .22-caliber cartridge as NOT compliant for deer hunting. Regulations vary by state and sometimes by county or zone, so check your specific area before you hunt."
  }
 }
