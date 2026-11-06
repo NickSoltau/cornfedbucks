@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import FaqSchema from '../components/FaqSchema.astro';
+import BallisticsSignup from '../components/BallisticsSignup.astro';
 import dataset from '../../public/data/ballistics-dataset.json';
 
 const cartridgeCount = Object.keys(dataset).length;
@@ -31,7 +32,8 @@ const faqItems = [
   { question: "What does a 100-yard zero mean on this tool?", answer: "A zero is the distance where your rifle is sighted in to hit the point of aim. By default each load is shown as the factory printed it, on the factory table's own zero (often 100 or 200 yards, and the tooltip tells you which). Turn on \"Line up zeros (calculated)\" and every load is shown as if the rifle were zeroed at 100 yards, using the factory's 100-yard numbers where they exist and our calculation where they don't." },
   { question: "What does a dashed line mean?", answer: "A dashed segment is our calculation from the factory velocity table, not a number the manufacturer printed. A lighter dashed segment is a lower-confidence estimate, such as a slow straight-wall bullet or a point past 300 yards. Generic cartridge trajectory lines are always dashed because they are averages of calculated 100-yard-zero values." },
   { question: "Why are some loads greyed out?", answer: "No manufacturer table exists for them that we could find. We show them greyed out instead of guessing numbers. Right now every load in the tool has data, but we keep this in case any return." },
-  { question: "Where does the data come from?", answer: "From manufacturers' published ballistics tables. One load is labeled ammo.com because Nosler doesn't publish a factory table for it, so that one is not factory data. The data was sourced in September and October 2026." },
+  { question: "Where does the data come from?", answer: "From manufacturers' published ballistics tables. A few loads carry a different source label, shown in the picker and on hover: one is labeled ammo.com because Nosler doesn't publish a factory table for it, and two .22 Creedmoor loads come from Hornady's ballistic calculator rather than a printed factory table (their zero distance isn't stated). Those are not factory table data. The data was sourced from September through November 2026." },
+  { question: "Can I hunt deer with these?", answer: "Not with the .22-caliber cartridges. We treat every .22-caliber cartridge in this tool (.22 LR, .22 ARC, .22 Creedmoor, .223 Remington and 5.56 NATO) as not compliant for deer hunting. Rules vary by state and sometimes by county or zone, so check your own area with your state wildlife agency before you hunt. Always confirm the current regulations for the cartridge and bullet you plan to use, whatever the caliber." },
 ];
 ---
 <Layout
@@ -52,13 +54,13 @@ const faqItems = [
         <p class="ballistics__intro ballistics__intro--summary">
           This tool compares energy, trajectory and velocity out to the last distance each factory table prints, for {cartridgeCount} cartridges and {loadCount} loads, from straight-wall rounds like the .350 Legend to shouldered rounds like the .308 Winchester. Want to know how the data was built? Read <a href="/blog/straight-wall-vs-shouldered-ballistics-comparison/">Straight-Wall vs Shouldered Ballistics</a>.
         </p>
-        <p class="ballistics__updated">Data sourced Sept.–Oct. 2026 · Last updated: October 19, 2026</p>
+        <p class="ballistics__updated">Data sourced Sept.–Nov. 2026 · Last updated: November 6, 2026</p>
         <div class="disclaimer">
           <b>Heads up:</b> by default every line is the manufacturer's own table, shown as printed. Factories
           don't all measure trajectory the same way — some zero at 100 yards, some at 200, and the yardage
           steps don't line up — so the zero each line is on is shown when you hover a point. Turn on
           "Line up zeros (calculated)" to put everything on a 100-yard zero; the parts we calculate are
-          dashed. Nosler doesn't publish a table for one load, so it uses ammo.com's and is labeled that way.
+          dashed. Loads that don't come from a printed factory table (one Nosler load from ammo.com, two .22 Creedmoor loads from Hornady's calculator) are labeled with their source.
         </div>
       </header>
 
@@ -73,6 +75,8 @@ const faqItems = [
           as estimates.
         </p>
       </div>
+
+      <div class="deer-notice" id="deerNotice" role="note" hidden></div>
 
       <div class="layout">
         <div class="picker">
@@ -151,17 +155,19 @@ const faqItems = [
         applicationCategory: "UtilitiesApplication",
         operatingSystem: "Any",
         isAccessibleForFree: true,
-        dateModified: "2026-10-19",
+        dateModified: "2026-11-06",
         inLanguage: "en-US",
         author: { "@type": "Person", name: "Nick" },
         isPartOf: { "@type": "WebSite", name: "CornfedBucks", url: "https://cornfedbucks.com/" }
       })} />
 
+      <BallisticsSignup />
+
       <footer class="ballistics__footer">
         Click any small chart on the right to swap it into the main view. Loads/legend are ranked by
         descending energy at 100&nbsp;yd (highest-hitting load listed first). Data: manufacturer-published
-        ballistics tables, sourced Sept.&ndash;Oct. 2026, shown as printed. The one exception is labeled
-        &ldquo;ammo.com&rdquo; (Nosler publishes no table for that load). Dashed segments are our
+        ballistics tables, sourced Sept.&ndash;Nov. 2026, shown as printed. The exceptions carry their own source
+        label (ammo.com for one Nosler load that has no factory table; Hornady&rsquo;s ballistic calculator for two .22 Creedmoor loads). Dashed segments are our
         calculation from the factory velocity table; lighter dashed segments are lower-confidence estimates.
         Loads tagged &ldquo;unverified&rdquo; have trajectory numbers we haven't yet re-checked against the
         factory page. Wind drift intentionally excluded — too situational to generalize.
@@ -417,6 +423,24 @@ const faqItems = [
     vertical-align: 1px;
   }
   :global(.loadrow .tag--warn) { border-color: var(--blaze); color: var(--blaze); }
+  :global(.group .gname) { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem; }
+  :global(.deer-badge) {
+    display: inline-block;
+    font-family: var(--font-tag);
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: var(--blaze);
+    color: #fff;
+    white-space: normal;
+  }
+  :global(.deer-note) { margin: 0 0 0.4rem; padding: 0.4rem 0.5rem; font-size: 0.74rem; line-height: 1.4; background: #f4e3c8; border-left: 3px solid var(--blaze); border-radius: 3px; }
+  .deer-notice { margin: 0 0 1rem; padding: 0.7rem 0.9rem; font-size: 0.84rem; line-height: 1.5; background: #f4e3c8; border: 1px solid var(--blaze); border-left-width: 5px; border-radius: 6px; }
+  .deer-notice[hidden] { display: none; }
+  .deer-notice strong { display: block; color: var(--blaze); font-family: var(--font-tag); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.78rem; }
   :global(.loadrow.disabled) { opacity: 0.55; cursor: not-allowed; }
   :global(.loadrow.disabled .name) { text-decoration: line-through; color: var(--stalk); }
   :global(.loadrow.disabled:hover) { background: none; }

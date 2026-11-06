@@ -1,0 +1,57 @@
+---
+// Draft for review: signup box for /ballistics-comparison/. Not pushed.
+// Uses the existing Beehiiv inline form (CornfedBucks Newsletter, form ac0dfc22-ece9-421e-8722-d6162179b86f).
+const formId = 'ac0dfc22-ece9-421e-8722-d6162179b86f';
+---
+<aside class="bsignup" aria-labelledby="bsignup-h">
+  <div class="bsignup__copy">
+    <p class="eyebrow">Cornfed Bucks Newsletter</p>
+    <h2 id="bsignup-h">Found your load? Get the next comparison first.</h2>
+    <p>
+      New cartridges and loads land in this tool all the time. Join the newsletter and we'll
+      send you what's new, plus straight-talk hunting notes for ag-land hunters.
+      [CONFIRM: swap in the real lead magnet name here if you want to offer one]
+    </p>
+    <p class="bsignup__fine">No spam. Unsubscribe any time.</p>
+  </div>
+  <div class="bsignup__form">
+    <iframe
+      src={`https://subscribe-forms.beehiiv.com/${formId}`}
+      class="beehiiv-embed"
+      data-test-id="beehiiv-embed"
+      title="Subscribe to the Cornfed Bucks newsletter"
+      loading="lazy"
+      frameborder="0" scrolling="no"
+    ></iframe>
+  </div>
+</aside>
+
+<style>
+  .bsignup {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    background: var(--dusk);
+    color: var(--frost);
+    border: 1px solid var(--husk);
+    border-left: 4px solid var(--blaze);
+    border-radius: 6px;
+    padding: 1.5rem;
+  }
+  .bsignup h2 { font-size: 1.3rem; margin: 0.25rem 0 0.5rem; color: var(--frost); }
+  .bsignup p { margin: 0 0 0.5rem; line-height: 1.55; }
+  .bsignup__fine { font-size: 0.74rem; opacity: 0.7; }
+  /* The Beehiiv form is transparent with dark text, so it sits on a light panel.
+     Its real height (measured): ~447px at 302px wide, ~363 at 360, ~315 at 400, ~339 from 480 up. */
+  .bsignup__form { background: #fff; border-radius: 6px; overflow: hidden; }
+  .bsignup__form iframe { display: block; width: 100%; height: 345px; border: 0; background: transparent; }
+  @media (max-width: 440px) { .bsignup__form iframe { height: 440px; } }
+  @media (max-width: 360px) { .bsignup__form iframe { height: 480px; } }
+  @media (min-width: 441px) and (max-width: 520px) { .bsignup__form iframe { height: 375px; } }
+  @media (max-width: 760px) {
+    .bsignup { grid-template-columns: 1fr; padding: 0.9rem 0.6rem; }
+    .bsignup__copy { padding: 0 0.4rem; }
+  }
+</style>

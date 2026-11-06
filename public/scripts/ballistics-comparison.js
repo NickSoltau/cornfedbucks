@@ -13,6 +13,19 @@ let aligned = false; // "Line up zeros (calculated)" toggle
 
 function loadKeyOf(cartridge, mfr, line) { return cartridge + '|' + mfr + '|' + line; }
 
+// Short source tag for third-party loads, taken from the load's own sourceLabel:
+// drops a "(downloaded ...)" aside and any trailing ", not ..." clause.
+function sourceTag(l) {
+  const label = l.sourceLabel || 'third-party';
+  return label.replace(/\s*\([^)]*\)/g, '').replace(/,\s*not\b.*$/i, '').trim() || 'third-party';
+}
+
+const DEER_BADGE = 'Not for deer. Check your area.';
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
 function energyRank(cartridge, l) {
   const e = l.published && l.published.energy;
   if (!e) return -Infinity;
@@ -28,9 +41,17 @@ function buildPicker() {
     const group = document.createElement('details');
     group.className = 'group';
     if (idx < 2) group.open = true;
-    group.innerHTML = `<summary>${cartridge}<span class="cat">${DATA[cartridge].category}</span></summary>`;
+    const deerNote = DATA[cartridge].deerHuntingNote;
+    const badge = deerNote ? `<span class="deer-badge" title="${escapeHtml(deerNote)}">${DEER_BADGE}</span>` : '';
+    group.innerHTML = `<summary><span class="gname">${cartridge}${badge}</span><span class="cat">${DATA[cartridge].category}</span></summary>`;
     const list = document.createElement('div');
     list.className = 'loadlist';
+    if (deerNote) {
+      const note = document.createElement('p');
+      note.className = 'deer-note';
+      note.textContent = deerNote;
+      list.appendChild(note);
+    }
 
     const genRow = makeRow(cartridge, null, `Generic ${cartridge}`, 'avg. of loads below', true, false, { cartridge, isGeneric: true });
     list.appendChild(genRow);
@@ -45,7 +66,7 @@ function buildPicker() {
       const disabled = l.dataStatus !== 'Published';
       const label = `${l.manufacturer} ${l.productLine}`;
       let meta = disabled ? 'no published ballistics data' : `${l.bulletWt}gr`;
-      if (l.sourceType === 'third-party') meta += ' <span class="tag tag--src">ammo.com</span>';
+      if (l.sourceType === 'third-party') meta += ` <span class="tag tag--src">${escapeHtml(sourceTag(l))}</span>`;
       if (l.spotCheck) meta += ' <span class="tag tag--warn">unverified</span>';
       const row = makeRow(cartridge, loadKeyOf(cartridge, l.manufacturer, l.productLine), label, meta, false, disabled, { cartridge, isGeneric: false, entry: l });
       list.appendChild(row);
@@ -211,7 +232,7 @@ function seriesFor(sel, metric) {
 function labelFor(sel) {
   if (sel.isGeneric) return `Generic ${sel.cartridge}`;
   // Tag goes up front so it survives legend truncation on long load names.
-  const tag = sel.entry.sourceType === 'third-party' ? ' [ammo.com]' : '';
+  const tag = sel.entry.sourceType === 'third-party' ? ` [${sourceTag(sel.entry)}]` : '';
   return `${sel.cartridge}${tag} — ${sel.entry.manufacturer} ${sel.entry.productLine}`;
 }
 
@@ -252,6 +273,7 @@ function pointDetails(ds, pt, metric) {
     lines.push('calculated from the factory velocity table' + (pt.low ? ' · estimate' : ''));
   }
   if (ds.meta && ds.meta.thirdParty) lines.push(ds.meta.thirdParty);
+  if (ds.meta && ds.meta.deerNote) lines.push(`${DEER_BADGE} ${ds.meta.deerNote}`);
   return lines;
 }
 
@@ -299,7 +321,7 @@ function externalTooltip(context) {
       main.style.opacity = '0.7';
     }
     text.appendChild(main);
-    const lines = pt ? pointDetails(ds, pt, metric) : (ds.meta && ds.meta.thirdParty ? [ds.meta.thirdParty] : []);
+    const lines = pt ? pointDetails(ds, pt, metric) : [ds.meta && ds.meta.thirdParty, ds.meta && ds.meta.deerNote && `${DEER_BADGE} ${ds.meta.deerNote}`].filter(Boolean);
     lines.forEach(t => {
       const d = document.createElement('div');
       d.style.cssText = 'font-size:11px;opacity:0.75;';
@@ -459,7 +481,10 @@ function renderCharts() {
         label: labelFor(sel),
         data: series,
         parsing: false,
-        meta: { thirdParty: !sel.isGeneric && sel.entry.sourceType === 'third-party' ? sel.entry.sourceLabel : null },
+        meta: {
+          thirdParty: !sel.isGeneric && sel.entry.sourceType === 'third-party' ? sel.entry.sourceLabel : null,
+          deerNote: DATA[sel.cartridge].deerHuntingNote || null,
+        },
         borderColor: color,
         backgroundColor: color,
         borderWidth: 2.4,
@@ -477,6 +502,8 @@ function renderCharts() {
     chart.update();
   });
 
+  renderDeerNotice();
+
   Object.values(cards).forEach(c => {
     const holder = c.querySelector('.chart-holder');
     let empty = c.querySelector('.empty');
@@ -488,6 +515,25 @@ function renderCharts() {
       holder.style.display = 'block';
     }
   });
+}
+
+// Visible (not hover-only) notice above the charts when any selected cartridge has a deer note.
+function renderDeerNotice() {
+  const el = document.getElementById('deerNotice');
+  if (!el) return;
+  const notes = new Map();
+  selected.forEach(s => { const n = DATA[s.cartridge].deerHuntingNote; if (n) notes.set(s.cartridge, n); });
+  el.textContent = '';
+  if (!notes.size) { el.hidden = true; return; }
+  const head = document.createElement('strong');
+  head.textContent = DEER_BADGE;
+  el.appendChild(head);
+  [...notes.entries()].forEach(([cartridge, n]) => {
+    const p = document.createElement('div');
+    p.textContent = `${cartridge}: ${n}`;
+    el.appendChild(p);
+  });
+  el.hidden = false;
 }
 
 function syncHeights() {
