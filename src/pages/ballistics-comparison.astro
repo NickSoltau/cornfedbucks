@@ -271,12 +271,14 @@ const faqItems = [
     gap: 1.1rem;
     align-items: start;
   }
+  /* Grid items default to min-width:auto, so a 1fr track can grow past the container. */
+  .layout > * { min-width: 0; }
   @media (max-width: 1150px) {
     .layout { grid-template-columns: 240px minmax(0, 1fr); }
     :global(.sidestack) { grid-column: 1 / -1; }
   }
   @media (max-width: 760px) {
-    .layout { grid-template-columns: 1fr; }
+    .layout { grid-template-columns: minmax(0, 1fr); }
     :global(.sidestack) { grid-column: auto; }
   }
 
